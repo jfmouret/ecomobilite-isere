@@ -1,0 +1,7298 @@
+[
+  {
+    "id": "mreso-0001",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, La Ronzière",
+    "longitude": 5.84093,
+    "latitude": 45.16889,
+    "altitude": 714
+  },
+  {
+    "id": "mreso-0002",
+    "group": "mreso",
+    "name": "Seyssinet-Pariset, Pariset",
+    "longitude": 5.65871,
+    "latitude": 45.1748,
+    "altitude": 696
+  },
+  {
+    "id": "mreso-0003",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Les Jonquilles",
+    "longitude": 5.77367,
+    "latitude": 45.2651,
+    "altitude": 1077
+  },
+  {
+    "id": "mreso-0004",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Le Gouillat",
+    "longitude": 5.77112,
+    "latitude": 45.25474,
+    "altitude": 956
+  },
+  {
+    "id": "mreso-0005",
+    "group": "mreso",
+    "name": "Miribel-Lanchâtre, Miribel",
+    "longitude": 5.62089,
+    "latitude": 44.97469,
+    "altitude": 748
+  },
+  {
+    "id": "mreso-0006",
+    "group": "mreso",
+    "name": "Venon, Le Chapon",
+    "longitude": 5.82187,
+    "latitude": 45.17092,
+    "altitude": 680
+  },
+  {
+    "id": "mreso-0007",
+    "group": "mreso",
+    "name": "Vaulnaveys-le-Bas, Maison Gaillard",
+    "longitude": 5.82376,
+    "latitude": 45.10152,
+    "altitude": 867
+  },
+  {
+    "id": "mreso-0008",
+    "group": "mreso",
+    "name": "Sarcenas, La Prairie",
+    "longitude": 5.76537,
+    "latitude": 45.29462,
+    "altitude": 1328
+  },
+  {
+    "id": "mreso-0009",
+    "group": "mreso",
+    "name": "Sarcenas, Pont du Croz",
+    "longitude": 5.75755,
+    "latitude": 45.2765,
+    "altitude": 1055
+  },
+  {
+    "id": "mreso-0010",
+    "group": "mreso",
+    "name": "Venon, Le Chapon",
+    "longitude": 5.82189,
+    "latitude": 45.17102,
+    "altitude": 686
+  },
+  {
+    "id": "mreso-0011",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Les Valets",
+    "longitude": 5.85782,
+    "latitude": 45.16743,
+    "altitude": 796
+  },
+  {
+    "id": "mreso-0012",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, Chemin de Namière",
+    "longitude": 5.67845,
+    "latitude": 45.27228,
+    "altitude": 797
+  },
+  {
+    "id": "mreso-0013",
+    "group": "mreso",
+    "name": "Château-Bernard, Col de l'Arzelier",
+    "longitude": 5.59496,
+    "latitude": 44.99004,
+    "altitude": 1150
+  },
+  {
+    "id": "mreso-0014",
+    "group": "mreso",
+    "name": "Miribel-Lanchâtre, Cassoulet",
+    "longitude": 5.62301,
+    "latitude": 44.98186,
+    "altitude": 713
+  },
+  {
+    "id": "mreso-0015",
+    "group": "mreso",
+    "name": "Miribel-Lanchâtre, Cassoulet",
+    "longitude": 5.62311,
+    "latitude": 44.98222,
+    "altitude": 711
+  },
+  {
+    "id": "mreso-0016",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Rossin",
+    "longitude": 5.83999,
+    "latitude": 45.15891,
+    "altitude": 642
+  },
+  {
+    "id": "mreso-0017",
+    "group": "mreso",
+    "name": "Le Gua, Saint-Barthélémy",
+    "longitude": 5.62933,
+    "latitude": 45.00002,
+    "altitude": 620
+  },
+  {
+    "id": "mreso-0018",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Le Gouillat",
+    "longitude": 5.77136,
+    "latitude": 45.25465,
+    "altitude": 957
+  },
+  {
+    "id": "mreso-0019",
+    "group": "mreso",
+    "name": "Miribel-Lanchâtre, Bayanne",
+    "longitude": 5.62236,
+    "latitude": 44.97995,
+    "altitude": 718
+  },
+  {
+    "id": "mreso-0020",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Les Valets",
+    "longitude": 5.85793,
+    "latitude": 45.16752,
+    "altitude": 796
+  },
+  {
+    "id": "mreso-0021",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, Colavière",
+    "longitude": 5.6761,
+    "latitude": 45.27231,
+    "altitude": 751
+  },
+  {
+    "id": "mreso-0022",
+    "group": "mreso",
+    "name": "Le Gua, L'Arzelier",
+    "longitude": 5.60264,
+    "latitude": 44.99699,
+    "altitude": 1076
+  },
+  {
+    "id": "mreso-0023",
+    "group": "mreso",
+    "name": "Vaulnaveys-le-Bas, Montchaffrey",
+    "longitude": 5.82541,
+    "latitude": 45.10063,
+    "altitude": 898
+  },
+  {
+    "id": "mreso-0024",
+    "group": "mreso",
+    "name": "Sarcenas, Guilletière",
+    "longitude": 5.75139,
+    "latitude": 45.27517,
+    "altitude": 1094
+  },
+  {
+    "id": "mreso-0025",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, La Cime de Mont-Quaix",
+    "longitude": 5.74601,
+    "latitude": 45.25738,
+    "altitude": 787
+  },
+  {
+    "id": "mreso-0026",
+    "group": "mreso",
+    "name": "Proveysieux, Pomarey",
+    "longitude": 5.7109,
+    "latitude": 45.28236,
+    "altitude": 748
+  },
+  {
+    "id": "mreso-0027",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Penet",
+    "longitude": 5.84834,
+    "latitude": 45.15877,
+    "altitude": 738
+  },
+  {
+    "id": "mreso-0028",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Saint-Eynard",
+    "longitude": 5.76536,
+    "latitude": 45.24927,
+    "altitude": 929
+  },
+  {
+    "id": "mreso-0029",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Route du Chavanoz",
+    "longitude": 5.84439,
+    "latitude": 45.15029,
+    "altitude": 664
+  },
+  {
+    "id": "mreso-0030",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, La Cime de Mont-Quaix",
+    "longitude": 5.74615,
+    "latitude": 45.25737,
+    "altitude": 792
+  },
+  {
+    "id": "mreso-0031",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Lotissement La Noyarey",
+    "longitude": 5.84252,
+    "latitude": 45.16177,
+    "altitude": 702
+  },
+  {
+    "id": "mreso-0032",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Groupe Scolaire Albert Jail",
+    "longitude": 5.77654,
+    "latitude": 45.26007,
+    "altitude": 1005
+  },
+  {
+    "id": "mreso-0033",
+    "group": "mreso",
+    "name": "La Tronche, Batonnieres",
+    "longitude": 5.74945,
+    "latitude": 45.22819,
+    "altitude": 652
+  },
+  {
+    "id": "mreso-0034",
+    "group": "mreso",
+    "name": "Sarcenas, Col de Palaquit",
+    "longitude": 5.76542,
+    "latitude": 45.27285,
+    "altitude": 1162
+  },
+  {
+    "id": "mreso-0035",
+    "group": "mreso",
+    "name": "Sarcenas, Le Crêt",
+    "longitude": 5.75431,
+    "latitude": 45.27509,
+    "altitude": 1074
+  },
+  {
+    "id": "mreso-0036",
+    "group": "mreso",
+    "name": "Le Gua, Prélenfrey Eglise",
+    "longitude": 5.61335,
+    "latitude": 45.01694,
+    "altitude": 961
+  },
+  {
+    "id": "mreso-0037",
+    "group": "mreso",
+    "name": "Miribel-Lanchâtre, Miribel",
+    "longitude": 5.62099,
+    "latitude": 44.97467,
+    "altitude": 748
+  },
+  {
+    "id": "mreso-0038",
+    "group": "mreso",
+    "name": "Venon, Les Puis",
+    "longitude": 5.81625,
+    "latitude": 45.17201,
+    "altitude": 649
+  },
+  {
+    "id": "mreso-0039",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, La Méarie",
+    "longitude": 5.73328,
+    "latitude": 45.26019,
+    "altitude": 662
+  },
+  {
+    "id": "mreso-0040",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Chemin de l'Aragnat",
+    "longitude": 5.73425,
+    "latitude": 45.23931,
+    "altitude": 718
+  },
+  {
+    "id": "mreso-0041",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Pinet d'Uriage",
+    "longitude": 5.84866,
+    "latitude": 45.16525,
+    "altitude": 807
+  },
+  {
+    "id": "mreso-0042",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Route du Chavanoz",
+    "longitude": 5.84486,
+    "latitude": 45.15108,
+    "altitude": 669
+  },
+  {
+    "id": "mreso-0043",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Chemin de l'Aragnat",
+    "longitude": 5.73349,
+    "latitude": 45.23871,
+    "altitude": 727
+  },
+  {
+    "id": "mreso-0044",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Fontvieille",
+    "longitude": 5.74508,
+    "latitude": 45.2592,
+    "altitude": 749
+  },
+  {
+    "id": "mreso-0045",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, La Pérérée",
+    "longitude": 5.86079,
+    "latitude": 45.17629,
+    "altitude": 619
+  },
+  {
+    "id": "mreso-0046",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, La Grivolée",
+    "longitude": 5.85557,
+    "latitude": 45.14627,
+    "altitude": 815
+  },
+  {
+    "id": "mreso-0047",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, Fochaire",
+    "longitude": 5.67431,
+    "latitude": 45.27153,
+    "altitude": 746
+  },
+  {
+    "id": "mreso-0048",
+    "group": "mreso",
+    "name": "Sarcenas, Sarcenas Le Village",
+    "longitude": 5.75807,
+    "latitude": 45.27379,
+    "altitude": 1083
+  },
+  {
+    "id": "mreso-0049",
+    "group": "mreso",
+    "name": "Sarcenas, Pont du Croz",
+    "longitude": 5.7577,
+    "latitude": 45.27649,
+    "altitude": 1057
+  },
+  {
+    "id": "mreso-0050",
+    "group": "mreso",
+    "name": "Corenc, Hameau de Vence",
+    "longitude": 5.75362,
+    "latitude": 45.2412,
+    "altitude": 802
+  },
+  {
+    "id": "mreso-0051",
+    "group": "mreso",
+    "name": "Chamrousse, Chamrousse Mairie",
+    "longitude": 5.87459,
+    "latitude": 45.1114,
+    "altitude": 1713
+  },
+  {
+    "id": "mreso-0052",
+    "group": "mreso",
+    "name": "Le Gua, Saint-Barthélémy",
+    "longitude": 5.62946,
+    "latitude": 44.99997,
+    "altitude": 622
+  },
+  {
+    "id": "mreso-0053",
+    "group": "mreso",
+    "name": "Proveysieux, Savoyardière",
+    "longitude": 5.70763,
+    "latitude": 45.27786,
+    "altitude": 692
+  },
+  {
+    "id": "mreso-0054",
+    "group": "mreso",
+    "name": "Venon, Le Reynet",
+    "longitude": 5.81363,
+    "latitude": 45.1701,
+    "altitude": 648
+  },
+  {
+    "id": "mreso-0055",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Hautes Vues",
+    "longitude": 5.83949,
+    "latitude": 45.16306,
+    "altitude": 685
+  },
+  {
+    "id": "mreso-0056",
+    "group": "mreso",
+    "name": "Vaulnaveys-le-Haut, Montgardier",
+    "longitude": 5.83106,
+    "latitude": 45.11517,
+    "altitude": 630
+  },
+  {
+    "id": "mreso-0057",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Combeloup",
+    "longitude": 5.84286,
+    "latitude": 45.16972,
+    "altitude": 725
+  },
+  {
+    "id": "mreso-0058",
+    "group": "mreso",
+    "name": "Proveysieux, Pomarey Bas",
+    "longitude": 5.70985,
+    "latitude": 45.28061,
+    "altitude": 728
+  },
+  {
+    "id": "mreso-0059",
+    "group": "mreso",
+    "name": "Vaulnaveys-le-Haut, Montgardier",
+    "longitude": 5.83106,
+    "latitude": 45.11501,
+    "altitude": 634
+  },
+  {
+    "id": "mreso-0060",
+    "group": "mreso",
+    "name": "Venon, Le Reynet",
+    "longitude": 5.81369,
+    "latitude": 45.17003,
+    "altitude": 644
+  },
+  {
+    "id": "mreso-0061",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Mont Cornard",
+    "longitude": 5.72173,
+    "latitude": 45.25629,
+    "altitude": 627
+  },
+  {
+    "id": "mreso-0062",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, La Croix de Pinet",
+    "longitude": 5.87388,
+    "latitude": 45.17244,
+    "altitude": 837
+  },
+  {
+    "id": "mreso-0063",
+    "group": "mreso",
+    "name": "Saint-Martin-le-Vinoux, Col de Clémencières",
+    "longitude": 5.72585,
+    "latitude": 45.23429,
+    "altitude": 623
+  },
+  {
+    "id": "mreso-0064",
+    "group": "mreso",
+    "name": "La Tronche, Ferme Gaude",
+    "longitude": 5.75017,
+    "latitude": 45.22695,
+    "altitude": 630
+  },
+  {
+    "id": "mreso-0065",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, La Chenevarie",
+    "longitude": 5.85758,
+    "latitude": 45.17333,
+    "altitude": 638
+  },
+  {
+    "id": "mreso-0066",
+    "group": "mreso",
+    "name": "Proveysieux, Planfay Combaleyre",
+    "longitude": 5.71643,
+    "latitude": 45.27677,
+    "altitude": 863
+  },
+  {
+    "id": "mreso-0067",
+    "group": "mreso",
+    "name": "Corenc, Hameau de Vence",
+    "longitude": 5.75354,
+    "latitude": 45.24125,
+    "altitude": 798
+  },
+  {
+    "id": "mreso-0068",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, La Croix de Pinet",
+    "longitude": 5.874,
+    "latitude": 45.17241,
+    "altitude": 839
+  },
+  {
+    "id": "mreso-0069",
+    "group": "mreso",
+    "name": "Miribel-Lanchâtre, Le Vernay",
+    "longitude": 5.60875,
+    "latitude": 44.97016,
+    "altitude": 875
+  },
+  {
+    "id": "mreso-0070",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Maison Roche",
+    "longitude": 5.8552,
+    "latitude": 45.14934,
+    "altitude": 790
+  },
+  {
+    "id": "mreso-0071",
+    "group": "mreso",
+    "name": "Seyssinet-Pariset, Hameau du Pariset",
+    "longitude": 5.66771,
+    "latitude": 45.16632,
+    "altitude": 602
+  },
+  {
+    "id": "mreso-0072",
+    "group": "mreso",
+    "name": "Le Gua, La Pierre",
+    "longitude": 5.6229,
+    "latitude": 44.9895,
+    "altitude": 677
+  },
+  {
+    "id": "mreso-0073",
+    "group": "mreso",
+    "name": "Seyssinet-Pariset, La Tour sans Venin",
+    "longitude": 5.66675,
+    "latitude": 45.17048,
+    "altitude": 628
+  },
+  {
+    "id": "mreso-0074",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Izards Patte d'Oie",
+    "longitude": 5.86507,
+    "latitude": 45.16887,
+    "altitude": 818
+  },
+  {
+    "id": "mreso-0075",
+    "group": "mreso",
+    "name": "Sarcenas, Col de Porte",
+    "longitude": 5.76692,
+    "latitude": 45.28994,
+    "altitude": 1323
+  },
+  {
+    "id": "mreso-0076",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Les Bonnets",
+    "longitude": 5.85021,
+    "latitude": 45.14951,
+    "altitude": 735
+  },
+  {
+    "id": "mreso-0077",
+    "group": "mreso",
+    "name": "Le Gua, L'Arzelier",
+    "longitude": 5.60259,
+    "latitude": 44.99691,
+    "altitude": 1075
+  },
+  {
+    "id": "mreso-0078",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Les Pervenches",
+    "longitude": 5.85299,
+    "latitude": 45.14886,
+    "altitude": 767
+  },
+  {
+    "id": "mreso-0079",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Le Sappey-en-Chartreuse Place",
+    "longitude": 5.77732,
+    "latitude": 45.25978,
+    "altitude": 1001
+  },
+  {
+    "id": "mreso-0080",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, La Rivoire",
+    "longitude": 5.66869,
+    "latitude": 45.26873,
+    "altitude": 624
+  },
+  {
+    "id": "mreso-0081",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Rossin",
+    "longitude": 5.8399,
+    "latitude": 45.15882,
+    "altitude": 640
+  },
+  {
+    "id": "mreso-0082",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Route de Belin",
+    "longitude": 5.84677,
+    "latitude": 45.1526,
+    "altitude": 693
+  },
+  {
+    "id": "mreso-0083",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Fontvieille",
+    "longitude": 5.74485,
+    "latitude": 45.25918,
+    "altitude": 744
+  },
+  {
+    "id": "mreso-0084",
+    "group": "mreso",
+    "name": "Saint-Martin-le-Vinoux, Col de Clémencières",
+    "longitude": 5.72587,
+    "latitude": 45.23418,
+    "altitude": 623
+  },
+  {
+    "id": "mreso-0085",
+    "group": "mreso",
+    "name": "Proveysieux, Savoyardière",
+    "longitude": 5.70756,
+    "latitude": 45.27765,
+    "altitude": 687
+  },
+  {
+    "id": "mreso-0086",
+    "group": "mreso",
+    "name": "Le Gua, La Charrière",
+    "longitude": 5.61594,
+    "latitude": 45.01286,
+    "altitude": 903
+  },
+  {
+    "id": "mreso-0087",
+    "group": "mreso",
+    "name": "Sarcenas, Guilletière",
+    "longitude": 5.75141,
+    "latitude": 45.27525,
+    "altitude": 1096
+  },
+  {
+    "id": "mreso-0088",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Penet",
+    "longitude": 5.84839,
+    "latitude": 45.15866,
+    "altitude": 738
+  },
+  {
+    "id": "mreso-0089",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Bas de Mont-Quaix",
+    "longitude": 5.74184,
+    "latitude": 45.25286,
+    "altitude": 665
+  },
+  {
+    "id": "mreso-0090",
+    "group": "mreso",
+    "name": "Proveysieux, Pomarey Bas",
+    "longitude": 5.70967,
+    "latitude": 45.28056,
+    "altitude": 724
+  },
+  {
+    "id": "mreso-0091",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Les Jonquilles",
+    "longitude": 5.77398,
+    "latitude": 45.26497,
+    "altitude": 1074
+  },
+  {
+    "id": "mreso-0092",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, Chemin de Namière",
+    "longitude": 5.67854,
+    "latitude": 45.27232,
+    "altitude": 797
+  },
+  {
+    "id": "mreso-0093",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, Fochaire",
+    "longitude": 5.67452,
+    "latitude": 45.27152,
+    "altitude": 746
+  },
+  {
+    "id": "mreso-0094",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Mont Cornard",
+    "longitude": 5.72169,
+    "latitude": 45.25616,
+    "altitude": 627
+  },
+  {
+    "id": "mreso-0095",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Rocharey",
+    "longitude": 5.87046,
+    "latitude": 45.17481,
+    "altitude": 751
+  },
+  {
+    "id": "mreso-0096",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Hautes Vues",
+    "longitude": 5.83952,
+    "latitude": 45.16297,
+    "altitude": 685
+  },
+  {
+    "id": "mreso-0097",
+    "group": "mreso",
+    "name": "Venon, Le Perroud",
+    "longitude": 5.81043,
+    "latitude": 45.17253,
+    "altitude": 606
+  },
+  {
+    "id": "mreso-0098",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Bas de Mont-Quaix",
+    "longitude": 5.74174,
+    "latitude": 45.25286,
+    "altitude": 665
+  },
+  {
+    "id": "mreso-0099",
+    "group": "mreso",
+    "name": "Sarcenas, Le Crêt",
+    "longitude": 5.75433,
+    "latitude": 45.27513,
+    "altitude": 1074
+  },
+  {
+    "id": "mreso-0100",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, La Jars",
+    "longitude": 5.7187,
+    "latitude": 45.25952,
+    "altitude": 678
+  },
+  {
+    "id": "mreso-0101",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Churut",
+    "longitude": 5.77758,
+    "latitude": 45.26451,
+    "altitude": 1042
+  },
+  {
+    "id": "mreso-0102",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Les Bonnets",
+    "longitude": 5.85019,
+    "latitude": 45.14948,
+    "altitude": 735
+  },
+  {
+    "id": "mreso-0103",
+    "group": "mreso",
+    "name": "Le Gua, La Pierre",
+    "longitude": 5.62175,
+    "latitude": 44.98915,
+    "altitude": 684
+  },
+  {
+    "id": "mreso-0104",
+    "group": "mreso",
+    "name": "Chamrousse, Chamrousse Mairie",
+    "longitude": 5.8749,
+    "latitude": 45.11101,
+    "altitude": 1719
+  },
+  {
+    "id": "mreso-0105",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Le Sapin",
+    "longitude": 5.72373,
+    "latitude": 45.25427,
+    "altitude": 602
+  },
+  {
+    "id": "mreso-0106",
+    "group": "mreso",
+    "name": "Seyssinet-Pariset, La Tour sans Venin",
+    "longitude": 5.66714,
+    "latitude": 45.17124,
+    "altitude": 636
+  },
+  {
+    "id": "mreso-0107",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Route des Angères",
+    "longitude": 5.84864,
+    "latitude": 45.15137,
+    "altitude": 712
+  },
+  {
+    "id": "mreso-0108",
+    "group": "mreso",
+    "name": "Château-Bernard, Col de l'Arzelier",
+    "longitude": 5.59479,
+    "latitude": 44.99,
+    "altitude": 1151
+  },
+  {
+    "id": "mreso-0109",
+    "group": "mreso",
+    "name": "Sarcenas, Col de Palaquit",
+    "longitude": 5.76579,
+    "latitude": 45.27317,
+    "altitude": 1170
+  },
+  {
+    "id": "mreso-0110",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Rossin de Corps",
+    "longitude": 5.85428,
+    "latitude": 45.17035,
+    "altitude": 690
+  },
+  {
+    "id": "mreso-0111",
+    "group": "mreso",
+    "name": "Proveysieux, Pomarey",
+    "longitude": 5.71073,
+    "latitude": 45.28232,
+    "altitude": 746
+  },
+  {
+    "id": "mreso-0112",
+    "group": "mreso",
+    "name": "Venon, Sous-Perroud",
+    "longitude": 5.81074,
+    "latitude": 45.17028,
+    "altitude": 629
+  },
+  {
+    "id": "mreso-0113",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Les Pervenches",
+    "longitude": 5.85288,
+    "latitude": 45.14883,
+    "altitude": 768
+  },
+  {
+    "id": "mreso-0114",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, La Frette",
+    "longitude": 5.7393,
+    "latitude": 45.24418,
+    "altitude": 761
+  },
+  {
+    "id": "mreso-0115",
+    "group": "mreso",
+    "name": "Venon, Sous-Perroud",
+    "longitude": 5.81084,
+    "latitude": 45.17028,
+    "altitude": 629
+  },
+  {
+    "id": "mreso-0116",
+    "group": "mreso",
+    "name": "Sarcenas, Col de Palaquit",
+    "longitude": 5.76555,
+    "latitude": 45.2732,
+    "altitude": 1163
+  },
+  {
+    "id": "mreso-0117",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Saint-Eynard",
+    "longitude": 5.76579,
+    "latitude": 45.24956,
+    "altitude": 928
+  },
+  {
+    "id": "mreso-0118",
+    "group": "mreso",
+    "name": "Sarcenas, Sarcenas Le Village",
+    "longitude": 5.75879,
+    "latitude": 45.27353,
+    "altitude": 1089
+  },
+  {
+    "id": "mreso-0119",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Izards Patte d'Oie",
+    "longitude": 5.86478,
+    "latitude": 45.16887,
+    "altitude": 814
+  },
+  {
+    "id": "mreso-0120",
+    "group": "mreso",
+    "name": "Proveysieux, Pont du Gua",
+    "longitude": 5.70723,
+    "latitude": 45.27589,
+    "altitude": 667
+  },
+  {
+    "id": "mreso-0121",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Lotissement La Noyarey",
+    "longitude": 5.84273,
+    "latitude": 45.16174,
+    "altitude": 704
+  },
+  {
+    "id": "mreso-0122",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Carrefour du Replat",
+    "longitude": 5.85096,
+    "latitude": 45.16157,
+    "altitude": 774
+  },
+  {
+    "id": "mreso-0123",
+    "group": "mreso",
+    "name": "Corenc, Batonnière",
+    "longitude": 5.75874,
+    "latitude": 45.22741,
+    "altitude": 675
+  },
+  {
+    "id": "mreso-0124",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, La Frette",
+    "longitude": 5.73926,
+    "latitude": 45.24415,
+    "altitude": 761
+  },
+  {
+    "id": "mreso-0125",
+    "group": "mreso",
+    "name": "La Tronche, Ferme Gaude",
+    "longitude": 5.7502,
+    "latitude": 45.22693,
+    "altitude": 626
+  },
+  {
+    "id": "mreso-0126",
+    "group": "mreso",
+    "name": "Saint-Martin-le-Vinoux, Col de Clémencières",
+    "longitude": 5.72569,
+    "latitude": 45.2342,
+    "altitude": 623
+  },
+  {
+    "id": "mreso-0127",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Le Sappey-en-Chartreuse Place",
+    "longitude": 5.7772,
+    "latitude": 45.2597,
+    "altitude": 1000
+  },
+  {
+    "id": "mreso-0128",
+    "group": "mreso",
+    "name": "Proveysieux, Pont du Gua",
+    "longitude": 5.70708,
+    "latitude": 45.27648,
+    "altitude": 674
+  },
+  {
+    "id": "mreso-0129",
+    "group": "mreso",
+    "name": "Le Gua, Les Faures",
+    "longitude": 5.61369,
+    "latitude": 45.01455,
+    "altitude": 932
+  },
+  {
+    "id": "mreso-0130",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Le Pinet d'Uriage",
+    "longitude": 5.84895,
+    "latitude": 45.1652,
+    "altitude": 807
+  },
+  {
+    "id": "mreso-0131",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Carrefour du Replat",
+    "longitude": 5.85101,
+    "latitude": 45.16146,
+    "altitude": 774
+  },
+  {
+    "id": "mreso-0132",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Corps d'Uriage",
+    "longitude": 5.86491,
+    "latitude": 45.17812,
+    "altitude": 622
+  },
+  {
+    "id": "mreso-0133",
+    "group": "mreso",
+    "name": "Le Gua, La Charrière",
+    "longitude": 5.61591,
+    "latitude": 45.01278,
+    "altitude": 903
+  },
+  {
+    "id": "mreso-0134",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, Colavière",
+    "longitude": 5.67607,
+    "latitude": 45.27238,
+    "altitude": 751
+  },
+  {
+    "id": "mreso-0135",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Saint-Nizier-d'Uriage",
+    "longitude": 5.83508,
+    "latitude": 45.16425,
+    "altitude": 661
+  },
+  {
+    "id": "mreso-0136",
+    "group": "mreso",
+    "name": "La Tronche, Batonnieres",
+    "longitude": 5.74979,
+    "latitude": 45.22813,
+    "altitude": 648
+  },
+  {
+    "id": "mreso-0137",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Mont-Quaix",
+    "longitude": 5.74304,
+    "latitude": 45.25519,
+    "altitude": 694
+  },
+  {
+    "id": "mreso-0138",
+    "group": "mreso",
+    "name": "Proveysieux, Planfay Bas",
+    "longitude": 5.71359,
+    "latitude": 45.27875,
+    "altitude": 833
+  },
+  {
+    "id": "mreso-0139",
+    "group": "mreso",
+    "name": "Corenc, Batonnière",
+    "longitude": 5.75887,
+    "latitude": 45.22733,
+    "altitude": 675
+  },
+  {
+    "id": "mreso-0140",
+    "group": "mreso",
+    "name": "Le Gua, Gerbier",
+    "longitude": 5.62652,
+    "latitude": 45.00084,
+    "altitude": 637
+  },
+  {
+    "id": "mreso-0141",
+    "group": "mreso",
+    "name": "Venon, Les Puis",
+    "longitude": 5.81642,
+    "latitude": 45.17208,
+    "altitude": 649
+  },
+  {
+    "id": "mreso-0142",
+    "group": "mreso",
+    "name": "Corenc, Col de Vence",
+    "longitude": 5.7512,
+    "latitude": 45.23422,
+    "altitude": 778
+  },
+  {
+    "id": "mreso-0143",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Hameau Le Faux",
+    "longitude": 5.84649,
+    "latitude": 45.1716,
+    "altitude": 745
+  },
+  {
+    "id": "mreso-0144",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Grand Nacré",
+    "longitude": 5.87052,
+    "latitude": 45.17818,
+    "altitude": 686
+  },
+  {
+    "id": "mreso-0145",
+    "group": "mreso",
+    "name": "Proveysieux, Planfay Combaleyre",
+    "longitude": 5.71649,
+    "latitude": 45.27686,
+    "altitude": 863
+  },
+  {
+    "id": "mreso-0146",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Maison Roche",
+    "longitude": 5.85528,
+    "latitude": 45.14921,
+    "altitude": 790
+  },
+  {
+    "id": "mreso-0147",
+    "group": "mreso",
+    "name": "Vaulnaveys-le-Haut, Le Fugearet",
+    "longitude": 5.83656,
+    "latitude": 45.11355,
+    "altitude": 788
+  },
+  {
+    "id": "mreso-0148",
+    "group": "mreso",
+    "name": "Le Gua, Les Faures",
+    "longitude": 5.61388,
+    "latitude": 45.01458,
+    "altitude": 931
+  },
+  {
+    "id": "mreso-0149",
+    "group": "mreso",
+    "name": "Vaulnaveys-le-Haut, Le Fugearet",
+    "longitude": 5.83645,
+    "latitude": 45.11356,
+    "altitude": 785
+  },
+  {
+    "id": "mreso-0150",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Saint-Nizier-d'Uriage",
+    "longitude": 5.83514,
+    "latitude": 45.16415,
+    "altitude": 662
+  },
+  {
+    "id": "mreso-0151",
+    "group": "mreso",
+    "name": "Mont-Saint-Martin, La Rivoire",
+    "longitude": 5.6686,
+    "latitude": 45.26878,
+    "altitude": 625
+  },
+  {
+    "id": "mreso-0152",
+    "group": "mreso",
+    "name": "Venon, Le Perroud",
+    "longitude": 5.81037,
+    "latitude": 45.17261,
+    "altitude": 604
+  },
+  {
+    "id": "mreso-0153",
+    "group": "mreso",
+    "name": "Chamrousse, Le Recoin – Office du Tourisme",
+    "longitude": 5.87871,
+    "latitude": 45.12572,
+    "altitude": 1666
+  },
+  {
+    "id": "mreso-0154",
+    "group": "mreso",
+    "name": "Quaix-en-Chartreuse, Mont-Quaix",
+    "longitude": 5.74283,
+    "latitude": 45.25574,
+    "altitude": 698
+  },
+  {
+    "id": "mreso-0155",
+    "group": "mreso",
+    "name": "Le Sappey-en-Chartreuse, Churut",
+    "longitude": 5.77746,
+    "latitude": 45.26461,
+    "altitude": 1044
+  },
+  {
+    "id": "mreso-0156",
+    "group": "mreso",
+    "name": "Corenc, Col de Vence",
+    "longitude": 5.75107,
+    "latitude": 45.23397,
+    "altitude": 772
+  },
+  {
+    "id": "mreso-0157",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Route de Belin",
+    "longitude": 5.84687,
+    "latitude": 45.15253,
+    "altitude": 694
+  },
+  {
+    "id": "mreso-0158",
+    "group": "mreso",
+    "name": "Miribel-Lanchâtre, Bayanne",
+    "longitude": 5.62282,
+    "latitude": 44.98072,
+    "altitude": 717
+  },
+  {
+    "id": "mreso-0159",
+    "group": "mreso",
+    "name": "Proveysieux, Planfay Haut",
+    "longitude": 5.71898,
+    "latitude": 45.28078,
+    "altitude": 935
+  },
+  {
+    "id": "mreso-0160",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Carrefour de Chamrousse",
+    "longitude": 5.84039,
+    "latitude": 45.15533,
+    "altitude": 610
+  },
+  {
+    "id": "mreso-0161",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, Route des Angères",
+    "longitude": 5.84911,
+    "latitude": 45.15117,
+    "altitude": 720
+  },
+  {
+    "id": "mreso-0162",
+    "group": "mreso",
+    "name": "Vaulnaveys-le-Bas, Les Roberts",
+    "longitude": 5.83105,
+    "latitude": 45.10587,
+    "altitude": 772
+  },
+  {
+    "id": "mreso-0163",
+    "group": "mreso",
+    "name": "Proveysieux, Planfay Bas",
+    "longitude": 5.71358,
+    "latitude": 45.27865,
+    "altitude": 833
+  },
+  {
+    "id": "mreso-0164",
+    "group": "mreso",
+    "name": "Saint-Martin-d'Uriage, La Grivolée",
+    "longitude": 5.85554,
+    "latitude": 45.1464,
+    "altitude": 815
+  },
+  {
+    "id": "mreso-0165",
+    "group": "mreso",
+    "name": "Sarcenas, Col de Porte",
+    "longitude": 5.76708,
+    "latitude": 45.29032,
+    "altitude": 1322
+  },
+  {
+    "id": "cars-0001",
+    "group": "cars",
+    "name": "Gare SNCF",
+    "longitude": 6.0856635,
+    "latitude": 44.5635875,
+    "altitude": 743
+  },
+  {
+    "id": "cars-0002",
+    "group": "cars",
+    "name": "Rochasson",
+    "longitude": 6.0832715,
+    "latitude": 44.56894,
+    "altitude": 775
+  },
+  {
+    "id": "cars-0003",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 6.0852335,
+    "latitude": 44.6379075,
+    "altitude": 1188
+  },
+  {
+    "id": "cars-0004",
+    "group": "cars",
+    "name": "Col Bayard",
+    "longitude": 6.082286,
+    "latitude": 44.6211335,
+    "altitude": 1240
+  },
+  {
+    "id": "cars-0005",
+    "group": "cars",
+    "name": "Champ de Foire",
+    "longitude": 6.0775946,
+    "latitude": 44.6826554,
+    "altitude": 1030
+  },
+  {
+    "id": "cars-0006",
+    "group": "cars",
+    "name": "Brutinel",
+    "longitude": 6.0848245,
+    "latitude": 44.654768,
+    "altitude": 1042
+  },
+  {
+    "id": "cars-0007",
+    "group": "cars",
+    "name": "Château Méa",
+    "longitude": 5.7655159,
+    "latitude": 44.7416878,
+    "altitude": 906
+  },
+  {
+    "id": "cars-0008",
+    "group": "cars",
+    "name": "Château Bas Place",
+    "longitude": 5.7468645,
+    "latitude": 44.7445025,
+    "altitude": 847
+  },
+  {
+    "id": "cars-0009",
+    "group": "cars",
+    "name": "Le Serre",
+    "longitude": 5.7805535,
+    "latitude": 44.7419015,
+    "altitude": 980
+  },
+  {
+    "id": "cars-0010",
+    "group": "cars",
+    "name": "Pont de la Guinguette",
+    "longitude": 6.0038445,
+    "latitude": 44.7344415,
+    "altitude": 849
+  },
+  {
+    "id": "cars-0011",
+    "group": "cars",
+    "name": "Pont Valla",
+    "longitude": 6.032108,
+    "latitude": 44.712523,
+    "altitude": 895
+  },
+  {
+    "id": "cars-0012",
+    "group": "cars",
+    "name": "Casseyre",
+    "longitude": 5.631896,
+    "latitude": 44.787052,
+    "altitude": 804
+  },
+  {
+    "id": "cars-0013",
+    "group": "cars",
+    "name": "Les Bayles",
+    "longitude": 5.657934,
+    "latitude": 44.7905695,
+    "altitude": 753
+  },
+  {
+    "id": "cars-0014",
+    "group": "cars",
+    "name": "Le Serre",
+    "longitude": 5.6654695,
+    "latitude": 44.791733,
+    "altitude": 739
+  },
+  {
+    "id": "cars-0015",
+    "group": "cars",
+    "name": "Avers",
+    "longitude": 5.7007955,
+    "latitude": 44.7699025,
+    "altitude": 787
+  },
+  {
+    "id": "cars-0016",
+    "group": "cars",
+    "name": "Lalley",
+    "longitude": 5.67751,
+    "latitude": 44.757865,
+    "altitude": 836
+  },
+  {
+    "id": "cars-0017",
+    "group": "cars",
+    "name": "Le Bourg - Ecole",
+    "longitude": 5.658506,
+    "latitude": 44.794075,
+    "altitude": 791
+  },
+  {
+    "id": "cars-0018",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.664158,
+    "latitude": 44.7644335,
+    "altitude": 837
+  },
+  {
+    "id": "cars-0019",
+    "group": "cars",
+    "name": "Domaine du Serrya",
+    "longitude": 5.6697285,
+    "latitude": 44.7922955,
+    "altitude": 730
+  },
+  {
+    "id": "cars-0020",
+    "group": "cars",
+    "name": "Prebois",
+    "longitude": 5.695045,
+    "latitude": 44.789229,
+    "altitude": 762
+  },
+  {
+    "id": "cars-0021",
+    "group": "cars",
+    "name": "Maternelle",
+    "longitude": 5.6627955,
+    "latitude": 44.765362,
+    "altitude": 833
+  },
+  {
+    "id": "cars-0022",
+    "group": "cars",
+    "name": "Touche Boeuf",
+    "longitude": 5.7047755,
+    "latitude": 44.7751945,
+    "altitude": 719
+  },
+  {
+    "id": "cars-0023",
+    "group": "cars",
+    "name": "Le Château",
+    "longitude": 5.6958525,
+    "latitude": 44.786272,
+    "altitude": 773
+  },
+  {
+    "id": "cars-0024",
+    "group": "cars",
+    "name": "Versannes",
+    "longitude": 5.651898,
+    "latitude": 44.791946,
+    "altitude": 798
+  },
+  {
+    "id": "cars-0025",
+    "group": "cars",
+    "name": "Boiras",
+    "longitude": 5.726614,
+    "latitude": 44.787954,
+    "altitude": 760
+  },
+  {
+    "id": "cars-0026",
+    "group": "cars",
+    "name": "Les Petits Moulins",
+    "longitude": 5.7247724,
+    "latitude": 44.7668491,
+    "altitude": 764
+  },
+  {
+    "id": "cars-0027",
+    "group": "cars",
+    "name": "Vareilles",
+    "longitude": 5.722624,
+    "latitude": 44.772094,
+    "altitude": 819
+  },
+  {
+    "id": "cars-0028",
+    "group": "cars",
+    "name": "Saint-Baudille-Pipet",
+    "longitude": 5.7684925,
+    "latitude": 44.78457,
+    "altitude": 846
+  },
+  {
+    "id": "cars-0029",
+    "group": "cars",
+    "name": "Le Cros",
+    "longitude": 5.7416355,
+    "latitude": 44.7809955,
+    "altitude": 841
+  },
+  {
+    "id": "cars-0030",
+    "group": "cars",
+    "name": "Ferme la Riviere",
+    "longitude": 5.7583481,
+    "latitude": 44.7873235,
+    "altitude": 817
+  },
+  {
+    "id": "cars-0031",
+    "group": "cars",
+    "name": "Eglise-Ecole",
+    "longitude": 5.7681915,
+    "latitude": 44.7460015,
+    "altitude": 926
+  },
+  {
+    "id": "cars-0032",
+    "group": "cars",
+    "name": "Le Perrier",
+    "longitude": 5.7338845,
+    "latitude": 44.781372,
+    "altitude": 799
+  },
+  {
+    "id": "cars-0033",
+    "group": "cars",
+    "name": "Pont de Vareille",
+    "longitude": 5.7116605,
+    "latitude": 44.7722505,
+    "altitude": 725
+  },
+  {
+    "id": "cars-0034",
+    "group": "cars",
+    "name": "Clos Léon Barthalay",
+    "longitude": 5.743655,
+    "latitude": 44.747328,
+    "altitude": 838
+  },
+  {
+    "id": "cars-0035",
+    "group": "cars",
+    "name": "La Guichardiere",
+    "longitude": 5.784731,
+    "latitude": 44.779928,
+    "altitude": 905
+  },
+  {
+    "id": "cars-0036",
+    "group": "cars",
+    "name": "La Posterle",
+    "longitude": 5.902087,
+    "latitude": 44.774527,
+    "altitude": 960
+  },
+  {
+    "id": "cars-0037",
+    "group": "cars",
+    "name": "Les Chaneaux",
+    "longitude": 5.905967,
+    "latitude": 44.784723,
+    "altitude": 943
+  },
+  {
+    "id": "cars-0038",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.9266675,
+    "latitude": 44.778208,
+    "altitude": 955
+  },
+  {
+    "id": "cars-0039",
+    "group": "cars",
+    "name": "Chauffayer Village",
+    "longitude": 6.008749,
+    "latitude": 44.752368,
+    "altitude": 910
+  },
+  {
+    "id": "cars-0040",
+    "group": "cars",
+    "name": "Pont des Richards RN85",
+    "longitude": 6.0162295,
+    "latitude": 44.775725,
+    "altitude": 817
+  },
+  {
+    "id": "cars-0041",
+    "group": "cars",
+    "name": "Ruthiere",
+    "longitude": 5.571364,
+    "latitude": 44.822994,
+    "altitude": 965
+  },
+  {
+    "id": "cars-0042",
+    "group": "cars",
+    "name": "Château-Vieux",
+    "longitude": 5.570551,
+    "latitude": 44.817031,
+    "altitude": 1001
+  },
+  {
+    "id": "cars-0043",
+    "group": "cars",
+    "name": "Eglise",
+    "longitude": 5.573057,
+    "latitude": 44.811487,
+    "altitude": 985
+  },
+  {
+    "id": "cars-0044",
+    "group": "cars",
+    "name": "Carrefour Richardiere",
+    "longitude": 5.553322,
+    "latitude": 44.822743,
+    "altitude": 1022
+  },
+  {
+    "id": "cars-0045",
+    "group": "cars",
+    "name": "Gare SNCF",
+    "longitude": 5.6051475,
+    "latitude": 44.8275575,
+    "altitude": 830
+  },
+  {
+    "id": "cars-0046",
+    "group": "cars",
+    "name": "L'Oratoire",
+    "longitude": 5.6146455,
+    "latitude": 44.8286985,
+    "altitude": 806
+  },
+  {
+    "id": "cars-0047",
+    "group": "cars",
+    "name": "Mairie",
+    "longitude": 5.6228399,
+    "latitude": 44.8275016,
+    "altitude": 764
+  },
+  {
+    "id": "cars-0048",
+    "group": "cars",
+    "name": "Trezanne",
+    "longitude": 5.5818025,
+    "latitude": 44.8208275,
+    "altitude": 919
+  },
+  {
+    "id": "cars-0049",
+    "group": "cars",
+    "name": "La Vierge",
+    "longitude": 5.6286505,
+    "latitude": 44.826927,
+    "altitude": 743
+  },
+  {
+    "id": "cars-0050",
+    "group": "cars",
+    "name": "Les Oches",
+    "longitude": 5.580919,
+    "latitude": 44.811744,
+    "altitude": 970
+  },
+  {
+    "id": "cars-0051",
+    "group": "cars",
+    "name": "Les Ripperts",
+    "longitude": 5.605331,
+    "latitude": 44.83623,
+    "altitude": 773
+  },
+  {
+    "id": "cars-0052",
+    "group": "cars",
+    "name": "Les Blancs",
+    "longitude": 5.637934,
+    "latitude": 44.7967605,
+    "altitude": 838
+  },
+  {
+    "id": "cars-0053",
+    "group": "cars",
+    "name": "Les Beylloux RN75",
+    "longitude": 5.6111988,
+    "latitude": 44.8391225,
+    "altitude": 765
+  },
+  {
+    "id": "cars-0054",
+    "group": "cars",
+    "name": "Petit Oriol - Pont",
+    "longitude": 5.704738,
+    "latitude": 44.820316,
+    "altitude": 720
+  },
+  {
+    "id": "cars-0055",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.651586,
+    "latitude": 44.801919,
+    "altitude": 775
+  },
+  {
+    "id": "cars-0056",
+    "group": "cars",
+    "name": "Les 4 Chemins",
+    "longitude": 5.6461385,
+    "latitude": 44.799904,
+    "altitude": 783
+  },
+  {
+    "id": "cars-0057",
+    "group": "cars",
+    "name": "Pont de Prébois",
+    "longitude": 5.7004145,
+    "latitude": 44.80858,
+    "altitude": 622
+  },
+  {
+    "id": "cars-0058",
+    "group": "cars",
+    "name": "Menglas",
+    "longitude": 5.7688788,
+    "latitude": 44.8070659,
+    "altitude": 934
+  },
+  {
+    "id": "cars-0059",
+    "group": "cars",
+    "name": "Ser Clapi",
+    "longitude": 5.7762985,
+    "latitude": 44.8324115,
+    "altitude": 919
+  },
+  {
+    "id": "cars-0060",
+    "group": "cars",
+    "name": "Aubépin",
+    "longitude": 5.717581,
+    "latitude": 44.8341405,
+    "altitude": 842
+  },
+  {
+    "id": "cars-0061",
+    "group": "cars",
+    "name": "Serre de Milmase",
+    "longitude": 5.728674,
+    "latitude": 44.804756,
+    "altitude": 784
+  },
+  {
+    "id": "cars-0062",
+    "group": "cars",
+    "name": "Ecoles",
+    "longitude": 5.748131,
+    "latitude": 44.8163005,
+    "altitude": 767
+  },
+  {
+    "id": "cars-0063",
+    "group": "cars",
+    "name": "Villette",
+    "longitude": 5.745923,
+    "latitude": 44.8336165,
+    "altitude": 864
+  },
+  {
+    "id": "cars-0064",
+    "group": "cars",
+    "name": "Le Grand Oriol",
+    "longitude": 5.717079,
+    "latitude": 44.8294925,
+    "altitude": 813
+  },
+  {
+    "id": "cars-0065",
+    "group": "cars",
+    "name": "Petit Oriol - Eaux",
+    "longitude": 5.7154425,
+    "latitude": 44.824298,
+    "altitude": 777
+  },
+  {
+    "id": "cars-0066",
+    "group": "cars",
+    "name": "Mas Martinenc",
+    "longitude": 5.730201,
+    "latitude": 44.796658,
+    "altitude": 753
+  },
+  {
+    "id": "cars-0067",
+    "group": "cars",
+    "name": "Rhodet",
+    "longitude": 5.73984,
+    "latitude": 44.835403,
+    "altitude": 886
+  },
+  {
+    "id": "cars-0068",
+    "group": "cars",
+    "name": "College du Trieves",
+    "longitude": 5.7485415,
+    "latitude": 44.815301,
+    "altitude": 768
+  },
+  {
+    "id": "cars-0069",
+    "group": "cars",
+    "name": "Foreyre RD526",
+    "longitude": 5.7173365,
+    "latitude": 44.813443,
+    "altitude": 665
+  },
+  {
+    "id": "cars-0070",
+    "group": "cars",
+    "name": "Beaumet",
+    "longitude": 5.7427355,
+    "latitude": 44.813278,
+    "altitude": 744
+  },
+  {
+    "id": "cars-0071",
+    "group": "cars",
+    "name": "Mentayre",
+    "longitude": 5.779409,
+    "latitude": 44.8178475,
+    "altitude": 922
+  },
+  {
+    "id": "cars-0072",
+    "group": "cars",
+    "name": "Cordeac",
+    "longitude": 5.8400395,
+    "latitude": 44.8277595,
+    "altitude": 900
+  },
+  {
+    "id": "cars-0073",
+    "group": "cars",
+    "name": "RN85",
+    "longitude": 5.8934765,
+    "latitude": 44.8330721,
+    "altitude": 907
+  },
+  {
+    "id": "cars-0074",
+    "group": "cars",
+    "name": "Les Reveires",
+    "longitude": 5.8581675,
+    "latitude": 44.8367495,
+    "altitude": 651
+  },
+  {
+    "id": "cars-0075",
+    "group": "cars",
+    "name": "Les Payas",
+    "longitude": 5.906719,
+    "latitude": 44.798836,
+    "altitude": 932
+  },
+  {
+    "id": "cars-0076",
+    "group": "cars",
+    "name": "Bas-Quet",
+    "longitude": 5.873677,
+    "latitude": 44.834166,
+    "altitude": 755
+  },
+  {
+    "id": "cars-0077",
+    "group": "cars",
+    "name": "La Croix de la Pigne",
+    "longitude": 5.881,
+    "latitude": 44.812162,
+    "altitude": 907
+  },
+  {
+    "id": "cars-0078",
+    "group": "cars",
+    "name": "Mairie",
+    "longitude": 5.875496,
+    "latitude": 44.835856,
+    "altitude": 803
+  },
+  {
+    "id": "cars-0079",
+    "group": "cars",
+    "name": "Les Gachets",
+    "longitude": 5.866281,
+    "latitude": 44.8172065,
+    "altitude": 903
+  },
+  {
+    "id": "cars-0080",
+    "group": "cars",
+    "name": "Le Moulin",
+    "longitude": 5.950089,
+    "latitude": 44.822938,
+    "altitude": 883
+  },
+  {
+    "id": "cars-0081",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.9307555,
+    "latitude": 44.8054645,
+    "altitude": 901
+  },
+  {
+    "id": "cars-0082",
+    "group": "cars",
+    "name": "Beaufin",
+    "longitude": 5.959617,
+    "latitude": 44.7891645,
+    "altitude": 943
+  },
+  {
+    "id": "cars-0083",
+    "group": "cars",
+    "name": "Ecole Communale",
+    "longitude": 5.945275,
+    "latitude": 44.818235,
+    "altitude": 931
+  },
+  {
+    "id": "cars-0084",
+    "group": "cars",
+    "name": "Le Sautet la Combe",
+    "longitude": 5.915526,
+    "latitude": 44.819318,
+    "altitude": 763
+  },
+  {
+    "id": "cars-0085",
+    "group": "cars",
+    "name": "Les Chapoux",
+    "longitude": 5.9189285,
+    "latitude": 44.8180565,
+    "altitude": 786
+  },
+  {
+    "id": "cars-0086",
+    "group": "cars",
+    "name": "Les Chenets",
+    "longitude": 5.933214,
+    "latitude": 44.818736,
+    "altitude": 869
+  },
+  {
+    "id": "cars-0087",
+    "group": "cars",
+    "name": "Village Vacances",
+    "longitude": 5.941486,
+    "latitude": 44.814639,
+    "altitude": 826
+  },
+  {
+    "id": "cars-0088",
+    "group": "cars",
+    "name": "Cardaire les Côtes",
+    "longitude": 5.9136096,
+    "latitude": 44.8319333,
+    "altitude": 924
+  },
+  {
+    "id": "cars-0089",
+    "group": "cars",
+    "name": "Place Napoléon",
+    "longitude": 5.948394,
+    "latitude": 44.817471,
+    "altitude": 938
+  },
+  {
+    "id": "cars-0090",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.9203365,
+    "latitude": 44.8323195,
+    "altitude": 961
+  },
+  {
+    "id": "cars-0091",
+    "group": "cars",
+    "name": "La Plaine RD537",
+    "longitude": 5.910613,
+    "latitude": 44.796547,
+    "altitude": 923
+  },
+  {
+    "id": "cars-0092",
+    "group": "cars",
+    "name": "Le Motty",
+    "longitude": 5.9795965,
+    "latitude": 44.792284,
+    "altitude": 779
+  },
+  {
+    "id": "cars-0093",
+    "group": "cars",
+    "name": "RN85",
+    "longitude": 5.9747216,
+    "latitude": 44.7985915,
+    "altitude": 883
+  },
+  {
+    "id": "cars-0094",
+    "group": "cars",
+    "name": "Savouraire",
+    "longitude": 5.6077255,
+    "latitude": 44.872123,
+    "altitude": 916
+  },
+  {
+    "id": "cars-0095",
+    "group": "cars",
+    "name": "Les Hauches",
+    "longitude": 5.6426439,
+    "latitude": 44.885041,
+    "altitude": 757
+  },
+  {
+    "id": "cars-0096",
+    "group": "cars",
+    "name": "La Chabannerie",
+    "longitude": 5.627564,
+    "latitude": 44.851803,
+    "altitude": 721
+  },
+  {
+    "id": "cars-0097",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.596943,
+    "latitude": 44.870176,
+    "altitude": 883
+  },
+  {
+    "id": "cars-0098",
+    "group": "cars",
+    "name": "Bourg",
+    "longitude": 5.639218,
+    "latitude": 44.886053,
+    "altitude": 761
+  },
+  {
+    "id": "cars-0099",
+    "group": "cars",
+    "name": "Condamine (Stat.Oyo)",
+    "longitude": 5.619197,
+    "latitude": 44.8526355,
+    "altitude": 750
+  },
+  {
+    "id": "cars-0100",
+    "group": "cars",
+    "name": "Les Peyrouses",
+    "longitude": 5.62463,
+    "latitude": 44.887298,
+    "altitude": 769
+  },
+  {
+    "id": "cars-0101",
+    "group": "cars",
+    "name": "Les Peyrouses 2",
+    "longitude": 5.62162,
+    "latitude": 44.888905,
+    "altitude": 797
+  },
+  {
+    "id": "cars-0102",
+    "group": "cars",
+    "name": "L'Homme",
+    "longitude": 5.630325,
+    "latitude": 44.885265,
+    "altitude": 765
+  },
+  {
+    "id": "cars-0103",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.621449,
+    "latitude": 44.845486,
+    "altitude": 699
+  },
+  {
+    "id": "cars-0104",
+    "group": "cars",
+    "name": "La Bâtie d'Ambel RN75",
+    "longitude": 5.6054044,
+    "latitude": 44.8673874,
+    "altitude": 805
+  },
+  {
+    "id": "cars-0105",
+    "group": "cars",
+    "name": "Les Granges",
+    "longitude": 5.602472,
+    "latitude": 44.86036,
+    "altitude": 804
+  },
+  {
+    "id": "cars-0106",
+    "group": "cars",
+    "name": "Soubeyranne",
+    "longitude": 5.671084,
+    "latitude": 44.8532745,
+    "altitude": 742
+  },
+  {
+    "id": "cars-0107",
+    "group": "cars",
+    "name": "Villard-Julien Lavoir",
+    "longitude": 5.7069525,
+    "latitude": 44.849147,
+    "altitude": 778
+  },
+  {
+    "id": "cars-0108",
+    "group": "cars",
+    "name": "Carrefour Savel Plage",
+    "longitude": 5.710101,
+    "latitude": 44.8744805,
+    "altitude": 648
+  },
+  {
+    "id": "cars-0109",
+    "group": "cars",
+    "name": "Lavars - Le Village",
+    "longitude": 5.6721665,
+    "latitude": 44.8493135,
+    "altitude": 738
+  },
+  {
+    "id": "cars-0110",
+    "group": "cars",
+    "name": "Maissenas",
+    "longitude": 5.6543326,
+    "latitude": 44.8772971,
+    "altitude": 771
+  },
+  {
+    "id": "cars-0111",
+    "group": "cars",
+    "name": "Le Buisset",
+    "longitude": 5.6525195,
+    "latitude": 44.8729938,
+    "altitude": 724
+  },
+  {
+    "id": "cars-0112",
+    "group": "cars",
+    "name": "Mairie",
+    "longitude": 5.7225465,
+    "latitude": 44.8740875,
+    "altitude": 679
+  },
+  {
+    "id": "cars-0113",
+    "group": "cars",
+    "name": "La Jargne",
+    "longitude": 5.776416,
+    "latitude": 44.866665,
+    "altitude": 685
+  },
+  {
+    "id": "cars-0114",
+    "group": "cars",
+    "name": "Les Rives",
+    "longitude": 5.768953,
+    "latitude": 44.866816,
+    "altitude": 621
+  },
+  {
+    "id": "cars-0115",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.777863,
+    "latitude": 44.8817495,
+    "altitude": 726
+  },
+  {
+    "id": "cars-0116",
+    "group": "cars",
+    "name": "Villard Touage",
+    "longitude": 5.734281,
+    "latitude": 44.8470285,
+    "altitude": 755
+  },
+  {
+    "id": "cars-0117",
+    "group": "cars",
+    "name": "Touage Pont RD34B",
+    "longitude": 5.73971,
+    "latitude": 44.8525435,
+    "altitude": 736
+  },
+  {
+    "id": "cars-0118",
+    "group": "cars",
+    "name": "Pellenfrey",
+    "longitude": 5.741657,
+    "latitude": 44.878318,
+    "altitude": 814
+  },
+  {
+    "id": "cars-0119",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.7616575,
+    "latitude": 44.853367,
+    "altitude": 820
+  },
+  {
+    "id": "cars-0120",
+    "group": "cars",
+    "name": "RD116",
+    "longitude": 5.734987,
+    "latitude": 44.874332,
+    "altitude": 691
+  },
+  {
+    "id": "cars-0121",
+    "group": "cars",
+    "name": "Ecole Primaire",
+    "longitude": 5.762827,
+    "latitude": 44.853097,
+    "altitude": 821
+  },
+  {
+    "id": "cars-0122",
+    "group": "cars",
+    "name": "Chardeau",
+    "longitude": 5.7170405,
+    "latitude": 44.87344,
+    "altitude": 660
+  },
+  {
+    "id": "cars-0123",
+    "group": "cars",
+    "name": "Pellenfrey RD116",
+    "longitude": 5.7467235,
+    "latitude": 44.874009,
+    "altitude": 736
+  },
+  {
+    "id": "cars-0124",
+    "group": "cars",
+    "name": "Les Egats",
+    "longitude": 5.835894,
+    "latitude": 44.8762905,
+    "altitude": 848
+  },
+  {
+    "id": "cars-0125",
+    "group": "cars",
+    "name": "Le Chardenot",
+    "longitude": 5.8293468,
+    "latitude": 44.8848422,
+    "altitude": 801
+  },
+  {
+    "id": "cars-0126",
+    "group": "cars",
+    "name": "Serre-Berton",
+    "longitude": 5.789917,
+    "latitude": 44.8558375,
+    "altitude": 931
+  },
+  {
+    "id": "cars-0127",
+    "group": "cars",
+    "name": "Champlong-Camping",
+    "longitude": 5.843609,
+    "latitude": 44.856537,
+    "altitude": 678
+  },
+  {
+    "id": "cars-0128",
+    "group": "cars",
+    "name": "Les 4 Chemins",
+    "longitude": 5.8117445,
+    "latitude": 44.8446215,
+    "altitude": 898
+  },
+  {
+    "id": "cars-0129",
+    "group": "cars",
+    "name": "Saint-Sebastien Village",
+    "longitude": 5.798461,
+    "latitude": 44.8479645,
+    "altitude": 863
+  },
+  {
+    "id": "cars-0130",
+    "group": "cars",
+    "name": "Masserange",
+    "longitude": 5.7880085,
+    "latitude": 44.8599815,
+    "altitude": 915
+  },
+  {
+    "id": "cars-0131",
+    "group": "cars",
+    "name": "Salle des Fetes",
+    "longitude": 5.8229363,
+    "latitude": 44.8750657,
+    "altitude": 748
+  },
+  {
+    "id": "cars-0132",
+    "group": "cars",
+    "name": "Lotissement les Fraisses",
+    "longitude": 5.8176095,
+    "latitude": 44.8768415,
+    "altitude": 748
+  },
+  {
+    "id": "cars-0133",
+    "group": "cars",
+    "name": "Les Serrues",
+    "longitude": 5.84508,
+    "latitude": 44.854181,
+    "altitude": 641
+  },
+  {
+    "id": "cars-0134",
+    "group": "cars",
+    "name": "Haut Quet RN85",
+    "longitude": 5.8746235,
+    "latitude": 44.840549,
+    "altitude": 910
+  },
+  {
+    "id": "cars-0135",
+    "group": "cars",
+    "name": "Les Marcoux",
+    "longitude": 5.858484,
+    "latitude": 44.8539465,
+    "altitude": 847
+  },
+  {
+    "id": "cars-0136",
+    "group": "cars",
+    "name": "La Salle Ecoles",
+    "longitude": 5.8563805,
+    "latitude": 44.863649,
+    "altitude": 760
+  },
+  {
+    "id": "cars-0137",
+    "group": "cars",
+    "name": "Eglise",
+    "longitude": 5.864225,
+    "latitude": 44.863067,
+    "altitude": 790
+  },
+  {
+    "id": "cars-0138",
+    "group": "cars",
+    "name": "Les Souchons",
+    "longitude": 5.8479085,
+    "latitude": 44.8668995,
+    "altitude": 802
+  },
+  {
+    "id": "cars-0139",
+    "group": "cars",
+    "name": "La Mareche",
+    "longitude": 5.8605802,
+    "latitude": 44.8640281,
+    "altitude": 772
+  },
+  {
+    "id": "cars-0140",
+    "group": "cars",
+    "name": "Saint-Laurent-en-Beaumont",
+    "longitude": 5.8490342,
+    "latitude": 44.8772002,
+    "altitude": 902
+  },
+  {
+    "id": "cars-0141",
+    "group": "cars",
+    "name": "Sainte-Luce",
+    "longitude": 5.911335,
+    "latitude": 44.849833,
+    "altitude": 1128
+  },
+  {
+    "id": "cars-0142",
+    "group": "cars",
+    "name": "Le Villard",
+    "longitude": 5.9237735,
+    "latitude": 44.8404095,
+    "altitude": 1091
+  },
+  {
+    "id": "cars-0143",
+    "group": "cars",
+    "name": "Sanctuaire",
+    "longitude": 5.9769905,
+    "latitude": 44.858827,
+    "altitude": 1756
+  },
+  {
+    "id": "cars-0144",
+    "group": "cars",
+    "name": "Eglise",
+    "longitude": 5.975058,
+    "latitude": 44.8399634,
+    "altitude": 1115
+  },
+  {
+    "id": "cars-0145",
+    "group": "cars",
+    "name": "Fruitiere",
+    "longitude": 5.5686345,
+    "latitude": 44.9126265,
+    "altitude": 1154
+  },
+  {
+    "id": "cars-0146",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.567205,
+    "latitude": 44.902166,
+    "altitude": 1198
+  },
+  {
+    "id": "cars-0147",
+    "group": "cars",
+    "name": "Les Dolomites",
+    "longitude": 5.5550585,
+    "latitude": 44.90058,
+    "altitude": 1241
+  },
+  {
+    "id": "cars-0148",
+    "group": "cars",
+    "name": "Grosse Pierre",
+    "longitude": 5.5922715,
+    "latitude": 44.948253,
+    "altitude": 884
+  },
+  {
+    "id": "cars-0149",
+    "group": "cars",
+    "name": "Chaumeil",
+    "longitude": 5.569551,
+    "latitude": 44.9095025,
+    "altitude": 1161
+  },
+  {
+    "id": "cars-0150",
+    "group": "cars",
+    "name": "Abribus",
+    "longitude": 5.554427,
+    "latitude": 44.897749,
+    "altitude": 1219
+  },
+  {
+    "id": "cars-0151",
+    "group": "cars",
+    "name": "Côte Belette",
+    "longitude": 5.560644,
+    "latitude": 44.9012585,
+    "altitude": 1198
+  },
+  {
+    "id": "cars-0152",
+    "group": "cars",
+    "name": "College-Ecoles",
+    "longitude": 5.6299835,
+    "latitude": 44.9128705,
+    "altitude": 847
+  },
+  {
+    "id": "cars-0153",
+    "group": "cars",
+    "name": "Maison Médicale Monestier",
+    "longitude": 5.6363717,
+    "latitude": 44.9213015,
+    "altitude": 802
+  },
+  {
+    "id": "cars-0154",
+    "group": "cars",
+    "name": "Le Fau",
+    "longitude": 5.616464,
+    "latitude": 44.895087,
+    "altitude": 843
+  },
+  {
+    "id": "cars-0155",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.628019,
+    "latitude": 44.929602,
+    "altitude": 808
+  },
+  {
+    "id": "cars-0156",
+    "group": "cars",
+    "name": "Grisail",
+    "longitude": 5.6092615,
+    "latitude": 44.9382955,
+    "altitude": 844
+  },
+  {
+    "id": "cars-0157",
+    "group": "cars",
+    "name": "Le Frut",
+    "longitude": 5.623526,
+    "latitude": 44.9310725,
+    "altitude": 806
+  },
+  {
+    "id": "cars-0158",
+    "group": "cars",
+    "name": "Garage des Alpes",
+    "longitude": 5.6384955,
+    "latitude": 44.926148,
+    "altitude": 798
+  },
+  {
+    "id": "cars-0159",
+    "group": "cars",
+    "name": "La Poste",
+    "longitude": 5.634249,
+    "latitude": 44.916029,
+    "altitude": 825
+  },
+  {
+    "id": "cars-0160",
+    "group": "cars",
+    "name": "Rouac",
+    "longitude": 5.689547,
+    "latitude": 44.920814,
+    "altitude": 660
+  },
+  {
+    "id": "cars-0161",
+    "group": "cars",
+    "name": "Le Tracol",
+    "longitude": 5.656216,
+    "latitude": 44.920384,
+    "altitude": 663
+  },
+  {
+    "id": "cars-0162",
+    "group": "cars",
+    "name": "Mairie",
+    "longitude": 5.6889195,
+    "latitude": 44.9141525,
+    "altitude": 632
+  },
+  {
+    "id": "cars-0163",
+    "group": "cars",
+    "name": "Place",
+    "longitude": 5.657841,
+    "latitude": 44.915161,
+    "altitude": 614
+  },
+  {
+    "id": "cars-0164",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.763008,
+    "latitude": 44.892523,
+    "altitude": 845
+  },
+  {
+    "id": "cars-0165",
+    "group": "cars",
+    "name": "Simane",
+    "longitude": 5.7721095,
+    "latitude": 44.8996695,
+    "altitude": 858
+  },
+  {
+    "id": "cars-0166",
+    "group": "cars",
+    "name": "Nantizon",
+    "longitude": 5.7811289,
+    "latitude": 44.917453,
+    "altitude": 883
+  },
+  {
+    "id": "cars-0167",
+    "group": "cars",
+    "name": "Pont de Maladiere",
+    "longitude": 5.78282,
+    "latitude": 44.9140185,
+    "altitude": 880
+  },
+  {
+    "id": "cars-0168",
+    "group": "cars",
+    "name": "Ecole le Villaret",
+    "longitude": 5.7744685,
+    "latitude": 44.929889,
+    "altitude": 890
+  },
+  {
+    "id": "cars-0169",
+    "group": "cars",
+    "name": "Le Villaret",
+    "longitude": 5.776841,
+    "latitude": 44.9272875,
+    "altitude": 888
+  },
+  {
+    "id": "cars-0170",
+    "group": "cars",
+    "name": "HLM le Bredent",
+    "longitude": 5.781787,
+    "latitude": 44.920701,
+    "altitude": 886
+  },
+  {
+    "id": "cars-0171",
+    "group": "cars",
+    "name": "Ecole",
+    "longitude": 5.7665985,
+    "latitude": 44.8931615,
+    "altitude": 855
+  },
+  {
+    "id": "cars-0172",
+    "group": "cars",
+    "name": "Eglise",
+    "longitude": 5.83604,
+    "latitude": 44.9031295,
+    "altitude": 747
+  },
+  {
+    "id": "cars-0173",
+    "group": "cars",
+    "name": "Roizon Gare",
+    "longitude": 5.816837,
+    "latitude": 44.9138865,
+    "altitude": 833
+  },
+  {
+    "id": "cars-0174",
+    "group": "cars",
+    "name": "Pont Haut",
+    "longitude": 5.8174525,
+    "latitude": 44.9015795,
+    "altitude": 603
+  },
+  {
+    "id": "cars-0175",
+    "group": "cars",
+    "name": "Col de Malissol",
+    "longitude": 5.8435245,
+    "latitude": 44.928458,
+    "altitude": 1154
+  },
+  {
+    "id": "cars-0176",
+    "group": "cars",
+    "name": "Serbouvet",
+    "longitude": 5.8098385,
+    "latitude": 44.9283045,
+    "altitude": 914
+  },
+  {
+    "id": "cars-0177",
+    "group": "cars",
+    "name": "Cimon",
+    "longitude": 5.7840735,
+    "latitude": 44.9108095,
+    "altitude": 883
+  },
+  {
+    "id": "cars-0178",
+    "group": "cars",
+    "name": "Roizon - Le Bas",
+    "longitude": 5.8222135,
+    "latitude": 44.914349,
+    "altitude": 773
+  },
+  {
+    "id": "cars-0179",
+    "group": "cars",
+    "name": "La Poste",
+    "longitude": 5.7898755,
+    "latitude": 44.9076105,
+    "altitude": 868
+  },
+  {
+    "id": "cars-0180",
+    "group": "cars",
+    "name": "Dr.Ricard",
+    "longitude": 5.7914725,
+    "latitude": 44.9039455,
+    "altitude": 849
+  },
+  {
+    "id": "cars-0181",
+    "group": "cars",
+    "name": "Le Sauze",
+    "longitude": 5.7993425,
+    "latitude": 44.913668,
+    "altitude": 863
+  },
+  {
+    "id": "cars-0182",
+    "group": "cars",
+    "name": "La Faurie",
+    "longitude": 5.8070525,
+    "latitude": 44.9182645,
+    "altitude": 849
+  },
+  {
+    "id": "cars-0183",
+    "group": "cars",
+    "name": "Le Crozet",
+    "longitude": 5.807778,
+    "latitude": 44.899819,
+    "altitude": 723
+  },
+  {
+    "id": "cars-0184",
+    "group": "cars",
+    "name": "Villaret-Reynaud",
+    "longitude": 5.80569,
+    "latitude": 44.9204115,
+    "altitude": 878
+  },
+  {
+    "id": "cars-0185",
+    "group": "cars",
+    "name": "La Mairie",
+    "longitude": 5.7840885,
+    "latitude": 44.9062145,
+    "altitude": 881
+  },
+  {
+    "id": "cars-0186",
+    "group": "cars",
+    "name": "Le Freynet",
+    "longitude": 5.831997,
+    "latitude": 44.927878,
+    "altitude": 943
+  },
+  {
+    "id": "cars-0187",
+    "group": "cars",
+    "name": "République",
+    "longitude": 5.7847322,
+    "latitude": 44.9022397,
+    "altitude": 869
+  },
+  {
+    "id": "cars-0188",
+    "group": "cars",
+    "name": "Charlaix",
+    "longitude": 5.8166567,
+    "latitude": 44.8964492,
+    "altitude": 649
+  },
+  {
+    "id": "cars-0189",
+    "group": "cars",
+    "name": "Les Miards",
+    "longitude": 5.8355075,
+    "latitude": 44.889065,
+    "altitude": 830
+  },
+  {
+    "id": "cars-0190",
+    "group": "cars",
+    "name": "Hameau Malbuisson",
+    "longitude": 5.8437395,
+    "latitude": 44.892242,
+    "altitude": 680
+  },
+  {
+    "id": "cars-0191",
+    "group": "cars",
+    "name": "College Louis Mauberret",
+    "longitude": 5.7910555,
+    "latitude": 44.8982065,
+    "altitude": 837
+  },
+  {
+    "id": "cars-0192",
+    "group": "cars",
+    "name": "Champ Fumet",
+    "longitude": 5.7959771,
+    "latitude": 44.8911109,
+    "altitude": 827
+  },
+  {
+    "id": "cars-0193",
+    "group": "cars",
+    "name": "L'Armet",
+    "longitude": 5.7929585,
+    "latitude": 44.893166,
+    "altitude": 843
+  },
+  {
+    "id": "cars-0194",
+    "group": "cars",
+    "name": "Mairie (Pivol)",
+    "longitude": 5.8072595,
+    "latitude": 44.9126835,
+    "altitude": 810
+  },
+  {
+    "id": "cars-0195",
+    "group": "cars",
+    "name": "Les Terrasses",
+    "longitude": 5.8247542,
+    "latitude": 44.8896111,
+    "altitude": 772
+  },
+  {
+    "id": "cars-0196",
+    "group": "cars",
+    "name": "Hôpital",
+    "longitude": 5.7951915,
+    "latitude": 44.905294,
+    "altitude": 832
+  },
+  {
+    "id": "cars-0197",
+    "group": "cars",
+    "name": "La Croix",
+    "longitude": 5.8074205,
+    "latitude": 44.904938,
+    "altitude": 781
+  },
+  {
+    "id": "cars-0198",
+    "group": "cars",
+    "name": "Complexe Jean Morel",
+    "longitude": 5.789323,
+    "latitude": 44.897035,
+    "altitude": 850
+  },
+  {
+    "id": "cars-0199",
+    "group": "cars",
+    "name": "Clos du Puits",
+    "longitude": 5.7882875,
+    "latitude": 44.888725,
+    "altitude": 815
+  },
+  {
+    "id": "cars-0200",
+    "group": "cars",
+    "name": "Carrefour Serge Feu",
+    "longitude": 5.8516845,
+    "latitude": 44.9255745,
+    "altitude": 1088
+  },
+  {
+    "id": "cars-0201",
+    "group": "cars",
+    "name": "Les Pras",
+    "longitude": 5.871974,
+    "latitude": 44.917879,
+    "altitude": 1002
+  },
+  {
+    "id": "cars-0202",
+    "group": "cars",
+    "name": "Malbuisson",
+    "longitude": 5.8570925,
+    "latitude": 44.89662,
+    "altitude": 693
+  },
+  {
+    "id": "cars-0203",
+    "group": "cars",
+    "name": "Le Haut",
+    "longitude": 5.851383,
+    "latitude": 44.9066535,
+    "altitude": 880
+  },
+  {
+    "id": "cars-0204",
+    "group": "cars",
+    "name": "Place",
+    "longitude": 5.906152,
+    "latitude": 44.90028,
+    "altitude": 787
+  },
+  {
+    "id": "cars-0205",
+    "group": "cars",
+    "name": "Pont du Prétre",
+    "longitude": 5.869097,
+    "latitude": 44.894767,
+    "altitude": 668
+  },
+  {
+    "id": "cars-0206",
+    "group": "cars",
+    "name": "Equipement",
+    "longitude": 5.898941,
+    "latitude": 44.898771,
+    "altitude": 785
+  },
+  {
+    "id": "cars-0207",
+    "group": "cars",
+    "name": "Gendarmerie",
+    "longitude": 5.9115925,
+    "latitude": 44.89907,
+    "altitude": 782
+  },
+  {
+    "id": "cars-0208",
+    "group": "cars",
+    "name": "Le Sert",
+    "longitude": 5.8548546,
+    "latitude": 44.8909803,
+    "altitude": 730
+  },
+  {
+    "id": "cars-0209",
+    "group": "cars",
+    "name": "Ecole Publique",
+    "longitude": 5.908148,
+    "latitude": 44.900214,
+    "altitude": 784
+  },
+  {
+    "id": "cars-0210",
+    "group": "cars",
+    "name": "La Place",
+    "longitude": 5.9486465,
+    "latitude": 44.902063,
+    "altitude": 808
+  },
+  {
+    "id": "cars-0211",
+    "group": "cars",
+    "name": "Pont Battant",
+    "longitude": 5.9444995,
+    "latitude": 44.900287,
+    "altitude": 779
+  },
+  {
+    "id": "cars-0212",
+    "group": "cars",
+    "name": "Ecole",
+    "longitude": 5.9479555,
+    "latitude": 44.9039105,
+    "altitude": 805
+  },
+  {
+    "id": "cars-0213",
+    "group": "cars",
+    "name": "Les Angelas",
+    "longitude": 5.925449,
+    "latitude": 44.891594,
+    "altitude": 779
+  },
+  {
+    "id": "cars-0214",
+    "group": "cars",
+    "name": "Les Doras",
+    "longitude": 5.966786,
+    "latitude": 44.9257775,
+    "altitude": 863
+  },
+  {
+    "id": "cars-0215",
+    "group": "cars",
+    "name": "College la Chapelle",
+    "longitude": 5.4145755,
+    "latitude": 44.964764,
+    "altitude": 883
+  },
+  {
+    "id": "cars-0216",
+    "group": "cars",
+    "name": "Château-Bernard",
+    "longitude": 5.576197,
+    "latitude": 44.9749215,
+    "altitude": 905
+  },
+  {
+    "id": "cars-0217",
+    "group": "cars",
+    "name": "Puy Grimaud",
+    "longitude": 5.5810115,
+    "latitude": 44.980188,
+    "altitude": 1059
+  },
+  {
+    "id": "cars-0218",
+    "group": "cars",
+    "name": "Les Marceaux",
+    "longitude": 5.6510896,
+    "latitude": 44.9632234,
+    "altitude": 799
+  },
+  {
+    "id": "cars-0219",
+    "group": "cars",
+    "name": "Les Gaillardons",
+    "longitude": 5.648727,
+    "latitude": 44.968822,
+    "altitude": 791
+  },
+  {
+    "id": "cars-0220",
+    "group": "cars",
+    "name": "Guéripel",
+    "longitude": 5.64777,
+    "latitude": 44.965433,
+    "altitude": 793
+  },
+  {
+    "id": "cars-0221",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.62094,
+    "latitude": 44.974725,
+    "altitude": 749
+  },
+  {
+    "id": "cars-0222",
+    "group": "cars",
+    "name": "Le Vernay",
+    "longitude": 5.6085805,
+    "latitude": 44.970056,
+    "altitude": 873
+  },
+  {
+    "id": "cars-0223",
+    "group": "cars",
+    "name": "Cassoulet",
+    "longitude": 5.623042,
+    "latitude": 44.9820575,
+    "altitude": 712
+  },
+  {
+    "id": "cars-0224",
+    "group": "cars",
+    "name": "La Morte",
+    "longitude": 5.650792,
+    "latitude": 44.959636,
+    "altitude": 819
+  },
+  {
+    "id": "cars-0225",
+    "group": "cars",
+    "name": "Le Collet",
+    "longitude": 5.64563,
+    "latitude": 44.944925,
+    "altitude": 884
+  },
+  {
+    "id": "cars-0226",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.588337,
+    "latitude": 44.955457,
+    "altitude": 700
+  },
+  {
+    "id": "cars-0227",
+    "group": "cars",
+    "name": "Preclot",
+    "longitude": 5.6076525,
+    "latitude": 44.941772,
+    "altitude": 834
+  },
+  {
+    "id": "cars-0228",
+    "group": "cars",
+    "name": "Le Mas",
+    "longitude": 5.6016165,
+    "latitude": 44.951557,
+    "altitude": 790
+  },
+  {
+    "id": "cars-0229",
+    "group": "cars",
+    "name": "Maninaire",
+    "longitude": 5.606187,
+    "latitude": 44.9445865,
+    "altitude": 840
+  },
+  {
+    "id": "cars-0230",
+    "group": "cars",
+    "name": "Piscine",
+    "longitude": 5.718191,
+    "latitude": 44.9489555,
+    "altitude": 699
+  },
+  {
+    "id": "cars-0231",
+    "group": "cars",
+    "name": "Ecole Primaire",
+    "longitude": 5.6567145,
+    "latitude": 44.959199,
+    "altitude": 812
+  },
+  {
+    "id": "cars-0232",
+    "group": "cars",
+    "name": "La Ville",
+    "longitude": 5.701204,
+    "latitude": 44.9666235,
+    "altitude": 835
+  },
+  {
+    "id": "cars-0233",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.6563955,
+    "latitude": 44.981347,
+    "altitude": 775
+  },
+  {
+    "id": "cars-0234",
+    "group": "cars",
+    "name": "Les Blais - Ecole",
+    "longitude": 5.7039185,
+    "latitude": 44.976491,
+    "altitude": 768
+  },
+  {
+    "id": "cars-0235",
+    "group": "cars",
+    "name": "La Croix de Portier",
+    "longitude": 5.654929,
+    "latitude": 44.9494979,
+    "altitude": 839
+  },
+  {
+    "id": "cars-0236",
+    "group": "cars",
+    "name": "Les Fauries",
+    "longitude": 5.650399,
+    "latitude": 44.9347195,
+    "altitude": 757
+  },
+  {
+    "id": "cars-0237",
+    "group": "cars",
+    "name": "Ecoles Mat-Prim.",
+    "longitude": 5.658312,
+    "latitude": 44.982397,
+    "altitude": 762
+  },
+  {
+    "id": "cars-0238",
+    "group": "cars",
+    "name": "Les Ripeaux",
+    "longitude": 5.7034375,
+    "latitude": 44.9805205,
+    "altitude": 747
+  },
+  {
+    "id": "cars-0239",
+    "group": "cars",
+    "name": "Les Dourches",
+    "longitude": 5.6553345,
+    "latitude": 44.941976,
+    "altitude": 777
+  },
+  {
+    "id": "cars-0240",
+    "group": "cars",
+    "name": "Treffort-Croix",
+    "longitude": 5.7188715,
+    "latitude": 44.947405,
+    "altitude": 704
+  },
+  {
+    "id": "cars-0241",
+    "group": "cars",
+    "name": "La Moliere-Ecole",
+    "longitude": 5.717459,
+    "latitude": 44.949785,
+    "altitude": 699
+  },
+  {
+    "id": "cars-0242",
+    "group": "cars",
+    "name": "Ecole Primaire",
+    "longitude": 5.658546,
+    "latitude": 44.946761,
+    "altitude": 812
+  },
+  {
+    "id": "cars-0243",
+    "group": "cars",
+    "name": "Le Vivier",
+    "longitude": 5.716485,
+    "latitude": 44.9561865,
+    "altitude": 637
+  },
+  {
+    "id": "cars-0244",
+    "group": "cars",
+    "name": "Eglise",
+    "longitude": 5.6560905,
+    "latitude": 44.945219,
+    "altitude": 802
+  },
+  {
+    "id": "cars-0245",
+    "group": "cars",
+    "name": "Les Jeannots",
+    "longitude": 5.703892,
+    "latitude": 44.973286,
+    "altitude": 792
+  },
+  {
+    "id": "cars-0246",
+    "group": "cars",
+    "name": "Les Côtes",
+    "longitude": 5.7107705,
+    "latitude": 44.946864,
+    "altitude": 744
+  },
+  {
+    "id": "cars-0247",
+    "group": "cars",
+    "name": "Lespinasse",
+    "longitude": 5.7757424,
+    "latitude": 44.9628668,
+    "altitude": 934
+  },
+  {
+    "id": "cars-0248",
+    "group": "cars",
+    "name": "Ser Sigaud",
+    "longitude": 5.779964,
+    "latitude": 44.9433778,
+    "altitude": 896
+  },
+  {
+    "id": "cars-0249",
+    "group": "cars",
+    "name": "Le Mollard",
+    "longitude": 5.7205752,
+    "latitude": 44.9641769,
+    "altitude": 848
+  },
+  {
+    "id": "cars-0250",
+    "group": "cars",
+    "name": "La Festiniere",
+    "longitude": 5.75465,
+    "latitude": 44.953411,
+    "altitude": 965
+  },
+  {
+    "id": "cars-0251",
+    "group": "cars",
+    "name": "Bayardiere",
+    "longitude": 5.71977,
+    "latitude": 44.9505075,
+    "altitude": 734
+  },
+  {
+    "id": "cars-0252",
+    "group": "cars",
+    "name": "La Faurie",
+    "longitude": 5.725663,
+    "latitude": 44.959303,
+    "altitude": 737
+  },
+  {
+    "id": "cars-0253",
+    "group": "cars",
+    "name": "Les Buttarias",
+    "longitude": 5.7317005,
+    "latitude": 44.959846,
+    "altitude": 804
+  },
+  {
+    "id": "cars-0254",
+    "group": "cars",
+    "name": "La Gare",
+    "longitude": 5.7366145,
+    "latitude": 44.9617155,
+    "altitude": 865
+  },
+  {
+    "id": "cars-0255",
+    "group": "cars",
+    "name": "Combefolle",
+    "longitude": 5.7297455,
+    "latitude": 44.965724,
+    "altitude": 825
+  },
+  {
+    "id": "cars-0256",
+    "group": "cars",
+    "name": "La Roche",
+    "longitude": 5.746265,
+    "latitude": 44.960573,
+    "altitude": 917
+  },
+  {
+    "id": "cars-0257",
+    "group": "cars",
+    "name": "Le Villard-Ecole",
+    "longitude": 5.738337,
+    "latitude": 44.967156,
+    "altitude": 944
+  },
+  {
+    "id": "cars-0258",
+    "group": "cars",
+    "name": "Station Service",
+    "longitude": 5.7772865,
+    "latitude": 44.9580285,
+    "altitude": 926
+  },
+  {
+    "id": "cars-0259",
+    "group": "cars",
+    "name": "Les Bethoux",
+    "longitude": 5.7263315,
+    "latitude": 44.9563805,
+    "altitude": 720
+  },
+  {
+    "id": "cars-0260",
+    "group": "cars",
+    "name": "Le Crey",
+    "longitude": 5.7648378,
+    "latitude": 44.9409616,
+    "altitude": 905
+  },
+  {
+    "id": "cars-0261",
+    "group": "cars",
+    "name": "Le Collet",
+    "longitude": 5.7578808,
+    "latitude": 44.9487221,
+    "altitude": 939
+  },
+  {
+    "id": "cars-0262",
+    "group": "cars",
+    "name": "Les Ecuries",
+    "longitude": 5.7428312,
+    "latitude": 44.9652346,
+    "altitude": 933
+  },
+  {
+    "id": "cars-0263",
+    "group": "cars",
+    "name": "Mairie-RD529",
+    "longitude": 5.744019,
+    "latitude": 44.961968,
+    "altitude": 903
+  },
+  {
+    "id": "cars-0264",
+    "group": "cars",
+    "name": "Les Moutieres",
+    "longitude": 5.7710345,
+    "latitude": 44.934852,
+    "altitude": 889
+  },
+  {
+    "id": "cars-0265",
+    "group": "cars",
+    "name": "College Vallon des Mottes",
+    "longitude": 5.744121,
+    "latitude": 44.9612095,
+    "altitude": 892
+  },
+  {
+    "id": "cars-0266",
+    "group": "cars",
+    "name": "Ecole du Bourg",
+    "longitude": 5.7760137,
+    "latitude": 44.954346,
+    "altitude": 916
+  },
+  {
+    "id": "cars-0267",
+    "group": "cars",
+    "name": "Arret Sud",
+    "longitude": 5.7786398,
+    "latitude": 44.9518145,
+    "altitude": 910
+  },
+  {
+    "id": "cars-0268",
+    "group": "cars",
+    "name": "Ecole de la Festiniere",
+    "longitude": 5.754004,
+    "latitude": 44.9547205,
+    "altitude": 966
+  },
+  {
+    "id": "cars-0269",
+    "group": "cars",
+    "name": "Z.I. les Marais",
+    "longitude": 5.7816385,
+    "latitude": 44.9334355,
+    "altitude": 886
+  },
+  {
+    "id": "cars-0270",
+    "group": "cars",
+    "name": "Combalberte",
+    "longitude": 5.813087,
+    "latitude": 44.964414,
+    "altitude": 1190
+  },
+  {
+    "id": "cars-0271",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.8253315,
+    "latitude": 44.9346795,
+    "altitude": 948
+  },
+  {
+    "id": "cars-0272",
+    "group": "cars",
+    "name": "Comboursiere",
+    "longitude": 5.822852,
+    "latitude": 44.961487,
+    "altitude": 1342
+  },
+  {
+    "id": "cars-0273",
+    "group": "cars",
+    "name": "Tors - Les Auches Parking",
+    "longitude": 5.797297,
+    "latitude": 44.941954,
+    "altitude": 912
+  },
+  {
+    "id": "cars-0274",
+    "group": "cars",
+    "name": "Tors - Entrée (Le Terroir)",
+    "longitude": 5.7963875,
+    "latitude": 44.940479,
+    "altitude": 910
+  },
+  {
+    "id": "cars-0275",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.815148,
+    "latitude": 44.942445,
+    "altitude": 1006
+  },
+  {
+    "id": "cars-0276",
+    "group": "cars",
+    "name": "Ecole de Fugieres",
+    "longitude": 5.8073698,
+    "latitude": 44.9540797,
+    "altitude": 1029
+  },
+  {
+    "id": "cars-0277",
+    "group": "cars",
+    "name": "Les Sagnes",
+    "longitude": 5.7948965,
+    "latitude": 44.933452,
+    "altitude": 891
+  },
+  {
+    "id": "cars-0278",
+    "group": "cars",
+    "name": "Les Mazuers",
+    "longitude": 5.8012545,
+    "latitude": 44.943507,
+    "altitude": 924
+  },
+  {
+    "id": "cars-0279",
+    "group": "cars",
+    "name": "Ancienne Maternelle",
+    "longitude": 5.793943,
+    "latitude": 44.9452175,
+    "altitude": 936
+  },
+  {
+    "id": "cars-0280",
+    "group": "cars",
+    "name": "Le Bourg",
+    "longitude": 5.80595,
+    "latitude": 44.978136,
+    "altitude": 1057
+  },
+  {
+    "id": "cars-0281",
+    "group": "cars",
+    "name": "La Traverse",
+    "longitude": 5.8026525,
+    "latitude": 44.96794,
+    "altitude": 1044
+  },
+  {
+    "id": "cars-0282",
+    "group": "cars",
+    "name": "Les Troussiers",
+    "longitude": 5.795071,
+    "latitude": 44.971804,
+    "altitude": 1004
+  },
+  {
+    "id": "cars-0283",
+    "group": "cars",
+    "name": "Les Droueyves",
+    "longitude": 5.801373,
+    "latitude": 44.976,
+    "altitude": 1035
+  },
+  {
+    "id": "cars-0284",
+    "group": "cars",
+    "name": "Mairie",
+    "longitude": 5.854015,
+    "latitude": 44.941191,
+    "altitude": 986
+  },
+  {
+    "id": "cars-0285",
+    "group": "cars",
+    "name": "Carrefour Route la Rochette",
+    "longitude": 5.866054,
+    "latitude": 44.9479695,
+    "altitude": 943
+  },
+  {
+    "id": "cars-0286",
+    "group": "cars",
+    "name": "Fontagneu",
+    "longitude": 5.878431,
+    "latitude": 44.9698295,
+    "altitude": 1009
+  },
+  {
+    "id": "cars-0287",
+    "group": "cars",
+    "name": "Le Mollard",
+    "longitude": 5.8729475,
+    "latitude": 44.960838,
+    "altitude": 985
+  },
+  {
+    "id": "cars-0288",
+    "group": "cars",
+    "name": "Les Daurens",
+    "longitude": 5.961719,
+    "latitude": 44.956563,
+    "altitude": 967
+  },
+  {
+    "id": "cars-0289",
+    "group": "cars",
+    "name": "La Chalp",
+    "longitude": 5.959462,
+    "latitude": 44.9706065,
+    "altitude": 1019
+  },
+  {
+    "id": "cars-0290",
+    "group": "cars",
+    "name": "Le Perier Village",
+    "longitude": 5.9736915,
+    "latitude": 44.9361345,
+    "altitude": 892
+  },
+  {
+    "id": "cars-0291",
+    "group": "cars",
+    "name": "Les Rambeaux",
+    "longitude": 5.97174,
+    "latitude": 44.9423455,
+    "altitude": 906
+  },
+  {
+    "id": "cars-0292",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 6.1763025,
+    "latitude": 44.957807,
+    "altitude": 1469
+  },
+  {
+    "id": "cars-0293",
+    "group": "cars",
+    "name": "Champhorent",
+    "longitude": 6.2036095,
+    "latitude": 44.933971,
+    "altitude": 1588
+  },
+  {
+    "id": "cars-0294",
+    "group": "cars",
+    "name": "Pré Clot",
+    "longitude": 6.18822,
+    "latitude": 44.945718,
+    "altitude": 1558
+  },
+  {
+    "id": "cars-0295",
+    "group": "cars",
+    "name": "Les Etages",
+    "longitude": 6.2563455,
+    "latitude": 44.9370645,
+    "altitude": 1594
+  },
+  {
+    "id": "cars-0296",
+    "group": "cars",
+    "name": "Hauts Plateaux",
+    "longitude": 5.5181208,
+    "latitude": 45.0246033,
+    "altitude": 1137
+  },
+  {
+    "id": "cars-0297",
+    "group": "cars",
+    "name": "Les Ritons",
+    "longitude": 5.5229203,
+    "latitude": 45.0285918,
+    "altitude": 1111
+  },
+  {
+    "id": "cars-0298",
+    "group": "cars",
+    "name": "Les Maréchaux",
+    "longitude": 5.5311325,
+    "latitude": 45.033337,
+    "altitude": 1092
+  },
+  {
+    "id": "cars-0299",
+    "group": "cars",
+    "name": "Clos de la Balme",
+    "longitude": 5.528934,
+    "latitude": 45.02044,
+    "altitude": 1229
+  },
+  {
+    "id": "cars-0300",
+    "group": "cars",
+    "name": "Place du Village",
+    "longitude": 5.5272433,
+    "latitude": 45.0318506,
+    "altitude": 1104
+  },
+  {
+    "id": "cars-0301",
+    "group": "cars",
+    "name": "Le Pigeonnier",
+    "longitude": 5.650731,
+    "latitude": 44.9941055,
+    "altitude": 608
+  },
+  {
+    "id": "cars-0302",
+    "group": "cars",
+    "name": "La Gare",
+    "longitude": 5.6497085,
+    "latitude": 44.991258,
+    "altitude": 621
+  },
+  {
+    "id": "cars-0303",
+    "group": "cars",
+    "name": "Col de l'Arzelier",
+    "longitude": 5.594505,
+    "latitude": 44.989316,
+    "altitude": 1147
+  },
+  {
+    "id": "cars-0304",
+    "group": "cars",
+    "name": "Les Allards",
+    "longitude": 5.784304,
+    "latitude": 45.0274925,
+    "altitude": 934
+  },
+  {
+    "id": "cars-0305",
+    "group": "cars",
+    "name": "Ecole Primaire",
+    "longitude": 5.7730365,
+    "latitude": 45.025772,
+    "altitude": 905
+  },
+  {
+    "id": "cars-0306",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.772929,
+    "latitude": 45.025551,
+    "altitude": 907
+  },
+  {
+    "id": "cars-0307",
+    "group": "cars",
+    "name": "Les Josserands",
+    "longitude": 5.7859625,
+    "latitude": 45.0181185,
+    "altitude": 957
+  },
+  {
+    "id": "cars-0308",
+    "group": "cars",
+    "name": "La Bergogne",
+    "longitude": 5.782029,
+    "latitude": 45.0044165,
+    "altitude": 937
+  },
+  {
+    "id": "cars-0309",
+    "group": "cars",
+    "name": "Pétichet",
+    "longitude": 5.773038,
+    "latitude": 44.9974675,
+    "altitude": 939
+  },
+  {
+    "id": "cars-0310",
+    "group": "cars",
+    "name": "Pied du Lac",
+    "longitude": 5.7812858,
+    "latitude": 45.0240696,
+    "altitude": 912
+  },
+  {
+    "id": "cars-0311",
+    "group": "cars",
+    "name": "Le Lac",
+    "longitude": 5.7740905,
+    "latitude": 45.022337,
+    "altitude": 914
+  },
+  {
+    "id": "cars-0312",
+    "group": "cars",
+    "name": "Les Prats",
+    "longitude": 5.7671905,
+    "latitude": 45.021078,
+    "altitude": 966
+  },
+  {
+    "id": "cars-0313",
+    "group": "cars",
+    "name": "Place de la Mairie",
+    "longitude": 5.7492426,
+    "latitude": 44.986973,
+    "altitude": 964
+  },
+  {
+    "id": "cars-0314",
+    "group": "cars",
+    "name": "Les Pellissiers",
+    "longitude": 5.761862,
+    "latitude": 45.010256,
+    "altitude": 1001
+  },
+  {
+    "id": "cars-0315",
+    "group": "cars",
+    "name": "Les Roures",
+    "longitude": 5.7526465,
+    "latitude": 44.9979125,
+    "altitude": 974
+  },
+  {
+    "id": "cars-0316",
+    "group": "cars",
+    "name": "Ecole",
+    "longitude": 5.7590875,
+    "latitude": 45.013469,
+    "altitude": 1022
+  },
+  {
+    "id": "cars-0317",
+    "group": "cars",
+    "name": "Les Perrins",
+    "longitude": 5.7506495,
+    "latitude": 44.999819,
+    "altitude": 1004
+  },
+  {
+    "id": "cars-0318",
+    "group": "cars",
+    "name": "Les Theneaux",
+    "longitude": 5.7828701,
+    "latitude": 44.9835245,
+    "altitude": 946
+  },
+  {
+    "id": "cars-0319",
+    "group": "cars",
+    "name": "Croix des Theneaux",
+    "longitude": 5.7716325,
+    "latitude": 44.9822013,
+    "altitude": 944
+  },
+  {
+    "id": "cars-0320",
+    "group": "cars",
+    "name": "Le Villaret",
+    "longitude": 5.7525995,
+    "latitude": 45.0049785,
+    "altitude": 1064
+  },
+  {
+    "id": "cars-0321",
+    "group": "cars",
+    "name": "Les Gontheaumes",
+    "longitude": 5.7692865,
+    "latitude": 44.9935245,
+    "altitude": 972
+  },
+  {
+    "id": "cars-0322",
+    "group": "cars",
+    "name": "La Fayolle",
+    "longitude": 5.782976,
+    "latitude": 44.9980895,
+    "altitude": 931
+  },
+  {
+    "id": "cars-0323",
+    "group": "cars",
+    "name": "Centre",
+    "longitude": 5.7962205,
+    "latitude": 45.0026835,
+    "altitude": 1053
+  },
+  {
+    "id": "cars-0324",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.8869674,
+    "latitude": 44.9822759,
+    "altitude": 1068
+  },
+  {
+    "id": "cars-0325",
+    "group": "cars",
+    "name": "Les Mazoirs",
+    "longitude": 5.883377,
+    "latitude": 44.990855,
+    "altitude": 1067
+  },
+  {
+    "id": "cars-0326",
+    "group": "cars",
+    "name": "Moulin Vieux",
+    "longitude": 5.880027,
+    "latitude": 45.003852,
+    "altitude": 1092
+  },
+  {
+    "id": "cars-0327",
+    "group": "cars",
+    "name": "Station la Blache",
+    "longitude": 5.8630005,
+    "latitude": 45.023629,
+    "altitude": 1370
+  },
+  {
+    "id": "cars-0328",
+    "group": "cars",
+    "name": "Chabotte",
+    "longitude": 5.8747635,
+    "latitude": 45.013379,
+    "altitude": 1230
+  },
+  {
+    "id": "cars-0329",
+    "group": "cars",
+    "name": "Le Villard",
+    "longitude": 5.875564,
+    "latitude": 45.007835,
+    "altitude": 1125
+  },
+  {
+    "id": "cars-0330",
+    "group": "cars",
+    "name": "Les Bosses",
+    "longitude": 5.967703,
+    "latitude": 44.984959,
+    "altitude": 1123
+  },
+  {
+    "id": "cars-0331",
+    "group": "cars",
+    "name": "Télécabine Venosc",
+    "longitude": 6.115646,
+    "latitude": 44.9874275,
+    "altitude": 954
+  },
+  {
+    "id": "cars-0332",
+    "group": "cars",
+    "name": "Station - Agence Cars Région VFD",
+    "longitude": 6.122139,
+    "latitude": 45.006236,
+    "altitude": 1645
+  },
+  {
+    "id": "cars-0333",
+    "group": "cars",
+    "name": "Station - Maison du Tourisme",
+    "longitude": 6.124311,
+    "latitude": 45.010718,
+    "altitude": 1649
+  },
+  {
+    "id": "cars-0334",
+    "group": "cars",
+    "name": "Les Ougiers",
+    "longitude": 6.0801602,
+    "latitude": 44.9942052,
+    "altitude": 862
+  },
+  {
+    "id": "cars-0335",
+    "group": "cars",
+    "name": "Station - Palais des Sports",
+    "longitude": 6.12463,
+    "latitude": 45.0136325,
+    "altitude": 1654
+  },
+  {
+    "id": "cars-0336",
+    "group": "cars",
+    "name": "Plan du Lac",
+    "longitude": 6.144889,
+    "latitude": 44.97859,
+    "altitude": 1170
+  },
+  {
+    "id": "cars-0337",
+    "group": "cars",
+    "name": "Les Champs",
+    "longitude": 5.362845,
+    "latitude": 45.0804765,
+    "altitude": 636
+  },
+  {
+    "id": "cars-0338",
+    "group": "cars",
+    "name": "Terrot",
+    "longitude": 5.382022,
+    "latitude": 45.0854415,
+    "altitude": 828
+  },
+  {
+    "id": "cars-0339",
+    "group": "cars",
+    "name": "Jeline",
+    "longitude": 5.3809615,
+    "latitude": 45.0830005,
+    "altitude": 820
+  },
+  {
+    "id": "cars-0340",
+    "group": "cars",
+    "name": "La Valette",
+    "longitude": 5.486894,
+    "latitude": 45.081853,
+    "altitude": 673
+  },
+  {
+    "id": "cars-0341",
+    "group": "cars",
+    "name": "Bois Barbu-Foyer de Fond",
+    "longitude": 5.522768,
+    "latitude": 45.059959,
+    "altitude": 1134
+  },
+  {
+    "id": "cars-0342",
+    "group": "cars",
+    "name": "Les Traverses",
+    "longitude": 5.533934,
+    "latitude": 45.0363525,
+    "altitude": 1088
+  },
+  {
+    "id": "cars-0343",
+    "group": "cars",
+    "name": "Pont de l'Essarton",
+    "longitude": 5.546474,
+    "latitude": 45.067297,
+    "altitude": 974
+  },
+  {
+    "id": "cars-0344",
+    "group": "cars",
+    "name": "Ecole les Leches",
+    "longitude": 5.55519,
+    "latitude": 45.0698705,
+    "altitude": 1032
+  },
+  {
+    "id": "cars-0345",
+    "group": "cars",
+    "name": "Font Noire",
+    "longitude": 5.554746,
+    "latitude": 45.078789,
+    "altitude": 983
+  },
+  {
+    "id": "cars-0346",
+    "group": "cars",
+    "name": "Les Pouteils",
+    "longitude": 5.5555,
+    "latitude": 45.048229,
+    "altitude": 1124
+  },
+  {
+    "id": "cars-0347",
+    "group": "cars",
+    "name": "Les Guillets",
+    "longitude": 5.547564,
+    "latitude": 45.049783,
+    "altitude": 1072
+  },
+  {
+    "id": "cars-0348",
+    "group": "cars",
+    "name": "Sagnes (Prenatier)",
+    "longitude": 5.547866,
+    "latitude": 45.0737385,
+    "altitude": 963
+  },
+  {
+    "id": "cars-0349",
+    "group": "cars",
+    "name": "L'Essarton-Le Peuil",
+    "longitude": 5.5466905,
+    "latitude": 45.0623365,
+    "altitude": 988
+  },
+  {
+    "id": "cars-0350",
+    "group": "cars",
+    "name": "Cité Scolaire Jean Prévost",
+    "longitude": 5.5557744,
+    "latitude": 45.062738,
+    "altitude": 1065
+  },
+  {
+    "id": "cars-0351",
+    "group": "cars",
+    "name": "Font de la Maie",
+    "longitude": 5.543162,
+    "latitude": 45.049715,
+    "altitude": 1017
+  },
+  {
+    "id": "cars-0352",
+    "group": "cars",
+    "name": "La Tancaniere",
+    "longitude": 5.540874,
+    "latitude": 45.0710865,
+    "altitude": 1019
+  },
+  {
+    "id": "cars-0353",
+    "group": "cars",
+    "name": "Bois Barbu-Ferme",
+    "longitude": 5.5321835,
+    "latitude": 45.065556,
+    "altitude": 1128
+  },
+  {
+    "id": "cars-0354",
+    "group": "cars",
+    "name": "Balcon de Villard-Côte 2000",
+    "longitude": 5.5570215,
+    "latitude": 45.046192,
+    "altitude": 1149
+  },
+  {
+    "id": "cars-0355",
+    "group": "cars",
+    "name": "Bois Barbu-4 Vents",
+    "longitude": 5.5276275,
+    "latitude": 45.0660845,
+    "altitude": 1135
+  },
+  {
+    "id": "cars-0356",
+    "group": "cars",
+    "name": "Charpichon",
+    "longitude": 5.5400005,
+    "latitude": 45.0736035,
+    "altitude": 950
+  },
+  {
+    "id": "cars-0357",
+    "group": "cars",
+    "name": "Gare Routiere",
+    "longitude": 5.552685,
+    "latitude": 45.072646,
+    "altitude": 1018
+  },
+  {
+    "id": "cars-0358",
+    "group": "cars",
+    "name": "Roche Pointue",
+    "longitude": 5.543243,
+    "latitude": 45.073554,
+    "altitude": 960
+  },
+  {
+    "id": "cars-0359",
+    "group": "cars",
+    "name": "Les Lombards",
+    "longitude": 5.573602,
+    "latitude": 45.0773015,
+    "altitude": 1101
+  },
+  {
+    "id": "cars-0360",
+    "group": "cars",
+    "name": "Chaberts-Mourets",
+    "longitude": 5.5722835,
+    "latitude": 45.0740945,
+    "altitude": 1094
+  },
+  {
+    "id": "cars-0361",
+    "group": "cars",
+    "name": "La Balmette",
+    "longitude": 5.5452822,
+    "latitude": 45.0588751,
+    "altitude": 995
+  },
+  {
+    "id": "cars-0362",
+    "group": "cars",
+    "name": "Conterie-Elf Antar",
+    "longitude": 5.553897,
+    "latitude": 45.07385,
+    "altitude": 1015
+  },
+  {
+    "id": "cars-0363",
+    "group": "cars",
+    "name": "Les Cochettes",
+    "longitude": 5.5669275,
+    "latitude": 45.0680925,
+    "altitude": 1078
+  },
+  {
+    "id": "cars-0364",
+    "group": "cars",
+    "name": "Le Lac Mort",
+    "longitude": 5.7949035,
+    "latitude": 45.035143,
+    "altitude": 941
+  },
+  {
+    "id": "cars-0365",
+    "group": "cars",
+    "name": "Le Sappey",
+    "longitude": 5.809349,
+    "latitude": 45.037979,
+    "altitude": 987
+  },
+  {
+    "id": "cars-0366",
+    "group": "cars",
+    "name": "Jean Poncet",
+    "longitude": 5.8521325,
+    "latitude": 45.031695,
+    "altitude": 1346
+  },
+  {
+    "id": "cars-0367",
+    "group": "cars",
+    "name": "Hameau le Désert",
+    "longitude": 5.845791,
+    "latitude": 45.02681,
+    "altitude": 1391
+  },
+  {
+    "id": "cars-0368",
+    "group": "cars",
+    "name": "Ecole",
+    "longitude": 5.856351,
+    "latitude": 45.029106,
+    "altitude": 1355
+  },
+  {
+    "id": "cars-0369",
+    "group": "cars",
+    "name": "Les Alpets",
+    "longitude": 5.854876,
+    "latitude": 45.0271601,
+    "altitude": 1360
+  },
+  {
+    "id": "cars-0370",
+    "group": "cars",
+    "name": "Le Pont",
+    "longitude": 5.858071,
+    "latitude": 45.0271655,
+    "altitude": 1357
+  },
+  {
+    "id": "cars-0371",
+    "group": "cars",
+    "name": "La Poyat",
+    "longitude": 5.977496,
+    "latitude": 45.0413715,
+    "altitude": 1089
+  },
+  {
+    "id": "cars-0372",
+    "group": "cars",
+    "name": "La Pallud d'Ornon",
+    "longitude": 5.9878465,
+    "latitude": 45.051415,
+    "altitude": 952
+  },
+  {
+    "id": "cars-0373",
+    "group": "cars",
+    "name": "Le Rivier",
+    "longitude": 5.9740265,
+    "latitude": 45.02924,
+    "altitude": 1186
+  },
+  {
+    "id": "cars-0374",
+    "group": "cars",
+    "name": "La Pouthuire",
+    "longitude": 5.9767715,
+    "latitude": 45.0375695,
+    "altitude": 1081
+  },
+  {
+    "id": "cars-0375",
+    "group": "cars",
+    "name": "Le Vert",
+    "longitude": 6.040196,
+    "latitude": 45.039435,
+    "altitude": 720
+  },
+  {
+    "id": "cars-0376",
+    "group": "cars",
+    "name": "La Rive",
+    "longitude": 6.042678,
+    "latitude": 45.042074,
+    "altitude": 718
+  },
+  {
+    "id": "cars-0377",
+    "group": "cars",
+    "name": "Halte Routiere",
+    "longitude": 6.0287094,
+    "latitude": 45.0584473,
+    "altitude": 718
+  },
+  {
+    "id": "cars-0378",
+    "group": "cars",
+    "name": "Ecole Primaire Centre",
+    "longitude": 6.030443,
+    "latitude": 45.051605,
+    "altitude": 718
+  },
+  {
+    "id": "cars-0379",
+    "group": "cars",
+    "name": "Le Couard",
+    "longitude": 6.0447228,
+    "latitude": 45.0472917,
+    "altitude": 718
+  },
+  {
+    "id": "cars-0380",
+    "group": "cars",
+    "name": "Sarennes-La Bergerie",
+    "longitude": 6.038343,
+    "latitude": 45.06378,
+    "altitude": 721
+  },
+  {
+    "id": "cars-0381",
+    "group": "cars",
+    "name": "Le Vernis",
+    "longitude": 6.051144,
+    "latitude": 45.0488235,
+    "altitude": 724
+  },
+  {
+    "id": "cars-0382",
+    "group": "cars",
+    "name": "Le Paradis",
+    "longitude": 6.038291,
+    "latitude": 45.046382,
+    "altitude": 718
+  },
+  {
+    "id": "cars-0383",
+    "group": "cars",
+    "name": "Les Croisettes",
+    "longitude": 6.039766,
+    "latitude": 45.0577285,
+    "altitude": 722
+  },
+  {
+    "id": "cars-0384",
+    "group": "cars",
+    "name": "Champrond",
+    "longitude": 6.1227875,
+    "latitude": 45.047427,
+    "altitude": 991
+  },
+  {
+    "id": "cars-0385",
+    "group": "cars",
+    "name": "Le Clapier",
+    "longitude": 6.0710973,
+    "latitude": 45.0289394,
+    "altitude": 742
+  },
+  {
+    "id": "cars-0386",
+    "group": "cars",
+    "name": "Les Cours",
+    "longitude": 6.083358,
+    "latitude": 45.050621,
+    "altitude": 1366
+  },
+  {
+    "id": "cars-0387",
+    "group": "cars",
+    "name": "Bons",
+    "longitude": 6.1150795,
+    "latitude": 45.035145,
+    "altitude": 1302
+  },
+  {
+    "id": "cars-0388",
+    "group": "cars",
+    "name": "Office de Tourisme",
+    "longitude": 6.0792428,
+    "latitude": 45.0556475,
+    "altitude": 1585
+  },
+  {
+    "id": "cars-0389",
+    "group": "cars",
+    "name": "Les Chatains",
+    "longitude": 6.0922673,
+    "latitude": 45.0466344,
+    "altitude": 1177
+  },
+  {
+    "id": "cars-0390",
+    "group": "cars",
+    "name": "La Rivoire",
+    "longitude": 6.0894074,
+    "latitude": 45.0324303,
+    "altitude": 907
+  },
+  {
+    "id": "cars-0391",
+    "group": "cars",
+    "name": "Le Garcin",
+    "longitude": 6.0932795,
+    "latitude": 45.0362764,
+    "altitude": 945
+  },
+  {
+    "id": "cars-0392",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 6.1246038,
+    "latitude": 45.0436559,
+    "altitude": 922
+  },
+  {
+    "id": "cars-0393",
+    "group": "cars",
+    "name": "L'Eglise",
+    "longitude": 6.120749,
+    "latitude": 45.046098,
+    "altitude": 1028
+  },
+  {
+    "id": "cars-0394",
+    "group": "cars",
+    "name": "Mont-de-Lans Village",
+    "longitude": 6.1319429,
+    "latitude": 45.036434,
+    "altitude": 1261
+  },
+  {
+    "id": "cars-0395",
+    "group": "cars",
+    "name": "Barrage du Chambon",
+    "longitude": 6.136115,
+    "latitude": 45.0447275,
+    "altitude": 1044
+  },
+  {
+    "id": "cars-0396",
+    "group": "cars",
+    "name": "Station - Point Info",
+    "longitude": 6.1248255,
+    "latitude": 45.017717,
+    "altitude": 1649
+  },
+  {
+    "id": "cars-0397",
+    "group": "cars",
+    "name": "Les Chazeaux",
+    "longitude": 6.1259655,
+    "latitude": 45.048629,
+    "altitude": 957
+  },
+  {
+    "id": "cars-0398",
+    "group": "cars",
+    "name": "Bibliotheque",
+    "longitude": 6.1425055,
+    "latitude": 45.049905,
+    "altitude": 1183
+  },
+  {
+    "id": "cars-0399",
+    "group": "cars",
+    "name": "Station - Equipement",
+    "longitude": 6.1235115,
+    "latitude": 45.020146,
+    "altitude": 1629
+  },
+  {
+    "id": "cars-0400",
+    "group": "cars",
+    "name": "Les Fauries",
+    "longitude": 5.39137,
+    "latitude": 45.102304,
+    "altitude": 920
+  },
+  {
+    "id": "cars-0401",
+    "group": "cars",
+    "name": "Bourg",
+    "longitude": 5.3826625,
+    "latitude": 45.0919405,
+    "altitude": 862
+  },
+  {
+    "id": "cars-0402",
+    "group": "cars",
+    "name": "Croix Sappey",
+    "longitude": 5.38853,
+    "latitude": 45.0963615,
+    "altitude": 895
+  },
+  {
+    "id": "cars-0403",
+    "group": "cars",
+    "name": "Auberge du Faz",
+    "longitude": 5.399906,
+    "latitude": 45.115489,
+    "altitude": 1001
+  },
+  {
+    "id": "cars-0404",
+    "group": "cars",
+    "name": "Les Rimets",
+    "longitude": 5.459775,
+    "latitude": 45.1120595,
+    "altitude": 1066
+  },
+  {
+    "id": "cars-0405",
+    "group": "cars",
+    "name": "La Rochette",
+    "longitude": 5.3970475,
+    "latitude": 45.108324,
+    "altitude": 964
+  },
+  {
+    "id": "cars-0406",
+    "group": "cars",
+    "name": "La Côte",
+    "longitude": 5.472159,
+    "latitude": 45.1274875,
+    "altitude": 1053
+  },
+  {
+    "id": "cars-0407",
+    "group": "cars",
+    "name": "Méaudre Place",
+    "longitude": 5.5274725,
+    "latitude": 45.127709,
+    "altitude": 985
+  },
+  {
+    "id": "cars-0408",
+    "group": "cars",
+    "name": "Méaudre Ecole",
+    "longitude": 5.526763,
+    "latitude": 45.127337,
+    "altitude": 987
+  },
+  {
+    "id": "cars-0409",
+    "group": "cars",
+    "name": "La Rochette",
+    "longitude": 5.4756215,
+    "latitude": 45.1292385,
+    "altitude": 993
+  },
+  {
+    "id": "cars-0410",
+    "group": "cars",
+    "name": "Le Violon",
+    "longitude": 5.471585,
+    "latitude": 45.1119445,
+    "altitude": 844
+  },
+  {
+    "id": "cars-0411",
+    "group": "cars",
+    "name": "Balme Maternelle",
+    "longitude": 5.46784,
+    "latitude": 45.088156,
+    "altitude": 658
+  },
+  {
+    "id": "cars-0412",
+    "group": "cars",
+    "name": "Bourg",
+    "longitude": 5.4731885,
+    "latitude": 45.104021,
+    "altitude": 800
+  },
+  {
+    "id": "cars-0413",
+    "group": "cars",
+    "name": "Ecole Primaire",
+    "longitude": 5.472263,
+    "latitude": 45.1025875,
+    "altitude": 796
+  },
+  {
+    "id": "cars-0414",
+    "group": "cars",
+    "name": "La Feuilletiere",
+    "longitude": 5.4728275,
+    "latitude": 45.1080715,
+    "altitude": 818
+  },
+  {
+    "id": "cars-0415",
+    "group": "cars",
+    "name": "Chemin des Pourrois",
+    "longitude": 5.476456,
+    "latitude": 45.125362,
+    "altitude": 977
+  },
+  {
+    "id": "cars-0416",
+    "group": "cars",
+    "name": "Les Jarrands",
+    "longitude": 5.5250785,
+    "latitude": 45.0854925,
+    "altitude": 932
+  },
+  {
+    "id": "cars-0417",
+    "group": "cars",
+    "name": "Cordet",
+    "longitude": 5.47113,
+    "latitude": 45.0966855,
+    "altitude": 760
+  },
+  {
+    "id": "cars-0418",
+    "group": "cars",
+    "name": "Les Côtes de Lans",
+    "longitude": 5.560722,
+    "latitude": 45.101523,
+    "altitude": 983
+  },
+  {
+    "id": "cars-0419",
+    "group": "cars",
+    "name": "La Verne",
+    "longitude": 5.530475,
+    "latitude": 45.1227345,
+    "altitude": 970
+  },
+  {
+    "id": "cars-0420",
+    "group": "cars",
+    "name": "Les Morets",
+    "longitude": 5.53167,
+    "latitude": 45.116691,
+    "altitude": 962
+  },
+  {
+    "id": "cars-0421",
+    "group": "cars",
+    "name": "Bouilly",
+    "longitude": 5.567054,
+    "latitude": 45.1108445,
+    "altitude": 988
+  },
+  {
+    "id": "cars-0422",
+    "group": "cars",
+    "name": "Les Eymards",
+    "longitude": 5.571916,
+    "latitude": 45.117762,
+    "altitude": 1009
+  },
+  {
+    "id": "cars-0423",
+    "group": "cars",
+    "name": "Mairie",
+    "longitude": 5.588829,
+    "latitude": 45.128192,
+    "altitude": 1010
+  },
+  {
+    "id": "cars-0424",
+    "group": "cars",
+    "name": "L'Aigle",
+    "longitude": 5.5881875,
+    "latitude": 45.1219395,
+    "altitude": 1013
+  },
+  {
+    "id": "cars-0425",
+    "group": "cars",
+    "name": "Le Peuil",
+    "longitude": 5.5873235,
+    "latitude": 45.1195415,
+    "altitude": 1017
+  },
+  {
+    "id": "cars-0426",
+    "group": "cars",
+    "name": "Les Francons",
+    "longitude": 5.5804405,
+    "latitude": 45.1069835,
+    "altitude": 1021
+  },
+  {
+    "id": "cars-0427",
+    "group": "cars",
+    "name": "Maison Favarin",
+    "longitude": 5.579775,
+    "latitude": 45.1003445,
+    "altitude": 1022
+  },
+  {
+    "id": "cars-0428",
+    "group": "cars",
+    "name": "Les Herauts",
+    "longitude": 5.579636,
+    "latitude": 45.0989375,
+    "altitude": 1025
+  },
+  {
+    "id": "cars-0429",
+    "group": "cars",
+    "name": "Les Girards",
+    "longitude": 5.579587,
+    "latitude": 45.0920295,
+    "altitude": 1035
+  },
+  {
+    "id": "cars-0430",
+    "group": "cars",
+    "name": "Traffet-Pont des Aniers",
+    "longitude": 5.55723,
+    "latitude": 45.0966975,
+    "altitude": 984
+  },
+  {
+    "id": "cars-0431",
+    "group": "cars",
+    "name": "Chemin des Geymonds",
+    "longitude": 5.55482,
+    "latitude": 45.086354,
+    "altitude": 979
+  },
+  {
+    "id": "cars-0432",
+    "group": "cars",
+    "name": "Les Geymonds",
+    "longitude": 5.5541215,
+    "latitude": 45.0850975,
+    "altitude": 976
+  },
+  {
+    "id": "cars-0433",
+    "group": "cars",
+    "name": "Route des Nobles",
+    "longitude": 5.5802365,
+    "latitude": 45.084342,
+    "altitude": 1060
+  },
+  {
+    "id": "cars-0434",
+    "group": "cars",
+    "name": "Ville Vieille",
+    "longitude": 5.5696045,
+    "latitude": 45.087128,
+    "altitude": 1029
+  },
+  {
+    "id": "cars-0435",
+    "group": "cars",
+    "name": "Les Arriberts",
+    "longitude": 5.5751585,
+    "latitude": 45.0859973,
+    "altitude": 1044
+  },
+  {
+    "id": "cars-0436",
+    "group": "cars",
+    "name": "Poulats-Carrefour",
+    "longitude": 5.5612403,
+    "latitude": 45.0857862,
+    "altitude": 995
+  },
+  {
+    "id": "cars-0437",
+    "group": "cars",
+    "name": "Les Nobles",
+    "longitude": 5.575928,
+    "latitude": 45.0816395,
+    "altitude": 1088
+  },
+  {
+    "id": "cars-0438",
+    "group": "cars",
+    "name": "Les Bernards",
+    "longitude": 5.5992615,
+    "latitude": 45.1276105,
+    "altitude": 1041
+  },
+  {
+    "id": "cars-0439",
+    "group": "cars",
+    "name": "Les Roberts",
+    "longitude": 5.9182416,
+    "latitude": 45.1012786,
+    "altitude": 606
+  },
+  {
+    "id": "cars-0440",
+    "group": "cars",
+    "name": "Livet - Dispensaire",
+    "longitude": 5.9360245,
+    "latitude": 45.1081375,
+    "altitude": 655
+  },
+  {
+    "id": "cars-0441",
+    "group": "cars",
+    "name": "Livet",
+    "longitude": 5.930187,
+    "latitude": 45.10622,
+    "altitude": 643
+  },
+  {
+    "id": "cars-0442",
+    "group": "cars",
+    "name": "Livet - Périscolaire",
+    "longitude": 5.9337706,
+    "latitude": 45.1078967,
+    "altitude": 650
+  },
+  {
+    "id": "cars-0443",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 6.0596705,
+    "latitude": 45.0812605,
+    "altitude": 1455
+  },
+  {
+    "id": "cars-0444",
+    "group": "cars",
+    "name": "Rochetaillée",
+    "longitude": 6.0043005,
+    "latitude": 45.1146065,
+    "altitude": 712
+  },
+  {
+    "id": "cars-0445",
+    "group": "cars",
+    "name": "Les Essoulieux",
+    "longitude": 6.036717,
+    "latitude": 45.0695725,
+    "altitude": 717
+  },
+  {
+    "id": "cars-0446",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 6.0441405,
+    "latitude": 45.0673731,
+    "altitude": 983
+  },
+  {
+    "id": "cars-0447",
+    "group": "cars",
+    "name": "Ecole",
+    "longitude": 6.0683756,
+    "latitude": 45.0891529,
+    "altitude": 1803
+  },
+  {
+    "id": "cars-0448",
+    "group": "cars",
+    "name": "Les Morelles",
+    "longitude": 6.018291,
+    "latitude": 45.0718205,
+    "altitude": 724
+  },
+  {
+    "id": "cars-0449",
+    "group": "cars",
+    "name": "Chemin des Effonds",
+    "longitude": 6.0080926,
+    "latitude": 45.1045668,
+    "altitude": 712
+  },
+  {
+    "id": "cars-0450",
+    "group": "cars",
+    "name": "Le Bassey",
+    "longitude": 6.0310765,
+    "latitude": 45.075779,
+    "altitude": 722
+  },
+  {
+    "id": "cars-0451",
+    "group": "cars",
+    "name": "Le Ribot",
+    "longitude": 6.0480515,
+    "latitude": 45.074965,
+    "altitude": 1159
+  },
+  {
+    "id": "cars-0452",
+    "group": "cars",
+    "name": "Ponsonnieres",
+    "longitude": 6.0564655,
+    "latitude": 45.0913715,
+    "altitude": 1710
+  },
+  {
+    "id": "cars-0453",
+    "group": "cars",
+    "name": "La Paute Village",
+    "longitude": 6.0135215,
+    "latitude": 45.0747575,
+    "altitude": 723
+  },
+  {
+    "id": "cars-0454",
+    "group": "cars",
+    "name": "Le Haut",
+    "longitude": 6.059947,
+    "latitude": 45.082224,
+    "altitude": 1494
+  },
+  {
+    "id": "cars-0455",
+    "group": "cars",
+    "name": "Maona",
+    "longitude": 6.0600275,
+    "latitude": 45.085021,
+    "altitude": 1580
+  },
+  {
+    "id": "cars-0456",
+    "group": "cars",
+    "name": "Ecoles des Sables",
+    "longitude": 6.0096935,
+    "latitude": 45.097552,
+    "altitude": 712
+  },
+  {
+    "id": "cars-0457",
+    "group": "cars",
+    "name": "Eglise des Sables",
+    "longitude": 6.010887,
+    "latitude": 45.0927025,
+    "altitude": 713
+  },
+  {
+    "id": "cars-0458",
+    "group": "cars",
+    "name": "L'Ordre",
+    "longitude": 6.0131782,
+    "latitude": 45.0829532,
+    "altitude": 715
+  },
+  {
+    "id": "cars-0459",
+    "group": "cars",
+    "name": "La Paute-Pont (RN91)",
+    "longitude": 6.016326,
+    "latitude": 45.074266,
+    "altitude": 730
+  },
+  {
+    "id": "cars-0460",
+    "group": "cars",
+    "name": "Paganon",
+    "longitude": 6.0651082,
+    "latitude": 45.0904435,
+    "altitude": 1775
+  },
+  {
+    "id": "cars-0461",
+    "group": "cars",
+    "name": "Avenue de l'Etendard",
+    "longitude": 6.0683493,
+    "latitude": 45.0931991,
+    "altitude": 1826
+  },
+  {
+    "id": "cars-0462",
+    "group": "cars",
+    "name": "L'Eclose",
+    "longitude": 6.06936,
+    "latitude": 45.0879152,
+    "altitude": 1815
+  },
+  {
+    "id": "cars-0463",
+    "group": "cars",
+    "name": "Rond-point des Pistes",
+    "longitude": 6.0703775,
+    "latitude": 45.0957,
+    "altitude": 1848
+  },
+  {
+    "id": "cars-0464",
+    "group": "cars",
+    "name": "Parking des Bergers",
+    "longitude": 6.07618,
+    "latitude": 45.089659,
+    "altitude": 1803
+  },
+  {
+    "id": "cars-0465",
+    "group": "cars",
+    "name": "Place (Fontaine)",
+    "longitude": 5.437143,
+    "latitude": 45.1462345,
+    "altitude": 929
+  },
+  {
+    "id": "cars-0466",
+    "group": "cars",
+    "name": "Le Moulin",
+    "longitude": 5.439627,
+    "latitude": 45.156637,
+    "altitude": 679
+  },
+  {
+    "id": "cars-0467",
+    "group": "cars",
+    "name": "Méaudre Piscine",
+    "longitude": 5.5281485,
+    "latitude": 45.1306615,
+    "altitude": 975
+  },
+  {
+    "id": "cars-0468",
+    "group": "cars",
+    "name": "Thorenas",
+    "longitude": 5.5262775,
+    "latitude": 45.14381,
+    "altitude": 996
+  },
+  {
+    "id": "cars-0469",
+    "group": "cars",
+    "name": "Truite Carrefour D106C",
+    "longitude": 5.5256685,
+    "latitude": 45.1500425,
+    "altitude": 998
+  },
+  {
+    "id": "cars-0470",
+    "group": "cars",
+    "name": "Les Tranchants",
+    "longitude": 5.523788,
+    "latitude": 45.161114,
+    "altitude": 1009
+  },
+  {
+    "id": "cars-0471",
+    "group": "cars",
+    "name": "Les Gonnets",
+    "longitude": 5.5234021,
+    "latitude": 45.1549553,
+    "altitude": 1002
+  },
+  {
+    "id": "cars-0472",
+    "group": "cars",
+    "name": "Les Dollys",
+    "longitude": 5.5263055,
+    "latitude": 45.1394085,
+    "altitude": 989
+  },
+  {
+    "id": "cars-0473",
+    "group": "cars",
+    "name": "Le Cochet",
+    "longitude": 5.517712,
+    "latitude": 45.1373855,
+    "altitude": 1001
+  },
+  {
+    "id": "cars-0474",
+    "group": "cars",
+    "name": "Les Farlaix",
+    "longitude": 5.519412,
+    "latitude": 45.1311535,
+    "altitude": 1003
+  },
+  {
+    "id": "cars-0475",
+    "group": "cars",
+    "name": "Ferme Blanc-Brude",
+    "longitude": 5.5270095,
+    "latitude": 45.1691905,
+    "altitude": 1017
+  },
+  {
+    "id": "cars-0476",
+    "group": "cars",
+    "name": "Les Vernes",
+    "longitude": 5.528883,
+    "latitude": 45.158269,
+    "altitude": 1008
+  },
+  {
+    "id": "cars-0477",
+    "group": "cars",
+    "name": "Les Eymes",
+    "longitude": 5.5175275,
+    "latitude": 45.145429,
+    "altitude": 1010
+  },
+  {
+    "id": "cars-0478",
+    "group": "cars",
+    "name": "La Fond",
+    "longitude": 5.4778745,
+    "latitude": 45.136682,
+    "altitude": 1026
+  },
+  {
+    "id": "cars-0479",
+    "group": "cars",
+    "name": "Col de Romeyere",
+    "longitude": 5.4796625,
+    "latitude": 45.143946,
+    "altitude": 1069
+  },
+  {
+    "id": "cars-0480",
+    "group": "cars",
+    "name": "Les Rittons",
+    "longitude": 5.4767545,
+    "latitude": 45.133234,
+    "altitude": 1013
+  },
+  {
+    "id": "cars-0481",
+    "group": "cars",
+    "name": "Les Grangeons",
+    "longitude": 5.5379488,
+    "latitude": 45.1316218,
+    "altitude": 1012
+  },
+  {
+    "id": "cars-0482",
+    "group": "cars",
+    "name": "Les Griats",
+    "longitude": 5.5487655,
+    "latitude": 45.147651,
+    "altitude": 1011
+  },
+  {
+    "id": "cars-0483",
+    "group": "cars",
+    "name": "Les Aguiards",
+    "longitude": 5.5422655,
+    "latitude": 45.1325323,
+    "altitude": 1003
+  },
+  {
+    "id": "cars-0484",
+    "group": "cars",
+    "name": "La Perriniere Pont",
+    "longitude": 5.5538785,
+    "latitude": 45.1561275,
+    "altitude": 1049
+  },
+  {
+    "id": "cars-0485",
+    "group": "cars",
+    "name": "Les Franques",
+    "longitude": 5.5351887,
+    "latitude": 45.1675733,
+    "altitude": 1023
+  },
+  {
+    "id": "cars-0486",
+    "group": "cars",
+    "name": "Le Bouchet",
+    "longitude": 5.5524485,
+    "latitude": 45.169257,
+    "altitude": 1079
+  },
+  {
+    "id": "cars-0487",
+    "group": "cars",
+    "name": "Piaillon",
+    "longitude": 5.5373555,
+    "latitude": 45.142081,
+    "altitude": 995
+  },
+  {
+    "id": "cars-0488",
+    "group": "cars",
+    "name": "Les Hirondelles",
+    "longitude": 5.536754,
+    "latitude": 45.1698253,
+    "altitude": 1027
+  },
+  {
+    "id": "cars-0489",
+    "group": "cars",
+    "name": "La Bourriere",
+    "longitude": 5.5456003,
+    "latitude": 45.1405523,
+    "altitude": 1020
+  },
+  {
+    "id": "cars-0490",
+    "group": "cars",
+    "name": "Jaume",
+    "longitude": 5.5804305,
+    "latitude": 45.129793,
+    "altitude": 1002
+  },
+  {
+    "id": "cars-0491",
+    "group": "cars",
+    "name": "Les Gaillardes",
+    "longitude": 5.5430455,
+    "latitude": 45.1439095,
+    "altitude": 998
+  },
+  {
+    "id": "cars-0492",
+    "group": "cars",
+    "name": "Hameau le Bouchet",
+    "longitude": 5.561062,
+    "latitude": 45.170863,
+    "altitude": 1116
+  },
+  {
+    "id": "cars-0493",
+    "group": "cars",
+    "name": "Foyer Ski de Fond",
+    "longitude": 5.540105,
+    "latitude": 45.176327,
+    "altitude": 1038
+  },
+  {
+    "id": "cars-0494",
+    "group": "cars",
+    "name": "Le Truc",
+    "longitude": 5.560355,
+    "latitude": 45.1738145,
+    "altitude": 1095
+  },
+  {
+    "id": "cars-0495",
+    "group": "cars",
+    "name": "Andreviere",
+    "longitude": 5.5369205,
+    "latitude": 45.1744295,
+    "altitude": 1034
+  },
+  {
+    "id": "cars-0496",
+    "group": "cars",
+    "name": "Autrans Village",
+    "longitude": 5.542611,
+    "latitude": 45.175015,
+    "altitude": 1039
+  },
+  {
+    "id": "cars-0497",
+    "group": "cars",
+    "name": "Le Cordey",
+    "longitude": 5.5433032,
+    "latitude": 45.1356351,
+    "altitude": 1008
+  },
+  {
+    "id": "cars-0498",
+    "group": "cars",
+    "name": "L'Olette",
+    "longitude": 5.5890745,
+    "latitude": 45.1404455,
+    "altitude": 955
+  },
+  {
+    "id": "cars-0499",
+    "group": "cars",
+    "name": "Col de la Croix Perrin",
+    "longitude": 5.559841,
+    "latitude": 45.130122,
+    "altitude": 1217
+  },
+  {
+    "id": "cars-0500",
+    "group": "cars",
+    "name": "Office de Tourisme",
+    "longitude": 5.5842481,
+    "latitude": 45.1292931,
+    "altitude": 1006
+  },
+  {
+    "id": "cars-0501",
+    "group": "cars",
+    "name": "L'Echarliere",
+    "longitude": 5.5529325,
+    "latitude": 45.1646565,
+    "altitude": 1059
+  },
+  {
+    "id": "cars-0502",
+    "group": "cars",
+    "name": "Les Imbeaux",
+    "longitude": 5.531026,
+    "latitude": 45.1333175,
+    "altitude": 980
+  },
+  {
+    "id": "cars-0503",
+    "group": "cars",
+    "name": "Les Roches Rousses",
+    "longitude": 5.6052255,
+    "latitude": 45.138536,
+    "altitude": 1095
+  },
+  {
+    "id": "cars-0504",
+    "group": "cars",
+    "name": "La Chenevarie",
+    "longitude": 5.604111,
+    "latitude": 45.133452,
+    "altitude": 1068
+  },
+  {
+    "id": "cars-0505",
+    "group": "cars",
+    "name": "Les Volants",
+    "longitude": 5.619366,
+    "latitude": 45.15702,
+    "altitude": 1135
+  },
+  {
+    "id": "cars-0506",
+    "group": "cars",
+    "name": "Le Village",
+    "longitude": 5.6303463,
+    "latitude": 45.1709069,
+    "altitude": 1162
+  },
+  {
+    "id": "cars-0507",
+    "group": "cars",
+    "name": "La Tour",
+    "longitude": 5.6256239,
+    "latitude": 45.1655624,
+    "altitude": 1154
+  },
+  {
+    "id": "cars-0508",
+    "group": "cars",
+    "name": "La Tour Sans Venin",
+    "longitude": 5.66692,
+    "latitude": 45.1709375,
+    "altitude": 632
+  },
+  {
+    "id": "cars-0509",
+    "group": "cars",
+    "name": "Pharmacie",
+    "longitude": 6.027079,
+    "latitude": 45.1237065,
+    "altitude": 719
+  },
+  {
+    "id": "cars-0510",
+    "group": "cars",
+    "name": "La Passerelle",
+    "longitude": 6.020237,
+    "latitude": 45.1205365,
+    "altitude": 716
+  },
+  {
+    "id": "cars-0511",
+    "group": "cars",
+    "name": "Plan Barbier",
+    "longitude": 6.0405203,
+    "latitude": 45.1286683,
+    "altitude": 728
+  },
+  {
+    "id": "cars-0512",
+    "group": "cars",
+    "name": "Les Grands Champs",
+    "longitude": 6.04266,
+    "latitude": 45.133629,
+    "altitude": 807
+  },
+  {
+    "id": "cars-0513",
+    "group": "cars",
+    "name": "La Fonderie",
+    "longitude": 6.034516,
+    "latitude": 45.1267245,
+    "altitude": 722
+  },
+  {
+    "id": "cars-0514",
+    "group": "cars",
+    "name": "Cité le Verney",
+    "longitude": 6.048384,
+    "latitude": 45.14776,
+    "altitude": 777
+  },
+  {
+    "id": "cars-0515",
+    "group": "cars",
+    "name": "La Condamine",
+    "longitude": 6.053893,
+    "latitude": 45.149781,
+    "altitude": 959
+  },
+  {
+    "id": "cars-0516",
+    "group": "cars",
+    "name": "Pourchery",
+    "longitude": 6.058989,
+    "latitude": 45.149251,
+    "altitude": 1002
+  },
+  {
+    "id": "cars-0517",
+    "group": "cars",
+    "name": "Carrefour D526 D44",
+    "longitude": 6.049047,
+    "latitude": 45.1368735,
+    "altitude": 777
+  },
+  {
+    "id": "cars-0518",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 6.0522195,
+    "latitude": 45.139958,
+    "altitude": 846
+  },
+  {
+    "id": "cars-0519",
+    "group": "cars",
+    "name": "La Beurriere",
+    "longitude": 6.0399695,
+    "latitude": 45.124832,
+    "altitude": 807
+  },
+  {
+    "id": "cars-0520",
+    "group": "cars",
+    "name": "Le Verney",
+    "longitude": 6.0501325,
+    "latitude": 45.147748,
+    "altitude": 808
+  },
+  {
+    "id": "cars-0521",
+    "group": "cars",
+    "name": "Le Raffour",
+    "longitude": 6.024884,
+    "latitude": 45.115442,
+    "altitude": 716
+  },
+  {
+    "id": "cars-0522",
+    "group": "cars",
+    "name": "Rif Jany",
+    "longitude": 6.05197,
+    "latitude": 45.147924,
+    "altitude": 854
+  },
+  {
+    "id": "cars-0523",
+    "group": "cars",
+    "name": "Groupe Scol. les Ardoisieres",
+    "longitude": 6.0384575,
+    "latitude": 45.127196,
+    "altitude": 724
+  },
+  {
+    "id": "cars-0524",
+    "group": "cars",
+    "name": "L'Eglise",
+    "longitude": 6.073263,
+    "latitude": 45.1574505,
+    "altitude": 1213
+  },
+  {
+    "id": "cars-0525",
+    "group": "cars",
+    "name": "Station Téléphérique",
+    "longitude": 6.078366,
+    "latitude": 45.15752,
+    "altitude": 1241
+  },
+  {
+    "id": "cars-0526",
+    "group": "cars",
+    "name": "HLM",
+    "longitude": 6.0798665,
+    "latitude": 45.1591145,
+    "altitude": 1286
+  },
+  {
+    "id": "cars-0527",
+    "group": "cars",
+    "name": "Chapelle de Redon",
+    "longitude": 5.252252,
+    "latitude": 45.208675,
+    "altitude": 619
+  },
+  {
+    "id": "cars-0528",
+    "group": "cars",
+    "name": "La Sapiniere",
+    "longitude": 5.2291275,
+    "latitude": 45.217254,
+    "altitude": 623
+  },
+  {
+    "id": "cars-0529",
+    "group": "cars",
+    "name": "Chemin de Messins",
+    "longitude": 5.292971,
+    "latitude": 45.2247755,
+    "altitude": 629
+  },
+  {
+    "id": "cars-0530",
+    "group": "cars",
+    "name": "Les Platres",
+    "longitude": 5.2921515,
+    "latitude": 45.227963,
+    "altitude": 648
+  },
+  {
+    "id": "cars-0531",
+    "group": "cars",
+    "name": "Ferme Mazarin",
+    "longitude": 5.313199,
+    "latitude": 45.229798,
+    "altitude": 644
+  },
+  {
+    "id": "cars-0532",
+    "group": "cars",
+    "name": "La Combe Perreras",
+    "longitude": 5.3216345,
+    "latitude": 45.2236625,
+    "altitude": 637
+  },
+  {
+    "id": "cars-0533",
+    "group": "cars",
+    "name": "Les Ayes",
+    "longitude": 5.322773,
+    "latitude": 45.219056,
+    "altitude": 608
+  },
+  {
+    "id": "cars-0534",
+    "group": "cars",
+    "name": "Autrans Ecoles",
+    "longitude": 5.543485,
+    "latitude": 45.176779,
+    "altitude": 1043
+  },
+  {
+    "id": "cars-0535",
+    "group": "cars",
+    "name": "Les Prudhommes",
+    "longitude": 5.5706765,
+    "latitude": 45.20127,
+    "altitude": 1111
+  },
+  {
+    "id": "cars-0536",
+    "group": "cars",
+    "name": "Villeneuve (RD218)",
+    "longitude": 5.5665725,
+    "latitude": 45.1943095,
+    "altitude": 1092
+  },
+  {
+    "id": "cars-0537",
+    "group": "cars",
+    "name": "Les Anémones",
+    "longitude": 5.5551995,
+    "latitude": 45.180525,
+    "altitude": 1061
+  },
+  {
+    "id": "cars-0538",
+    "group": "cars",
+    "name": "Eybertiere (RD218)",
+    "longitude": 5.558724,
+    "latitude": 45.183504,
+    "altitude": 1070
+  },
+  {
+    "id": "cars-0539",
+    "group": "cars",
+    "name": "Le Château (Carrefour Occaj)",
+    "longitude": 5.551251,
+    "latitude": 45.178668,
+    "altitude": 1052
+  },
+  {
+    "id": "cars-0540",
+    "group": "cars",
+    "name": "Transformateur",
+    "longitude": 5.5447068,
+    "latitude": 45.1820697,
+    "altitude": 1063
+  },
+  {
+    "id": "cars-0541",
+    "group": "cars",
+    "name": "Bourg le Dessous",
+    "longitude": 5.5412225,
+    "latitude": 45.1809045,
+    "altitude": 1058
+  },
+  {
+    "id": "cars-0542",
+    "group": "cars",
+    "name": "Eybertiere",
+    "longitude": 5.564509,
+    "latitude": 45.186331,
+    "altitude": 1083
+  },
+  {
+    "id": "cars-0543",
+    "group": "cars",
+    "name": "Le Lavoir",
+    "longitude": 5.5672135,
+    "latitude": 45.19074,
+    "altitude": 1090
+  },
+  {
+    "id": "cars-0544",
+    "group": "cars",
+    "name": "Villeneuve",
+    "longitude": 5.570283,
+    "latitude": 45.193969,
+    "altitude": 1112
+  },
+  {
+    "id": "cars-0545",
+    "group": "cars",
+    "name": "Eybertiere Abri",
+    "longitude": 5.56193,
+    "latitude": 45.186199,
+    "altitude": 1080
+  },
+  {
+    "id": "cars-0546",
+    "group": "cars",
+    "name": "Le Fournel",
+    "longitude": 5.619539,
+    "latitude": 45.1923615,
+    "altitude": 922
+  },
+  {
+    "id": "cars-0547",
+    "group": "cars",
+    "name": "Pont Jalla",
+    "longitude": 5.620805,
+    "latitude": 45.1826625,
+    "altitude": 835
+  },
+  {
+    "id": "cars-0548",
+    "group": "cars",
+    "name": "La Croix",
+    "longitude": 5.6181205,
+    "latitude": 45.1830695,
+    "altitude": 912
+  },
+  {
+    "id": "cars-0549",
+    "group": "cars",
+    "name": "Les Jaux",
+    "longitude": 5.618599,
+    "latitude": 45.176829,
+    "altitude": 861
+  },
+  {
+    "id": "cars-0550",
+    "group": "cars",
+    "name": "Les Brets",
+    "longitude": 5.625004,
+    "latitude": 45.1909595,
+    "altitude": 765
+  },
+  {
+    "id": "cars-0551",
+    "group": "cars",
+    "name": "Les Guillets",
+    "longitude": 5.6403315,
+    "latitude": 45.1744165,
+    "altitude": 1051
+  },
+  {
+    "id": "cars-0552",
+    "group": "cars",
+    "name": "Romanet",
+    "longitude": 5.644572,
+    "latitude": 45.177388,
+    "altitude": 1022
+  },
+  {
+    "id": "cars-0553",
+    "group": "cars",
+    "name": "Pariset",
+    "longitude": 5.6584885,
+    "latitude": 45.1748665,
+    "altitude": 698
+  },
+  {
+    "id": "cars-0554",
+    "group": "cars",
+    "name": "Usine",
+    "longitude": 5.6320005,
+    "latitude": 45.1997055,
+    "altitude": 610
+  },
+  {
+    "id": "cars-0555",
+    "group": "cars",
+    "name": "Le Rochas",
+    "longitude": 6.081709,
+    "latitude": 45.160158,
+    "altitude": 1311
+  },
+  {
+    "id": "cars-0556",
+    "group": "cars",
+    "name": "Le Collet-Tennis",
+    "longitude": 6.09447,
+    "latitude": 45.168426,
+    "altitude": 1409
+  },
+  {
+    "id": "cars-0557",
+    "group": "cars",
+    "name": "La Villette",
+    "longitude": 6.088582,
+    "latitude": 45.163699,
+    "altitude": 1322
+  },
+  {
+    "id": "cars-0558",
+    "group": "cars",
+    "name": "Haut de la Villette",
+    "longitude": 6.089277,
+    "latitude": 45.164901,
+    "altitude": 1348
+  },
+  {
+    "id": "cars-0559",
+    "group": "cars",
+    "name": "Carrefour Pré Reynaud",
+    "longitude": 5.2316758,
+    "latitude": 45.2678452,
+    "altitude": 604
+  },
+  {
+    "id": "cars-0560",
+    "group": "cars",
+    "name": "Pilon (Carrefour Marnans)",
+    "longitude": 5.261801,
+    "latitude": 45.279706,
+    "altitude": 614
+  },
+  {
+    "id": "cars-0561",
+    "group": "cars",
+    "name": "Parking Acca",
+    "longitude": 5.307535,
+    "latitude": 45.232245,
+    "altitude": 667
+  },
+  {
+    "id": "cars-0562",
+    "group": "cars",
+    "name": "Centre",
+    "longitude": 5.38567,
+    "latitude": 45.2755355,
+    "altitude": 603
+  },
+  {
+    "id": "cars-0563",
+    "group": "cars",
+    "name": "Le Coing",
+    "longitude": 5.5542405,
+    "latitude": 45.249437,
+    "altitude": 894
+  },
+  {
+    "id": "cars-0564",
+    "group": "cars",
+    "name": "Vif de la Claie",
+    "longitude": 5.5597805,
+    "latitude": 45.254812,
+    "altitude": 783
+  },
+  {
+    "id": "cars-0565",
+    "group": "cars",
+    "name": "Salle des Fetes",
+    "longitude": 5.5660095,
+    "latitude": 45.2640378,
+    "altitude": 680
+  },
+  {
+    "id": "cars-0566",
+    "group": "cars",
+    "name": "Les Charpennes",
+    "longitude": 5.556181,
+    "latitude": 45.2694855,
+    "altitude": 610
+  },
+  {
+    "id": "cars-0567",
+    "group": "cars",
+    "name": "Le Muet",
+    "longitude": 5.553593,
+    "latitude": 45.257152,
+    "altitude": 826
+  },
+  {
+    "id": "cars-0568",
+    "group": "cars",
+    "name": "Bourg",
+    "longitude": 5.5609858,
+    "latitude": 45.2626443,
+    "altitude": 742
+  },
+  {
+    "id": "cars-0569",
+    "group": "cars",
+    "name": "Le Pilon",
+    "longitude": 5.261719,
+    "latitude": 45.27971,
+    "altitude": 614
+  },
+  {
+    "id": "cars-0570",
+    "group": "cars",
+    "name": "Impasse Pré Reynaud",
+    "longitude": 5.2377705,
+    "latitude": 45.280371,
+    "altitude": 603
+  },
+  {
+    "id": "cars-0571",
+    "group": "cars",
+    "name": "La Baratiere",
+    "longitude": 5.342456,
+    "latitude": 45.290098,
+    "altitude": 607
+  },
+  {
+    "id": "cars-0572",
+    "group": "cars",
+    "name": "Croisement Toutes Aures",
+    "longitude": 5.352335,
+    "latitude": 45.2840735,
+    "altitude": 629
+  },
+  {
+    "id": "cars-0573",
+    "group": "cars",
+    "name": "Grange Neuve",
+    "longitude": 5.3455095,
+    "latitude": 45.285805,
+    "altitude": 636
+  },
+  {
+    "id": "cars-0574",
+    "group": "cars",
+    "name": "Le Girin",
+    "longitude": 5.419312,
+    "latitude": 45.304805,
+    "altitude": 624
+  },
+  {
+    "id": "cars-0575",
+    "group": "cars",
+    "name": "La Diat",
+    "longitude": 5.806815,
+    "latitude": 45.3397455,
+    "altitude": 791
+  },
+  {
+    "id": "cars-0576",
+    "group": "cars",
+    "name": "Les Revols",
+    "longitude": 5.782135,
+    "latitude": 45.319781,
+    "altitude": 1083
+  },
+  {
+    "id": "cars-0577",
+    "group": "cars",
+    "name": "Cherlieu",
+    "longitude": 5.791024,
+    "latitude": 45.3149745,
+    "altitude": 947
+  },
+  {
+    "id": "cars-0578",
+    "group": "cars",
+    "name": "Les Egaux",
+    "longitude": 5.801452,
+    "latitude": 45.3165395,
+    "altitude": 951
+  },
+  {
+    "id": "cars-0579",
+    "group": "cars",
+    "name": "Gerentiere",
+    "longitude": 5.809117,
+    "latitude": 45.3196165,
+    "altitude": 895
+  },
+  {
+    "id": "cars-0580",
+    "group": "cars",
+    "name": "Les Cottaves",
+    "longitude": 5.775961,
+    "latitude": 45.3138835,
+    "altitude": 1083
+  },
+  {
+    "id": "cars-0581",
+    "group": "cars",
+    "name": "Saint-Hugues",
+    "longitude": 5.806476,
+    "latitude": 45.323684,
+    "altitude": 880
+  },
+  {
+    "id": "cars-0582",
+    "group": "cars",
+    "name": "Les Côtes du Moulin",
+    "longitude": 5.785175,
+    "latitude": 45.348282,
+    "altitude": 769
+  },
+  {
+    "id": "cars-0583",
+    "group": "cars",
+    "name": "Ecole de Saint-Hugues",
+    "longitude": 5.8063685,
+    "latitude": 45.323024,
+    "altitude": 884
+  },
+  {
+    "id": "cars-0584",
+    "group": "cars",
+    "name": "La Correrie",
+    "longitude": 5.794245,
+    "latitude": 45.3466485,
+    "altitude": 779
+  },
+  {
+    "id": "cars-0585",
+    "group": "cars",
+    "name": "Les Combes",
+    "longitude": 5.784755,
+    "latitude": 45.316303,
+    "altitude": 982
+  },
+  {
+    "id": "cars-0586",
+    "group": "cars",
+    "name": "Pont des Bargettes",
+    "longitude": 5.806403,
+    "latitude": 45.332936,
+    "altitude": 815
+  },
+  {
+    "id": "cars-0587",
+    "group": "cars",
+    "name": "Camping Martiniere",
+    "longitude": 5.7976,
+    "latitude": 45.326553,
+    "altitude": 886
+  },
+  {
+    "id": "cars-0588",
+    "group": "cars",
+    "name": "Gontiere",
+    "longitude": 5.8117975,
+    "latitude": 45.3335755,
+    "altitude": 911
+  },
+  {
+    "id": "cars-0589",
+    "group": "cars",
+    "name": "La Patassiere",
+    "longitude": 5.8168755,
+    "latitude": 45.346854,
+    "altitude": 911
+  },
+  {
+    "id": "cars-0590",
+    "group": "cars",
+    "name": "Mollard-Bellet",
+    "longitude": 5.8137385,
+    "latitude": 45.3358535,
+    "altitude": 913
+  },
+  {
+    "id": "cars-0591",
+    "group": "cars",
+    "name": "Route Perquelin",
+    "longitude": 5.8182075,
+    "latitude": 45.3410025,
+    "altitude": 879
+  },
+  {
+    "id": "cars-0592",
+    "group": "cars",
+    "name": "La Pajonniere",
+    "longitude": 5.823866,
+    "latitude": 45.354516,
+    "altitude": 994
+  },
+  {
+    "id": "cars-0593",
+    "group": "cars",
+    "name": "Quatre Chemins",
+    "longitude": 5.8104775,
+    "latitude": 45.340001,
+    "altitude": 810
+  },
+  {
+    "id": "cars-0594",
+    "group": "cars",
+    "name": "Plan de Ville",
+    "longitude": 5.813841,
+    "latitude": 45.342471,
+    "altitude": 881
+  },
+  {
+    "id": "cars-0595",
+    "group": "cars",
+    "name": "La Coche",
+    "longitude": 5.8195065,
+    "latitude": 45.350762,
+    "altitude": 934
+  },
+  {
+    "id": "cars-0596",
+    "group": "cars",
+    "name": "Pré Labbé",
+    "longitude": 5.810231,
+    "latitude": 45.328265,
+    "altitude": 894
+  },
+  {
+    "id": "cars-0597",
+    "group": "cars",
+    "name": "Saint-Philibert - Eglise",
+    "longitude": 5.848989,
+    "latitude": 45.379756,
+    "altitude": 920
+  },
+  {
+    "id": "cars-0598",
+    "group": "cars",
+    "name": "Les Cloitres",
+    "longitude": 5.8542725,
+    "latitude": 45.3831055,
+    "altitude": 930
+  },
+  {
+    "id": "cars-0599",
+    "group": "cars",
+    "name": "Les Rey",
+    "longitude": 5.845016,
+    "latitude": 45.389192,
+    "altitude": 941
+  },
+  {
+    "id": "cars-0600",
+    "group": "cars",
+    "name": "Saint-Philibert - Le Monument",
+    "longitude": 5.8511565,
+    "latitude": 45.3808355,
+    "altitude": 929
+  },
+  {
+    "id": "cars-0601",
+    "group": "cars",
+    "name": "Les Arragons",
+    "longitude": 5.843906,
+    "latitude": 45.382437,
+    "altitude": 986
+  },
+  {
+    "id": "cars-0602",
+    "group": "cars",
+    "name": "Saint-Philibert - Maison Saule",
+    "longitude": 5.846296,
+    "latitude": 45.379195,
+    "altitude": 938
+  },
+  {
+    "id": "cars-0603",
+    "group": "cars",
+    "name": "Le Villard",
+    "longitude": 5.843633,
+    "latitude": 45.398378,
+    "altitude": 882
+  },
+  {
+    "id": "cars-0604",
+    "group": "cars",
+    "name": "Bifurcation les Arragons",
+    "longitude": 5.84463,
+    "latitude": 45.383846,
+    "altitude": 973
+  },
+  {
+    "id": "cars-0605",
+    "group": "cars",
+    "name": "Bifurcation les Bas-Le Villard",
+    "longitude": 5.842761,
+    "latitude": 45.402868,
+    "altitude": 873
+  },
+  {
+    "id": "cars-0606",
+    "group": "cars",
+    "name": "Les Bas",
+    "longitude": 5.843528,
+    "latitude": 45.403569,
+    "altitude": 845
+  },
+  {
+    "id": "cars-0607",
+    "group": "cars",
+    "name": "Les Vassaux",
+    "longitude": 5.853073,
+    "latitude": 45.388643,
+    "altitude": 894
+  },
+  {
+    "id": "cars-0608",
+    "group": "cars",
+    "name": "Galieve",
+    "longitude": 5.4194935,
+    "latitude": 45.463425,
+    "altitude": 601
+  },
+  {
+    "id": "cars-0609",
+    "group": "cars",
+    "name": "La Fagotiere",
+    "longitude": 5.675358,
+    "latitude": 45.446038,
+    "altitude": 651
+  },
+  {
+    "id": "cars-0610",
+    "group": "cars",
+    "name": "Village",
+    "longitude": 5.663364,
+    "latitude": 45.444762,
+    "altitude": 635
+  },
+  {
+    "id": "cars-0611",
+    "group": "cars",
+    "name": "Nouveliere",
+    "longitude": 5.644744,
+    "latitude": 45.433811,
+    "altitude": 678
+  },
+  {
+    "id": "cars-0612",
+    "group": "cars",
+    "name": "Pivotiere",
+    "longitude": 5.660099,
+    "latitude": 45.440023,
+    "altitude": 649
+  },
+  {
+    "id": "cars-0613",
+    "group": "cars",
+    "name": "Le Burlet",
+    "longitude": 5.650293,
+    "latitude": 45.433632,
+    "altitude": 690
+  },
+  {
+    "id": "cars-0614",
+    "group": "cars",
+    "name": "HLM",
+    "longitude": 5.7092415,
+    "latitude": 45.435368,
+    "altitude": 616
+  },
+  {
+    "id": "cars-0615",
+    "group": "cars",
+    "name": "Chemin du Frou",
+    "longitude": 5.709778,
+    "latitude": 45.433211,
+    "altitude": 608
+  },
+  {
+    "id": "cars-0616",
+    "group": "cars",
+    "name": "Le Grand Cossert Bas",
+    "longitude": 5.700955,
+    "latitude": 45.445146,
+    "altitude": 726
+  },
+  {
+    "id": "cars-0617",
+    "group": "cars",
+    "name": "Le Perron",
+    "longitude": 5.707292,
+    "latitude": 45.440572,
+    "altitude": 662
+  },
+  {
+    "id": "cars-0618",
+    "group": "cars",
+    "name": "La Michaliere",
+    "longitude": 5.701794,
+    "latitude": 45.451763,
+    "altitude": 773
+  },
+  {
+    "id": "cars-0619",
+    "group": "cars",
+    "name": "Le Grand Cossert",
+    "longitude": 5.698294,
+    "latitude": 45.447697,
+    "altitude": 759
+  },
+  {
+    "id": "cars-0620",
+    "group": "cars",
+    "name": "Le Thil",
+    "longitude": 5.710748,
+    "latitude": 45.44787,
+    "altitude": 661
+  },
+  {
+    "id": "cars-0621",
+    "group": "cars",
+    "name": "Tour Saint-Hugues",
+    "longitude": 5.708959,
+    "latitude": 45.44079,
+    "altitude": 632
+  },
+  {
+    "id": "cars-0622",
+    "group": "cars",
+    "name": "La Combe",
+    "longitude": 5.7033893,
+    "latitude": 45.4419199,
+    "altitude": 693
+  },
+  {
+    "id": "cars-0623",
+    "group": "cars",
+    "name": "La Roche",
+    "longitude": 5.711724,
+    "latitude": 45.453587,
+    "altitude": 696
+  },
+  {
+    "id": "cars-0624",
+    "group": "cars",
+    "name": "Le Planey",
+    "longitude": 5.819861,
+    "latitude": 45.41785,
+    "altitude": 633
+  },
+  {
+    "id": "cars-0625",
+    "group": "cars",
+    "name": "Les Sermes",
+    "longitude": 5.825978,
+    "latitude": 45.4202385,
+    "altitude": 664
+  },
+  {
+    "id": "cars-0626",
+    "group": "cars",
+    "name": "Ecole Primaire Bourg",
+    "longitude": 5.851451,
+    "latitude": 45.417098,
+    "altitude": 636
+  },
+  {
+    "id": "cars-0627",
+    "group": "cars",
+    "name": "Mairie",
+    "longitude": 5.853376,
+    "latitude": 45.415487,
+    "altitude": 647
+  },
+  {
+    "id": "cars-0628",
+    "group": "cars",
+    "name": "Le Grand Chenevey",
+    "longitude": 5.856468,
+    "latitude": 45.4043695,
+    "altitude": 773
+  },
+  {
+    "id": "cars-0629",
+    "group": "cars",
+    "name": "Route du Château",
+    "longitude": 5.842391,
+    "latitude": 45.411419,
+    "altitude": 885
+  },
+  {
+    "id": "cars-0630",
+    "group": "cars",
+    "name": "Le Château",
+    "longitude": 5.837766,
+    "latitude": 45.413647,
+    "altitude": 928
+  },
+  {
+    "id": "cars-0631",
+    "group": "cars",
+    "name": "Les Bas-Maison Bouvet",
+    "longitude": 5.840504,
+    "latitude": 45.405058,
+    "altitude": 898
+  },
+  {
+    "id": "cars-0632",
+    "group": "cars",
+    "name": "Le Petit Chenevey",
+    "longitude": 5.857427,
+    "latitude": 45.4069745,
+    "altitude": 757
+  },
+  {
+    "id": "cars-0633",
+    "group": "cars",
+    "name": "Le Luteau-Croix",
+    "longitude": 5.445252,
+    "latitude": 45.4988225,
+    "altitude": 611
+  },
+  {
+    "id": "cars-0634",
+    "group": "cars",
+    "name": "Les Serves",
+    "longitude": 5.4239089,
+    "latitude": 45.466555,
+    "altitude": 616
+  },
+  {
+    "id": "cars-0635",
+    "group": "cars",
+    "name": "Les Ripeaux",
+    "longitude": 5.4339265,
+    "latitude": 45.472386,
+    "altitude": 631
+  },
+  {
+    "id": "cars-0636",
+    "group": "cars",
+    "name": "Le Rousset",
+    "longitude": 5.432805,
+    "latitude": 45.489492,
+    "altitude": 612
+  },
+  {
+    "id": "cars-0637",
+    "group": "cars",
+    "name": "La Platiere",
+    "longitude": 5.615719,
+    "latitude": 45.4799845,
+    "altitude": 607
+  },
+  {
+    "id": "cars-0638",
+    "group": "cars",
+    "name": "Château d'Eau",
+    "longitude": 5.616107,
+    "latitude": 45.465846,
+    "altitude": 623
+  },
+  {
+    "id": "cars-0639",
+    "group": "cars",
+    "name": "L'Orciere",
+    "longitude": 5.623573,
+    "latitude": 45.4788,
+    "altitude": 607
+  },
+  {
+    "id": "cars-0640",
+    "group": "cars",
+    "name": "Le Cré",
+    "longitude": 5.705083,
+    "latitude": 45.456125,
+    "altitude": 761
+  },
+  {
+    "id": "cars-0641",
+    "group": "cars",
+    "name": "Ecole la Montagne",
+    "longitude": 5.714572,
+    "latitude": 45.461511,
+    "altitude": 711
+  },
+  {
+    "id": "cars-0642",
+    "group": "cars",
+    "name": "La Montagne Dessus",
+    "longitude": 5.711185,
+    "latitude": 45.461797,
+    "altitude": 729
+  },
+  {
+    "id": "cars-0643",
+    "group": "cars",
+    "name": "Col de Couz",
+    "longitude": 5.8187815,
+    "latitude": 45.470477,
+    "altitude": 626
+  },
+  {
+    "id": "cars-0644",
+    "group": "cars",
+    "name": "Côte Barrier",
+    "longitude": 5.8105635,
+    "latitude": 45.460068,
+    "altitude": 603
+  },
+  {
+    "id": "cars-0645",
+    "group": "cars",
+    "name": "Lotissement Farmier",
+    "longitude": 6.0110195,
+    "latitude": 45.120928,
+    "altitude": 712
+  },
+  {
+    "id": "cars-0646",
+    "group": "cars",
+    "name": "Perniere Basse (Abri)",
+    "longitude": 6.0174675,
+    "latitude": 45.121578,
+    "altitude": 714
+  },
+  {
+    "id": "cars-0647",
+    "group": "cars",
+    "name": "Perniere Basse (Fond)",
+    "longitude": 6.013684,
+    "latitude": 45.122203,
+    "altitude": 712
+  },
+  {
+    "id": "cars-0648",
+    "group": "cars",
+    "name": "Saint-Philibert - RD512",
+    "longitude": 5.849721,
+    "latitude": 45.379803,
+    "altitude": 927
+  },
+  {
+    "id": "cars-0649",
+    "group": "cars",
+    "name": "Les Jailleux",
+    "longitude": 5.5977635,
+    "latitude": 45.1262475,
+    "altitude": 1036
+  },
+  {
+    "id": "cars-0650",
+    "group": "cars",
+    "name": "Les Côtes",
+    "longitude": 5.547095,
+    "latitude": 45.175168,
+    "altitude": 1047
+  },
+  {
+    "id": "cars-0651",
+    "group": "cars",
+    "name": "La Ville",
+    "longitude": 6.041399,
+    "latitude": 45.13165,
+    "altitude": 783
+  },
+  {
+    "id": "cars-0652",
+    "group": "cars",
+    "name": "Les Chapelles",
+    "longitude": 5.75464,
+    "latitude": 44.801029,
+    "altitude": 792
+  },
+  {
+    "id": "cars-0653",
+    "group": "cars",
+    "name": "Les Erables",
+    "longitude": 5.59011,
+    "latitude": 45.1257955,
+    "altitude": 1016
+  },
+  {
+    "id": "cars-0654",
+    "group": "cars",
+    "name": "Les Itiers",
+    "longitude": 5.874299,
+    "latitude": 44.8386615,
+    "altitude": 867
+  },
+  {
+    "id": "cars-0655",
+    "group": "cars",
+    "name": "Les Vernes",
+    "longitude": 5.790149,
+    "latitude": 44.9973185,
+    "altitude": 1011
+  },
+  {
+    "id": "cars-0656",
+    "group": "cars",
+    "name": "Le Mollard le Haut",
+    "longitude": 5.7214735,
+    "latitude": 44.9656485,
+    "altitude": 863
+  },
+  {
+    "id": "cars-0657",
+    "group": "cars",
+    "name": "Pont de la Mouche",
+    "longitude": 5.7828767,
+    "latitude": 44.9255308,
+    "altitude": 888
+  },
+  {
+    "id": "cars-0658",
+    "group": "cars",
+    "name": "Nid Alpin",
+    "longitude": 5.5548875,
+    "latitude": 45.0703125,
+    "altitude": 1031
+  },
+  {
+    "id": "cars-0659",
+    "group": "cars",
+    "name": "La Grange de Morges",
+    "longitude": 5.7790505,
+    "latitude": 44.855482,
+    "altitude": 825
+  },
+  {
+    "id": "cars-0660",
+    "group": "cars",
+    "name": "La Voute",
+    "longitude": 6.032717,
+    "latitude": 45.1212485,
+    "altitude": 759
+  },
+  {
+    "id": "cars-0661",
+    "group": "cars",
+    "name": "Les Michalons",
+    "longitude": 5.638835,
+    "latitude": 45.17175,
+    "altitude": 1071
+  },
+  {
+    "id": "cars-0662",
+    "group": "cars",
+    "name": "Eybertiere Croisement",
+    "longitude": 5.5634005,
+    "latitude": 45.189775,
+    "altitude": 1080
+  },
+  {
+    "id": "cars-0663",
+    "group": "cars",
+    "name": "Le Planolet",
+    "longitude": 5.838482,
+    "latitude": 45.371588,
+    "altitude": 1084
+  },
+  {
+    "id": "cars-0664",
+    "group": "cars",
+    "name": "Pont Rouge",
+    "longitude": 6.014675,
+    "latitude": 45.116961,
+    "altitude": 712
+  },
+  {
+    "id": "cars-0665",
+    "group": "cars",
+    "name": "Le Cros",
+    "longitude": 5.9402665,
+    "latitude": 44.8333205,
+    "altitude": 997
+  },
+  {
+    "id": "cars-0666",
+    "group": "cars",
+    "name": "Groupe Scolaire",
+    "longitude": 5.62029,
+    "latitude": 44.826984,
+    "altitude": 774
+  },
+  {
+    "id": "cars-0667",
+    "group": "cars",
+    "name": "Les Granges",
+    "longitude": 5.751799,
+    "latitude": 44.7350715,
+    "altitude": 898
+  },
+  {
+    "id": "cars-0668",
+    "group": "cars",
+    "name": "Le Grand Moulin",
+    "longitude": 5.5271115,
+    "latitude": 45.1351655,
+    "altitude": 977
+  },
+  {
+    "id": "cars-0669",
+    "group": "cars",
+    "name": "Foyer Ski de Fond",
+    "longitude": 5.4042295,
+    "latitude": 45.1163775,
+    "altitude": 1007
+  },
+  {
+    "id": "cars-0670",
+    "group": "cars",
+    "name": "Les Glovettes",
+    "longitude": 5.562927,
+    "latitude": 45.052276,
+    "altitude": 1233
+  },
+  {
+    "id": "cars-0671",
+    "group": "cars",
+    "name": "Les Gorges",
+    "longitude": 5.52688,
+    "latitude": 45.093774,
+    "altitude": 949
+  },
+  {
+    "id": "cars-0672",
+    "group": "cars",
+    "name": "Les Champs RD116",
+    "longitude": 5.6909995,
+    "latitude": 44.904667,
+    "altitude": 667
+  },
+  {
+    "id": "cars-0673",
+    "group": "cars",
+    "name": "Les Allemands",
+    "longitude": 5.813565,
+    "latitude": 44.9571945,
+    "altitude": 1079
+  },
+  {
+    "id": "cars-0674",
+    "group": "cars",
+    "name": "Ecole",
+    "longitude": 6.086502,
+    "latitude": 45.045901,
+    "altitude": 1279
+  },
+  {
+    "id": "cars-0675",
+    "group": "cars",
+    "name": "Alberges Centre",
+    "longitude": 6.067205,
+    "latitude": 45.0333325,
+    "altitude": 730
+  },
+  {
+    "id": "cars-0676",
+    "group": "cars",
+    "name": "Les Achards",
+    "longitude": 5.926921,
+    "latitude": 44.8332745,
+    "altitude": 1038
+  },
+  {
+    "id": "cars-0677",
+    "group": "cars",
+    "name": "Les Antonins",
+    "longitude": 5.8203265,
+    "latitude": 45.337617,
+    "altitude": 945
+  },
+  {
+    "id": "cars-0678",
+    "group": "cars",
+    "name": "Pont de la Diat",
+    "longitude": 5.8079215,
+    "latitude": 45.339914,
+    "altitude": 804
+  },
+  {
+    "id": "cars-0679",
+    "group": "cars",
+    "name": "Clos Margot",
+    "longitude": 5.562683,
+    "latitude": 45.0674005,
+    "altitude": 1076
+  },
+  {
+    "id": "cars-0680",
+    "group": "cars",
+    "name": "Leygat",
+    "longitude": 5.921997,
+    "latitude": 44.8982975,
+    "altitude": 740
+  },
+  {
+    "id": "cars-0681",
+    "group": "cars",
+    "name": "Château Bas Poste",
+    "longitude": 5.7499228,
+    "latitude": 44.7435484,
+    "altitude": 866
+  },
+  {
+    "id": "cars-0682",
+    "group": "cars",
+    "name": "Chenevarie",
+    "longitude": 5.558661,
+    "latitude": 44.970937,
+    "altitude": 952
+  },
+  {
+    "id": "cars-0683",
+    "group": "cars",
+    "name": "Le Perrier",
+    "longitude": 6.0642345,
+    "latitude": 45.15183,
+    "altitude": 1121
+  },
+  {
+    "id": "cars-0684",
+    "group": "cars",
+    "name": "Bel Air",
+    "longitude": 5.4377245,
+    "latitude": 45.4921715,
+    "altitude": 615
+  },
+  {
+    "id": "cars-0685",
+    "group": "cars",
+    "name": "La Guinguette",
+    "longitude": 6.008353,
+    "latitude": 44.7286825,
+    "altitude": 863
+  },
+  {
+    "id": "cars-0686",
+    "group": "cars",
+    "name": "Les Chevreuils",
+    "longitude": 5.977562,
+    "latitude": 45.042716,
+    "altitude": 1121
+  },
+  {
+    "id": "cars-0687",
+    "group": "cars",
+    "name": "Villarnet le Moulin",
+    "longitude": 5.6908455,
+    "latitude": 44.861295,
+    "altitude": 710
+  },
+  {
+    "id": "cars-0688",
+    "group": "cars",
+    "name": "Eglise",
+    "longitude": 5.771661,
+    "latitude": 44.9904615,
+    "altitude": 949
+  },
+  {
+    "id": "cars-0689",
+    "group": "cars",
+    "name": "Le Moulin",
+    "longitude": 5.9281675,
+    "latitude": 44.897129,
+    "altitude": 741
+  },
+  {
+    "id": "cars-0690",
+    "group": "cars",
+    "name": "Chauvinet",
+    "longitude": 5.6151638,
+    "latitude": 44.8671075,
+    "altitude": 843
+  },
+  {
+    "id": "cars-0691",
+    "group": "cars",
+    "name": "Château Méa la Vergne",
+    "longitude": 5.7598895,
+    "latitude": 44.741065,
+    "altitude": 884
+  },
+  {
+    "id": "cars-0692",
+    "group": "cars",
+    "name": "Jean Vincent",
+    "longitude": 5.8722595,
+    "latitude": 45.016398,
+    "altitude": 1286
+  },
+  {
+    "id": "cars-0693",
+    "group": "cars",
+    "name": "Les Glénats",
+    "longitude": 5.4643895,
+    "latitude": 45.1024935,
+    "altitude": 924
+  },
+  {
+    "id": "cars-0694",
+    "group": "cars",
+    "name": "Les Ailes",
+    "longitude": 5.451555,
+    "latitude": 45.093917,
+    "altitude": 1022
+  },
+  {
+    "id": "cars-0695",
+    "group": "cars",
+    "name": "L'Homme du Lac",
+    "longitude": 5.723174,
+    "latitude": 44.8423335,
+    "altitude": 843
+  },
+  {
+    "id": "cars-0696",
+    "group": "cars",
+    "name": "Voie Parking",
+    "longitude": 5.5442455,
+    "latitude": 45.1734095,
+    "altitude": 1040
+  },
+  {
+    "id": "cars-0697",
+    "group": "cars",
+    "name": "Livet - RD1091",
+    "longitude": 5.9395678,
+    "latitude": 45.1088158,
+    "altitude": 666
+  },
+  {
+    "id": "cars-0698",
+    "group": "cars",
+    "name": "Chabeteneyre les Egarras",
+    "longitude": 5.752581,
+    "latitude": 44.739247,
+    "altitude": 883
+  },
+  {
+    "id": "cars-0699",
+    "group": "cars",
+    "name": "Bernardiere",
+    "longitude": 5.572611,
+    "latitude": 44.813749,
+    "altitude": 993
+  },
+  {
+    "id": "cars-0700",
+    "group": "cars",
+    "name": "Donniere",
+    "longitude": 5.5539485,
+    "latitude": 44.8212335,
+    "altitude": 1022
+  },
+  {
+    "id": "cars-0701",
+    "group": "cars",
+    "name": "La Croix Ferrée",
+    "longitude": 5.618727,
+    "latitude": 45.160544,
+    "altitude": 1159
+  },
+  {
+    "id": "cars-0702",
+    "group": "cars",
+    "name": "Centre AROEVEN",
+    "longitude": 5.844137,
+    "latitude": 45.3929,
+    "altitude": 906
+  },
+  {
+    "id": "cars-0703",
+    "group": "cars",
+    "name": "Les Fraisses",
+    "longitude": 5.5708315,
+    "latitude": 44.9195655,
+    "altitude": 1152
+  },
+  {
+    "id": "cars-0704",
+    "group": "cars",
+    "name": "Le Thau",
+    "longitude": 5.7248895,
+    "latitude": 44.826531,
+    "altitude": 881
+  },
+  {
+    "id": "cars-0705",
+    "group": "cars",
+    "name": "Ferme Dumas",
+    "longitude": 5.6113145,
+    "latitude": 44.876038,
+    "altitude": 927
+  },
+  {
+    "id": "cars-0706",
+    "group": "cars",
+    "name": "Le Mas",
+    "longitude": 5.740706,
+    "latitude": 44.8727585,
+    "altitude": 706
+  },
+  {
+    "id": "cars-0707",
+    "group": "cars",
+    "name": "La Combe d'Andrieux",
+    "longitude": 5.715778,
+    "latitude": 44.8404925,
+    "altitude": 866
+  },
+  {
+    "id": "cars-0708",
+    "group": "cars",
+    "name": "Roger Brachet",
+    "longitude": 5.748905,
+    "latitude": 44.814968,
+    "altitude": 768
+  },
+  {
+    "id": "cars-0709",
+    "group": "cars",
+    "name": "Les Combes",
+    "longitude": 5.6488046,
+    "latitude": 44.8806707,
+    "altitude": 742
+  },
+  {
+    "id": "cars-0710",
+    "group": "cars",
+    "name": "Villelonge",
+    "longitude": 5.968815,
+    "latitude": 44.991246,
+    "altitude": 1203
+  },
+  {
+    "id": "cars-0711",
+    "group": "cars",
+    "name": "La Chapelle du Cros",
+    "longitude": 5.747625,
+    "latitude": 44.777651,
+    "altitude": 890
+  },
+  {
+    "id": "cars-0712",
+    "group": "cars",
+    "name": "AgorAlp",
+    "longitude": 6.0697983,
+    "latitude": 45.0902722,
+    "altitude": 1809
+  },
+  {
+    "id": "cars-0713",
+    "group": "cars",
+    "name": "Le Vernay",
+    "longitude": 5.7837195,
+    "latitude": 45.008717,
+    "altitude": 952
+  },
+  {
+    "id": "cars-0714",
+    "group": "cars",
+    "name": "Les Marrons",
+    "longitude": 5.793962,
+    "latitude": 45.323814,
+    "altitude": 904
+  },
+  {
+    "id": "cars-0715",
+    "group": "cars",
+    "name": "Le Lac RD115A",
+    "longitude": 5.775391,
+    "latitude": 45.0226115,
+    "altitude": 909
+  },
+  {
+    "id": "cars-0716",
+    "group": "cars",
+    "name": "La Mollariere",
+    "longitude": 5.810151,
+    "latitude": 45.325121,
+    "altitude": 887
+  },
+  {
+    "id": "cars-0717",
+    "group": "cars",
+    "name": "Les Barraques - Intermarché",
+    "longitude": 6.073005,
+    "latitude": 44.674333,
+    "altitude": 972
+  },
+  {
+    "id": "cars-0718",
+    "group": "cars",
+    "name": "Les Blaches",
+    "longitude": 5.6453426,
+    "latitude": 44.7868769,
+    "altitude": 826
+  },
+  {
+    "id": "cars-0719",
+    "group": "cars",
+    "name": "La Combe",
+    "longitude": 5.7711359,
+    "latitude": 44.8248267,
+    "altitude": 874
+  },
+  {
+    "id": "cars-0720",
+    "group": "cars",
+    "name": "Les Courts-Le Haut",
+    "longitude": 6.0841733,
+    "latitude": 45.0515528,
+    "altitude": 1423
+  },
+  {
+    "id": "cars-0721",
+    "group": "cars",
+    "name": "La Moliere",
+    "longitude": 5.5510241,
+    "latitude": 45.0768135,
+    "altitude": 978
+  },
+  {
+    "id": "cars-0722",
+    "group": "cars",
+    "name": "Les Freaux",
+    "longitude": 5.8830965,
+    "latitude": 44.976497,
+    "altitude": 1029
+  },
+  {
+    "id": "cars-0723",
+    "group": "cars",
+    "name": "Camping Gap",
+    "longitude": 6.0808796,
+    "latitude": 44.5812862,
+    "altitude": 927
+  },
+  {
+    "id": "cars-0724",
+    "group": "cars",
+    "name": "Place du Marché",
+    "longitude": 5.94756,
+    "latitude": 44.819496,
+    "altitude": 929
+  },
+  {
+    "id": "cars-0725",
+    "group": "cars",
+    "name": "La Ville",
+    "longitude": 6.090597,
+    "latitude": 45.0448005,
+    "altitude": 1190
+  },
+  {
+    "id": "cars-0726",
+    "group": "cars",
+    "name": "La Combe",
+    "longitude": 6.14415,
+    "latitude": 45.053334,
+    "altitude": 1206
+  },
+  {
+    "id": "cars-0727",
+    "group": "cars",
+    "name": "Perquelin",
+    "longitude": 5.828347,
+    "latitude": 45.33737,
+    "altitude": 920
+  },
+  {
+    "id": "cars-0728",
+    "group": "cars",
+    "name": "Champs Massot",
+    "longitude": 5.829804,
+    "latitude": 45.3604605,
+    "altitude": 1083
+  },
+  {
+    "id": "cars-0729",
+    "group": "cars",
+    "name": "Le Planolet Station",
+    "longitude": 5.8395745,
+    "latitude": 45.3686885,
+    "altitude": 1095
+  },
+  {
+    "id": "cars-0730",
+    "group": "cars",
+    "name": "Col d'Ornon",
+    "longitude": 5.971364,
+    "latitude": 45.01753,
+    "altitude": 1331
+  },
+  {
+    "id": "cars-0731",
+    "group": "cars",
+    "name": "Le Cleyat",
+    "longitude": 5.801826,
+    "latitude": 45.407353,
+    "altitude": 1096
+  },
+  {
+    "id": "cars-0732",
+    "group": "cars",
+    "name": "Les Chartreux",
+    "longitude": 5.801881,
+    "latitude": 45.40977,
+    "altitude": 1080
+  },
+  {
+    "id": "cars-0733",
+    "group": "cars",
+    "name": "Le Grand Village",
+    "longitude": 5.803396,
+    "latitude": 45.409658,
+    "altitude": 1056
+  },
+  {
+    "id": "cars-0734",
+    "group": "cars",
+    "name": "Les Reverdys",
+    "longitude": 5.8048715,
+    "latitude": 45.413787,
+    "altitude": 998
+  },
+  {
+    "id": "cars-0735",
+    "group": "cars",
+    "name": "Ecole-Les Théneaux",
+    "longitude": 5.7834253,
+    "latitude": 44.9843841,
+    "altitude": 947
+  },
+  {
+    "id": "cars-0736",
+    "group": "cars",
+    "name": "Le Villaret",
+    "longitude": 5.9869062,
+    "latitude": 45.0479689,
+    "altitude": 960
+  },
+  {
+    "id": "cars-0737",
+    "group": "cars",
+    "name": "Le Clos",
+    "longitude": 5.8294183,
+    "latitude": 44.8726619,
+    "altitude": 757
+  },
+  {
+    "id": "cars-0738",
+    "group": "cars",
+    "name": "Pouillane",
+    "longitude": 5.7667295,
+    "latitude": 44.8275025,
+    "altitude": 827
+  },
+  {
+    "id": "cars-0739",
+    "group": "cars",
+    "name": "Les Raux",
+    "longitude": 5.984961,
+    "latitude": 45.048811,
+    "altitude": 989
+  },
+  {
+    "id": "cars-0740",
+    "group": "cars",
+    "name": "Combe de Pierre Noire",
+    "longitude": 6.277561,
+    "latitude": 44.935545,
+    "altitude": 1666
+  },
+  {
+    "id": "cars-0741",
+    "group": "cars",
+    "name": "Rond-point Nord",
+    "longitude": 6.0244077,
+    "latitude": 45.0629691,
+    "altitude": 718
+  },
+  {
+    "id": "cars-0742",
+    "group": "cars",
+    "name": "La Frete",
+    "longitude": 5.4357695,
+    "latitude": 45.1528905,
+    "altitude": 744
+  },
+  {
+    "id": "cars-0743",
+    "group": "cars",
+    "name": "Ecole",
+    "longitude": 5.6302577,
+    "latitude": 45.1696734,
+    "altitude": 1163
+  },
+  {
+    "id": "cars-0744",
+    "group": "cars",
+    "name": "Jean Prévost",
+    "longitude": 5.557651,
+    "latitude": 45.0633636,
+    "altitude": 1067
+  },
+  {
+    "id": "cars-0745",
+    "group": "cars",
+    "name": "Z.A. les Jaumes",
+    "longitude": 5.5771777,
+    "latitude": 45.1256099,
+    "altitude": 1000
+  },
+  {
+    "id": "cars-0746",
+    "group": "cars",
+    "name": "Musée",
+    "longitude": 5.7895354,
+    "latitude": 45.3508081,
+    "altitude": 853
+  },
+  {
+    "id": "cars-0747",
+    "group": "cars",
+    "name": "Centre de Loisirs",
+    "longitude": 5.6163743,
+    "latitude": 45.1878048,
+    "altitude": 922
+  }
+]
