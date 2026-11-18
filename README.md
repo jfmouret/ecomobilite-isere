@@ -19,6 +19,20 @@ Deux couches de repères avec un lien permanent par arrêt vers une fiche web ac
 
 Dans ce dépôt, **Settings → Pages → Build and deployment → Source → GitHub Actions**. Ensuite ouvrir **Actions → Actualiser les arrêts et publier → Run workflow** si le premier lancement a échoué pendant la configuration de Pages.
 
+## Vue randonnée légère (conseillée)
+
+Télécharger **Isere_arrets_randonnee.kmz** depuis le site. Il contient seulement les arrêts d’Isère ayant au moins un accès Camptocamp associé à une activité pédestre, raquettes ou ski à 1000 m maximum à vol d’oiseau. Il ne contient aucun dossier caché avec les milliers d’autres arrêts : un affichage global reste limité à cette sélection. Plusieurs références de réseau ou quais peuvent correspondre à un même lieu.
+
+1. Masquer les anciens imports départementaux et importer ce KMZ léger.
+2. Toucher un arrêt, puis son lien pour voir les randonnées Camptocamp et les lignes.
+3. Sur sa fiche, choisir **Afficher tous les arrêts de cette ligne dans AlpineQuest — télécharger le KMZ** pour la ligne utile.
+4. Ouvrir le téléchargement avec AlpineQuest, et masquer la vue randonnée si nécessaire : tous les arrêts de cette ligne, y compris en plaine ou hors Isère, sont alors consultables. Chaque point renvoie à sa fiche et aux horaires.
+5. Masquer la ligne importée pour revenir à la sélection randonnée.
+
+La présence d’un accès est une association géographique et contributive, pas une garantie de cheminement piéton, de praticabilité saisonnière ou de desserte à une date donnée. Les branches figurent dans la ligne complète ; lire les horaires pour choisir une course. Les KMZ sont des instantanés et doivent être téléchargés à nouveau pour actualiser leurs points ; les fiches web restent mises à jour automatiquement.
+
+Les fichiers de ligne sont générés quotidiennement et téléchargés uniquement à la demande ; leurs noms stables sont calculés à partir des identifiants officiels. Aucun fichier supplémentaire n’est nécessaire tant qu’une ligne n’est pas choisie.
+
 ## Sur Android
 
 1. Ouvrir le site et télécharger `Mreso_600m_en_ligne.kmz` et/ou `Cars_Isere_600m_en_ligne.kmz`.
@@ -103,3 +117,7 @@ Les incohérences constatées dans l’ancien catalogue Grenoble-Montagne ne son
 - Ruban, CAPI : [GTFS officiel](https://www.data.gouv.fr/api/1/datasets/r/34d2cc17-3eb5-4581-917b-a8c06a112e61), ODbL ; [horaires officiels](https://www.rubantransport.com/lignes-regulieres/).
 
 Si un de ces deux flux additionnels échoue, la publication continue avec une mention explicite et sans points supposés pour ce réseau. Un échec d’un des quatre flux initiaux interrompt la publication pour conserver le site précédent daté. Lors de l’extension, le lien GTFS Ruban renvoyait HTTP 403 ; il n’a pas été remplacé par une archive périmée présentée comme actuelle.
+
+## Visorando
+
+Une intégration automatique n’est pas activée. Les [conditions publiées](https://www.visorando.com/mentions-legales.html), section VII, limitent la réutilisation des informations à l’usage privé et interdisent leur rediffusion. Aucune API publique assortie d’une licence ouverte permettant notre réutilisation n’a été identifiée lors de la vérification. L’ajout de leur catalogue nécessiterait un accord ou une voie de réutilisation explicitement autorisée ; aucune collecte de leurs topos n’est effectuée.

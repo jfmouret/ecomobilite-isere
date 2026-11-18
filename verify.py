@@ -72,6 +72,22 @@ def verify(out=Path('dist')):
                         u=urllib.parse.urlparse(r['url'])
                         assert u.scheme=='https'
                         assert u.hostname in ('www.reso-m.fr','sim.laregionvoustransporte.fr','www.rubantransport.com','www.lva-mobilite.fr')
+    import focused_kmz
+    focused={s['id'] for s in report['line_stops'] if s.get('in_isere') and s.get('hikes')}
+    with zipfile.ZipFile(out/'Isere_arrets_randonnee.kmz') as z:
+        assert z.testzip() is None
+        tree=ET.fromstring(z.read('doc.kml'))
+        assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==focused
+        assert not tree.findall('.//{'+K+'}Folder')
+    expected_lines={r['id'] for s in report['line_stops'] for r in s['routes']}
+    assert len(list((out/'lignes').glob('*.kmz')))==len(expected_lines)
+    for rid in expected_lines:
+        expected_stops={s['id'] for s in report['line_stops'] if any(r['id']==rid for r in s['routes'])}
+        with zipfile.ZipFile(out/'lignes'/focused_kmz.line_filename(rid)) as z:
+            assert z.testzip() is None
+            tree=ET.fromstring(z.read('doc.kml'))
+            assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==expected_stops
+    assert report['focused_stop_count']==len(focused)
     import territory
     prepared=territory.polygons(json.loads((ROOT/'.cache/isere-limits.json').read_text()))
     for stop in report['line_stops']:assert stop['in_isere']==territory.contains(stop,prepared)

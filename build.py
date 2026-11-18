@@ -3,6 +3,7 @@
 import argparse
 import hiking
 import territory
+import focused_kmz
 import csv
 import struct
 import zlib
@@ -185,6 +186,7 @@ def stop_page(s,feeds,now):
             body+='<section><h3>Ligne '+esc(r['number'])+'</h3><p>'+esc(r['name'])+'</p><p class="muted">'+esc(r['network'])+'</p>'
             if r['url']:body+='<a class="button" href="'+esc(r['url'])+'">'+('Catalogue horaires — rechercher la ligne ' if r.get('link_method')=='catalogue_reseau' else 'Horaires officiels — ligne ')+esc(r['number'])+'</a>'
             else:body+='<p>Lien détaillé non confirmé. Consulter le site officiel du réseau ci-dessous.</p>'
+            body+='<p><a href="../lignes/'+focused_kmz.line_filename(r['id'])+'">Afficher tous les arrêts de cette ligne dans AlpineQuest — télécharger le KMZ</a></p>'
             body+='</section>'
         if not s['routes']:body+='<p>Aucune desserte trouvée dans le fichier publié.</p>'
         body+='<details><summary>Correspondance avec les données officielles</summary>'
@@ -404,8 +406,9 @@ def build(base,out,cache,cache_only=False):
     for s in result+complete:(out/'arrets'/(s['id']+'.html')).write_text(stop_page(s,feeds,now))
     make_hiking_pages(out,hikes,now)
     for group in ('cars','mreso'):make_kmz(group,result,out,base,complete,hikes)
+    focused_count,line_downloads=focused_kmz.generate(complete,out,base,ROOT,colour_icon,PALETTE)
     metadata={c:{k:v for k,v in f.items() if k!='points'} for c,f in feeds.items()}
-    report=dict(generated_at=now.isoformat(),coverage='Département de l’Isère : arrêts publiés par Cars Région Isère, M réso SEM/GSV/TPV, Ruban et L’va ; sélection montagne initiale conservée',department_boundary_source=territory.SOURCE,licence='ODbL 1.0 (transports) ; CC BY-SA 3.0 (Camptocamp)',sources=metadata,unavailable_sources=unavailable,counts=dict(Counter(s['status'] for s in result)),stops=result,line_stops=complete,hikes=hikes,hiking_source=hiking.API,hiking_distance_method="great_circle",hiking_threshold_m=1000)
+    report=dict(generated_at=now.isoformat(),coverage='Département de l’Isère : arrêts publiés par Cars Région Isère, M réso SEM/GSV/TPV, Ruban et L’va ; sélection montagne initiale conservée',department_boundary_source=territory.SOURCE,licence='ODbL 1.0 (transports) ; CC BY-SA 3.0 (Camptocamp)',sources=metadata,unavailable_sources=unavailable,focused_stop_count=focused_count,line_download_count=line_downloads,counts=dict(Counter(s['status'] for s in result)),stops=result,line_stops=complete,hikes=hikes,hiking_source=hiking.API,hiking_distance_method="great_circle",hiking_threshold_m=1000)
     (out/'camptocamp.json').write_text(json.dumps(dict(generated_at=now.isoformat(),license='CC-BY-SA-3.0',attribution='Camptocamp.org et ses contributeurs',source=hiking.API,modifications='Extraction, conversion de coordonnées, rapprochement géographique avec les arrêts GTFS ; seuil à vol d’oiseau de 1000 m',accesses=hikes),ensure_ascii=False,separators=(',',':')))
     (out/'arrets.json').write_text(json.dumps(report,ensure_ascii=False,separators=(',',':')))
     with (out/'correspondances.csv').open('w',newline='') as f:
@@ -420,6 +423,7 @@ def build(base,out,cache,cache_only=False):
     (out/'sources.html').write_text(document('Sources et méthode',source_body))
     body='<h1>Écomobilité — Isère entière</h1><p>Couverture départementale à partir des GTFS Cars Région Isère, M réso (SEM, GSV, TPV), Ruban et L’va. Les arrêts sont filtrés par les contours officiels des communes de l’Isère. Les dossiers par ligne conservent aussi leurs arrêts hors département pour préparer le trajet complet. La vue montagne initiale est conservée. Les services absents de ces GTFS ne sont pas recensés.</p><p>Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Actualisation quotidienne à 07 h 15, heure de Paris, sous réserve de disponibilité des sources.</p><p><a class="button" href="Mreso_600m_en_ligne.kmz">KMZ M réso — Isère et lignes complètes</a></p><p><a class="button" href="Cars_Isere_600m_en_ligne.kmz">KMZ cars Région, Ruban et L’va — Isère et lignes complètes</a></p><p>Importer ces repères dans AlpineQuest, toucher un arrêt puis son lien pour consulter sa fiche actualisée. Chaque KMZ contient « Tous les arrêts ≥ 600 m » (sélection initiale), « Tous les arrêts en Isère » et « Par ligne ». Masquer la vue générale avant d’afficher une ligne. Les couleurs se répètent ; les numéros distinguent les lignes. La vue générale conserve les 912 points sélectionnés à partir de 600 m ; les dossiers par ligne comprennent aussi les arrêts de plaine et les branches publiées. Tous les cars ne desservent pas chaque branche : vérifier le sens et les horaires. Les dossiers et couleurs sont figés à la génération : télécharger et réimporter pour actualiser la répartition. Les fiches en ligne continuent à s’actualiser.</p>'
     if unavailable:body+='<p class="notice"><b>Couverture incomplète :</b> données indisponibles pour '+', '.join(html.escape(SOURCES[c][0]) for c in unavailable)+'. Ces réseaux ne sont pas intégrés aux repères de cette génération. Voir les sources et les sites officiels.</p>'
+    body+='<section><h2>Vue randonnée conseillée</h2><p><a class="button" href="Isere_arrets_randonnee.kmz">Télécharger le KMZ léger — '+str(focused_count)+' arrêts avec accès randonnée</a></p><p>Ce fichier affiche seulement les arrêts en Isère disposant d’un accès Camptocamp associé à une randonnée à 1 km maximum à vol d’oiseau. Depuis la fiche d’un arrêt, consulter les sorties puis télécharger la ligne choisie avec tous ses arrêts. Masquer la vue randonnée si nécessaire avant d’afficher la ligne ; masquer ensuite cette ligne pour revenir à la vue légère. Les horaires se consultent depuis les mêmes fiches.</p></section>'
     body+='<p><a href="randos/index.html">Accès Camptocamp et itinéraires été / hiver</a> — présélection à 1 km maximum à vol d’oiseau, cheminement piéton à vérifier.</p>'
     body+='<p><b>'+str(sum(s['status'] in ('exact','nom_et_proximite') for s in result))+' correspondances trouvées sur '+str(len(result))+' points.</b> Les autres restent visibles avec une mention de vérification.</p><label for="search">Rechercher un arrêt ou une commune</label><input id="search" type="search" placeholder="Exemple : Uriage, Chartreuse…"><ul id="stops">'
     for s in [p for p in complete if p.get('in_isere')]:body+='<li data-name="'+html.escape(norm(s['name']),quote=True)+'"><a href="arrets/'+s['id']+'.html">'+html.escape(s['name'])+'</a> · '+(' / '.join(dict.fromkeys(SOURCES[m['feed']][0] for m in s['matches'])))+(' · à vérifier' if s['status'] not in ('exact','nom_et_proximite') else '')+'</li>'

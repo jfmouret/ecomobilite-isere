@@ -1,0 +1,45 @@
+"""Repères randonnée légers et fichiers des lignes téléchargeables à la demande."""
+import hashlib
+import html
+import xml.etree.ElementTree as ET
+import zipfile
+from collections import defaultdict
+
+K='http://www.opengis.net/kml/2.2'
+
+
+def line_filename(route_id):return hashlib.sha256(route_id.encode()).hexdigest()[:24]+'.kmz'
+
+
+def write_kmz(stops,destination,base,title,icon_bytes,route=None):
+    def sub(parent,tag,text=None,**attrs):
+        e=ET.SubElement(parent,'{'+K+'}'+tag,attrs)
+        if text is not None:e.text=str(text)
+        return e
+    root=ET.Element('{'+K+'}kml');doc=sub(root,'Document');sub(doc,'name',title)
+    sub(doc,'description','Repères extraits des données officielles. Ouvrir la fiche de l’arrêt pour les randonnées et horaires actualisés. Un accès à moins de 1 km à vol d’oiseau ne garantit pas un cheminement piéton.')
+    style=sub(doc,'Style',id='bus');icon=sub(style,'IconStyle');sub(icon,'scale',1.1);sub(sub(icon,'Icon'),'href','icons/bus.png')
+    for s in stops:
+        p=sub(doc,'Placemark',id=s['id']);sub(p,'name',s['name']);sub(p,'styleUrl','#bus')
+        numbers=', '.join(dict.fromkeys(r['number'] for r in s['routes']))
+        info='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(s['name'])+'</h2><p>Lignes à la génération du fichier : '+html.escape(numbers)+'.</p>'
+        if route:info+='<p>'+html.escape(route['network'])+' · ligne '+html.escape(route['number'])+' · '+html.escape(route['name'])+'</p>'
+        else:info+='<p>Au moins un accès Camptocamp associé à une randonnée à 1 km maximum à vol d’oiseau. Accès à pied à vérifier.</p>'
+        info+='<p><a href="'+base.rstrip('/')+'/arrets/'+s['id']+'.html"><b>Randonnées, horaires et affichage d’une ligne complète</b></a></p></div>'
+        sub(p,'description',info);sub(sub(p,'Point'),'coordinates',str(s['longitude'])+','+str(s['latitude'])+',0')
+    with zipfile.ZipFile(destination,'w',zipfile.ZIP_DEFLATED) as z:
+        z.writestr('doc.kml',ET.tostring(root,encoding='utf-8',xml_declaration=True));z.writestr('icons/bus.png',icon_bytes)
+
+
+def generate(stops,out,base,root,colour_icon,palette):
+    focused=[s for s in stops if s.get('in_isere') and s.get('hikes')]
+    write_kmz(focused,out/'Isere_arrets_randonnee.kmz',base,'Isère — arrêts avec accès randonnée à 1 km',(root/'data/mreso.png').read_bytes())
+    lines=defaultdict(list);routes={}
+    for s in stops:
+        for route in s['routes']:
+            lines[route['id']].append(s);routes[route['id']]=route
+    (out/'lignes').mkdir()
+    for rid,route in routes.items():
+        rgb=bytes.fromhex(palette[int(hashlib.sha256(rid.encode()).hexdigest()[:8],16)%len(palette)])
+        write_kmz(lines[rid],out/'lignes'/line_filename(rid),base,route['network']+' — ligne '+route['number']+' — '+route['name'],colour_icon(tuple(rgb)),route)
+    return len(focused),len(lines)
