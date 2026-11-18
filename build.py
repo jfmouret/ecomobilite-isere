@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Arrêts sélectionnés -> fiches web et KMZ, à partir des GTFS officiels."""
 import argparse
+import hiking
 import csv
 import struct
 import zlib
@@ -145,7 +146,7 @@ def stop_page(s,feeds,now):
     esc=lambda x:html.escape(str(x),quote=True)
     matched=s['status'] in ('exact','nom_et_proximite')
     body='<a href="../index.html">Tous les arrêts</a><h1>'+esc(s['name'])+'</h1>'
-    body+='<p>'+('M réso' if s['group']=='mreso' else 'Cars Région Isère')+' · altitude indiquée dans ton KMZ initial : '+esc(s['altitude'])+' m (IGN, non recalculée).</p>'
+    body+='<p>'+('M réso' if s['group']=='mreso' else 'Cars Région Isère')+(' · altitude indiquée dans ton KMZ initial : '+esc(s['altitude'])+' m (IGN, non recalculée).' if s.get('altitude') is not None else ' · arrêt issu du GTFS officiel ; altitude non renseignée.')+'</p>'
     body+='<p class="muted">Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+', heure de Paris.</p>'
     today=now.astimezone(PARIS).strftime('%Y%m%d')
     for code in sorted({m['feed'] for m in s['matches']}):
@@ -171,6 +172,7 @@ def stop_page(s,feeds,now):
             if f['period_end'] and f['period_end']<now.astimezone(PARIS).strftime('%Y%m%d'):
                 body+='<p class="notice">La période du fichier GTFS est dépassée. Vérifier impérativement les informations du réseau.</p>'
         body+='</details>'
+    body+=hiking_links(s)
     body+='<h2>Informations du réseau</h2>'
     if s['group']=='mreso':body+='<p><a href="https://www.reso-m.fr/61-lignes-et-horaires.htm">M réso : horaires et informations voyageurs</a></p>'
     else:body+='<p><a href="https://www.laregionvoustransporte.fr/cars-region/cars-region-de-lisere/">Cars Région Isère : informations voyageurs</a></p>'
@@ -200,20 +202,24 @@ def colour_icon(rgb):
 PALETTE=['1769aa','c62828','2e7d32','7b1fa2','ef6c00','00838f','ad1457','5d4037','455a64','827717','4527a0','00796b']
 
 
-def make_kmz(group,selection,out,base):
+def make_kmz(group,selection,out,base,complete=None,hikes=None):
     def sub(parent,tag,text=None,**attrs):
         e=ET.SubElement(parent,'{'+K+'}'+tag,attrs)
         if text is not None:e.text=str(text)
         return e
     root=ET.Element('{'+K+'}kml');doc=sub(root,'Document')
     sub(doc,'name',('M réso' if group=='mreso' else 'Cars Isère')+' — 600 m et plus — par ligne')
-    sub(doc,'description','Vue générale dans « Tous les arrêts ». Masquer cette vue puis afficher un dossier dans « Par ligne ». Seuls les arrêts de la sélection initiale à partir de 600 m sont inclus, pas tous les arrêts des lignes. Les couleurs peuvent se répéter : le numéro identifie la ligne. Les dossiers reflètent les données à la date de génération du KMZ ; les fiches web continuent à s’actualiser.')
+    sub(doc,'description','Vue générale dans « Tous les arrêts ». Masquer cette vue puis afficher un dossier dans « Par ligne ». Les dossiers par ligne contiennent tous les arrêts publiés, y compris en plaine. La vue générale conserve seulement la sélection initiale à partir de 600 m. Les couleurs peuvent se répéter : le numéro identifie la ligne. Les dossiers reflètent les données à la date de génération du KMZ ; les fiches web continuent à s’actualiser.')
     style=sub(doc,'Style',id='arret');icon=sub(style,'IconStyle');sub(icon,'scale',1.1);sub(sub(icon,'Icon'),'href','icons/'+group+'.png')
     selected=[s for s in selection if s['group']==group]
     route_stops=defaultdict(list);routes={}
     for s in selected:
         for r in s['routes']:
-            routes[r['id']]=r;route_stops[r['id']].append(s)
+            routes[r['id']]=r
+    for s in (complete if complete is not None else selected):
+        if s['group']!=group:continue
+        for r in s['routes']:
+            if r['id'] in routes:route_stops[r['id']].append(s)
     # Clé naturelle sous forme homogène pour les codes numériques/alphanumériques.
     ids=sorted(routes,key=lambda rid:(routes[rid]['feed'],re.sub(r'\d+',lambda m:m[0].zfill(8),routes[rid]['number']),rid))
     icons={}
@@ -235,11 +241,13 @@ def make_kmz(group,selection,out,base):
         sub(p,'styleUrl','#colour-'+colour if colour else '#arret')
         link=base.rstrip('/')+'/arrets/'+s['id']+'.html'
         numbers=', '.join(dict.fromkeys(r['number'] for r in s['routes'])) or 'à vérifier'
-        info='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(s['name'])+'</h2><p>Altitude indiquée : '+str(s['altitude'])+' m.</p><p>Lignes à la génération du KMZ : '+html.escape(numbers)+'.</p>'
+        altitude='Altitude indiquée : '+str(s['altitude'])+' m.' if s.get('altitude') is not None else 'Altitude non renseignée dans les données officielles.'
+        info='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(s['name'])+'</h2><p>'+altitude+'</p><p>Lignes à la génération du KMZ : '+html.escape(numbers)+'.</p>'
         if route:info+='<p><b>Ligne '+html.escape(route['number'])+'</b> : '+html.escape(route['name'])+'</p>'
         info+='<p><a href="'+html.escape(link,quote=True)+'"><b>Consulter les lignes et horaires actualisés — connexion requise</b></a></p></div>'
+        info+=hiking_links(s,base.rstrip('/')+'/')
         sub(p,'description',info);sub(sub(p,'Point'),'coordinates',f'{s["longitude"]},{s["latitude"]},0')
-    general=sub(doc,'Folder',id='all-stops');sub(general,'name','Tous les arrêts');sub(general,'visibility',1)
+    general=sub(doc,'Folder',id='all-stops');sub(general,'name','Tous les arrêts ≥ 600 m');sub(general,'visibility',1)
     for s in selected:point(general,s,s['id'])
     per_line=sub(doc,'Folder',id='by-line');sub(per_line,'name','Par ligne');sub(per_line,'visibility',0)
     for i,rid in enumerate(ids):
@@ -247,17 +255,63 @@ def make_kmz(group,selection,out,base):
         sub(folder,'name','Ligne '+r['number']+' — '+r['name']+' ('+str(len(route_stops[rid]))+' points)')
         sub(folder,'visibility',0)
         for s in route_stops[rid]:point(folder,s,'line-'+str(i)+'-'+s['id'],r)
+    for season,title in [('ete','Départs rando été — pédestre'),('hiver','Départs rando hiver — raquettes et ski')]:
+        hf=sub(doc,'Folder',id='hiking-'+season);sub(hf,'name',title);sub(hf,'visibility',0)
+        for h in hikes or []:
+            if h['season']!=season or not any(t['group']==group for t in h['stops']):continue
+            hp=sub(hf,'Placemark',id='hike-'+h['id']);sub(hp,'name',h['activity']+' · '+h['name'])
+            sub(hp,'description','<p>Départ publié par la Ville de Grenoble. Arrêt(s) à 1 km maximum à vol d’oiseau ; accès à pied à vérifier.</p><p><a href="'+base.rstrip('/')+'/randos/'+h['id']+'.html">Voir les arrêts proches et les informations du départ</a></p>')
+            sub(sub(hp,'Point'),'coordinates',str(h['longitude'])+','+str(h['latitude'])+',0')
     filename='Mreso_600m_en_ligne.kmz' if group=='mreso' else 'Cars_Isere_600m_en_ligne.kmz'
     with zipfile.ZipFile(out/filename,'w',zipfile.ZIP_DEFLATED) as z:
         z.writestr('doc.kml',ET.tostring(root,encoding='utf-8',xml_declaration=True));z.write(ROOT/'data'/f'{group}.png','icons/'+group+'.png')
         for colour,data in icons.items():z.writestr('icons/'+colour+'.png',data)
 
 
+def hiking_links(stop,base='../'):
+    if not stop.get('hikes'):return ''
+    body='<h2>Départs randonnée à proximité</h2><p>Présélection à 1 km maximum <b>à vol d’oiseau</b>. Le cheminement réel à pied peut être plus long ou impossible ; accès à vérifier. Été désigne ici l’activité pédestre, sans validation de saison. Hiver distingue raquettes et ski, sans garantir les conditions ni la sécurité avalanche.</p>'
+    for season,title in [('ete','Été / pédestre'),('hiver','Hiver / raquettes et ski')]:
+        items=[h for h in stop['hikes'] if h['season']==season]
+        if not items:continue
+        body+='<h3>'+title+'</h3><ul>'
+        for h in sorted(items,key=lambda h:h['distance_m']):
+            body+='<li><a href="'+base+'randos/'+h['id']+'.html">'+html.escape(h['name'])+'</a> · '+html.escape(h['activity'])+' · '+str(h['distance_m'])+' m à vol d’oiseau</li>'
+        body+='</ul>'
+    return body
+
+
+def make_hiking_pages(out,hikes,now):
+    (out/'randos').mkdir()
+    intro='<p>Source : Ville de Grenoble, Grenoble-Montagne, <a href="'+hiking.CATALOG+'">jeu de données officiel</a>, licence ODbL 1.0. Récupéré le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Date de révision de chaque topo non fournie ; la récupération ne garantit pas son actualité. Couverture partielle autour de Grenoble.</p><p>Arrêts à 1 km maximum à vol d’oiseau : cheminement à pied non calculé ni validé. Été = activité pédestre, hiver = raquettes ou ski de randonnée selon la source. Ce classement ne valide pas la praticabilité, l’enneigement ou la sécurité.</p>'
+    listing='<a href="../index.html">Accueil</a><h1>Départs randonnée proches des arrêts</h1>'+intro
+    for season,title in [('ete','Été / pédestre'),('hiver','Hiver / raquettes et ski')]:
+        listing+='<h2>'+title+'</h2><ul>'
+        for h in hikes:
+            if h['season']!=season or not h['stops']:continue
+            listing+='<li><a href="'+h['id']+'.html">'+html.escape(h['name'])+'</a> · '+html.escape(h['activity'])+'</li>'
+        listing+='</ul>'
+    (out/'randos/index.html').write_text(document('Départs randonnée',listing))
+    for h in hikes:
+        if not h['stops']:continue
+        body='<a href="index.html">Tous les départs</a><h1>'+html.escape(h['name'])+'</h1><p>'+html.escape(h['activity'])+' · '+html.escape(h['massif'])+'</p><p>Départ indiqué : '+html.escape(h['departure'])+'</p><p>Difficulté indiquée par la source : '+html.escape(h['difficulty'])+'</p>'+intro
+        gpx=h.get('gpx','')
+        if urllib.parse.urlparse(gpx).hostname in ('www.grenoble-montagne.com','grenoble-montagne.com'):
+            body+='<p><a href="'+html.escape(gpx,quote=True)+'">Trace GPX indiquée par la source (disponibilité non garantie)</a></p>'
+        body+='<h2>Arrêts proches</h2><ul>'
+        # Préférer les stations officielles aux copies de la sélection montagne.
+        refs=[r for r in h['stops'] if r['id'].startswith('gtfs-')] or h['stops']
+        for r in sorted(refs,key=lambda r:r['distance_m']):
+            body+='<li><a href="../arrets/'+r['id']+'.html">'+html.escape(r['name'])+'</a> · '+('M réso' if r['group']=='mreso' else 'Cars Région')+' · '+str(r['distance_m'])+' m à vol d’oiseau</li>'
+        body+='</ul><p><a href="../sources.html">Sources et méthode</a></p>'
+        (out/'randos'/(h['id']+'.html')).write_text(document(h['name'],body))
+
+
 def build(base,out,cache,cache_only=False):
     now=dt.datetime.now(dt.timezone.utc)
     cache.mkdir(parents=True,exist_ok=True)
     urls={code+'.zip':u for code,(_,u) in SOURCES.items()}
-    urls.update({'m-routes.json':M_ROUTES,'m-horaires.html':M_SCHEDULES})
+    urls.update({'m-routes.json':M_ROUTES,'m-horaires.html':M_SCHEDULES,'balades.json':hiking.SOURCE})
     def fetch(item):
         name,url=item;p=cache/name
         if cache_only:
@@ -281,12 +335,23 @@ def build(base,out,cache,cache_only=False):
         routes={r['id']:r for p in matched for r in p['routes']}
         current['routes']=sorted(routes.values(),key=lambda r:(r['feed'],r['number']))
         result.append(current)
+    selected_routes={r['id'] for stop in result for r in stop['routes']}
+    complete=[]
+    for code,feed in feeds.items():
+        for p in feed['points']:
+            rr=[r for r in p['routes'] if r['id'] in selected_routes]
+            if not p['is_station'] or not rr:continue
+            sid='gtfs-'+code.lower()+'-'+hashlib.sha256(p['source_id'].encode()).hexdigest()[:20]
+            complete.append(dict(id=sid,group='cars' if code=='ISERE' else 'mreso',name=p['name'],latitude=p['latitude'],longitude=p['longitude'],altitude=None,status='exact',matches=[dict(feed=code,source_id=p['source_id'],distance_m=0)],routes=rr))
+    hikes=hiking.departures(json.loads(payload['balades.json']))
+    hiking.associate(result+complete,hikes)
     if out.exists():shutil.rmtree(out)
     (out/'arrets').mkdir(parents=True)
-    for s in result:(out/'arrets'/(s['id']+'.html')).write_text(stop_page(s,feeds,now))
-    for group in ('cars','mreso'):make_kmz(group,result,out,base)
+    for s in result+complete:(out/'arrets'/(s['id']+'.html')).write_text(stop_page(s,feeds,now))
+    make_hiking_pages(out,hikes,now)
+    for group in ('cars','mreso'):make_kmz(group,result,out,base,complete,hikes)
     metadata={c:{k:v for k,v in f.items() if k!='points'} for c,f in feeds.items()}
-    report=dict(generated_at=now.isoformat(),coverage='Sélection initiale à partir de 600 m, non exhaustive du département',licence='ODbL 1.0',sources=metadata,counts=dict(Counter(s['status'] for s in result)),stops=result)
+    report=dict(generated_at=now.isoformat(),coverage='Sélection initiale à partir de 600 m, non exhaustive du département',licence='ODbL 1.0',sources=metadata,counts=dict(Counter(s['status'] for s in result)),stops=result,line_stops=complete,hikes=hikes,hiking_source=hiking.SOURCE,hiking_distance_method="great_circle",hiking_threshold_m=1000)
     (out/'arrets.json').write_text(json.dumps(report,ensure_ascii=False,separators=(',',':')))
     with (out/'correspondances.csv').open('w',newline='') as f:
         w=csv.writer(f);w.writerow(['id','nom','groupe','statut','references_officielles','lignes_actuelles'])
@@ -294,8 +359,10 @@ def build(base,out,cache,cache_only=False):
     source_body='<h1>Sources et méthode</h1><p>Données : Région Auvergne-Rhône-Alpes / Oùra, SMMAG / Mobilités M, sous licence ODbL 1.0. Sélection et altitudes fournies dans les deux KMZ initiaux. Les valeurs d’altitude n’ont pas été recalculées.</p><ul>'
     for c,f in feeds.items():source_body+='<li>'+html.escape(SOURCES[c][0])+' : <a href="'+html.escape(f['source_url'],quote=True)+'">source GTFS</a>, période '+display_date(f['period_start'])+' au '+display_date(f['period_end'])+'.</li>'
     source_body+='</ul><p>La desserte est reconstruite par les identifiants GTFS des courses, arrêts et stations parentes, pas par la proximité d’une ligne dessinée. La sélection initiale est associée par nom normalisé et position (moins de 0,2 m, sinon 25 m maximum), une correspondance au plus par réseau. Les ambiguïtés sont signalées et ne fournissent aucune ligne supposée. Plusieurs réseaux peuvent partager un même arrêt nommé et situé au même endroit.</p><p>Les lignes sont celles de l’offre publiée, toutes périodes confondues. Les calendriers et exceptions ne sont pas interprétés comme une desserte quotidienne : les horaires, la date et le sens sont consultés sur le site officiel. Aucun retard ni prochain départ n’est présenté comme du temps réel ici.</p><p>Les liens Région emploient les identifiants de lignes officiels dans le calculateur régional. Les liens M réso sont extraits du site officiel ou utilisent son format avec un code confirmé par l’API M et la disponibilité timeSheet. Aucun nom de PDF saisonnier n’est deviné.</p><p><a href="arrets.json">Base dérivée publiée sous ODbL 1.0</a> · <a href="correspondances.csv">Rapport de correspondances</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">Texte de la licence ODbL 1.0</a> · <a href="index.html">Retour aux arrêts</a></p>'
+    source_body+='<h2>Départs randonnée</h2><p>Ville de Grenoble / Grenoble-Montagne, licence ODbL 1.0 : <a href="'+hiking.CATALOG+'">catalogue et provenance</a>. Seuls les départs géolocalisés pédestres, raquettes et ski de randonnée sont retenus. Distance orthodromique (rayon terrestre moyen) limitée à 1000 m, sans calcul d’itinéraire piéton. Aucune déduction de praticabilité saisonnière. Pédestre est classé été, raquettes et ski hiver selon l’activité de la source. Couverture partielle, âge des topos inconnu. Les anciens conseils de bus dans les topos ne sont pas utilisés pour attribuer une ligne.</p>'
     (out/'sources.html').write_text(document('Sources et méthode',source_body))
-    body='<h1>Écomobilité — arrêts à partir de 600 m</h1><p>Cars Région Isère et M réso : sélection issue de tes deux KMZ. Ce catalogue ne recense pas tous les arrêts du département ; certains arrêts du réseau régional se trouvent dans les départements voisins.</p><p>Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Actualisation quotidienne à 07 h 15, heure de Paris, sous réserve de disponibilité des sources.</p><p><a class="button" href="Mreso_600m_en_ligne.kmz">KMZ M réso — 165 points</a></p><p><a class="button" href="Cars_Isere_600m_en_ligne.kmz">KMZ cars Région — 747 points</a></p><p>Importer ces repères dans AlpineQuest, toucher un arrêt puis son lien pour consulter sa fiche actualisée. Chaque KMZ contient « Tous les arrêts » et « Par ligne ». Masquer la vue générale avant d’afficher une ligne. Les couleurs se répètent ; les numéros distinguent les lignes. Seuls les arrêts sélectionnés à partir de 600 m sont inclus. Les dossiers et couleurs sont figés à la génération : télécharger et réimporter pour actualiser la répartition. Les fiches en ligne continuent à s’actualiser.</p>'
+    body='<h1>Écomobilité — arrêts à partir de 600 m</h1><p>Cars Région Isère et M réso : sélection issue de tes deux KMZ. Ce catalogue ne recense pas tous les arrêts du département ; certains arrêts du réseau régional se trouvent dans les départements voisins.</p><p>Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Actualisation quotidienne à 07 h 15, heure de Paris, sous réserve de disponibilité des sources.</p><p><a class="button" href="Mreso_600m_en_ligne.kmz">KMZ M réso — vue montagne et lignes complètes</a></p><p><a class="button" href="Cars_Isere_600m_en_ligne.kmz">KMZ cars Région — vue montagne et lignes complètes</a></p><p>Importer ces repères dans AlpineQuest, toucher un arrêt puis son lien pour consulter sa fiche actualisée. Chaque KMZ contient « Tous les arrêts » et « Par ligne ». Masquer la vue générale avant d’afficher une ligne. Les couleurs se répètent ; les numéros distinguent les lignes. La vue générale conserve les 912 points sélectionnés à partir de 600 m ; les dossiers par ligne comprennent aussi les arrêts de plaine et les branches publiées. Tous les cars ne desservent pas chaque branche : vérifier le sens et les horaires. Les dossiers et couleurs sont figés à la génération : télécharger et réimporter pour actualiser la répartition. Les fiches en ligne continuent à s’actualiser.</p>'
+    body+='<p><a href="randos/index.html">Départs randonnée proches des arrêts : été / hiver</a> — présélection à 1 km maximum à vol d’oiseau, cheminement piéton à vérifier.</p>'
     body+='<p><b>'+str(sum(s['status'] in ('exact','nom_et_proximite') for s in result))+' correspondances trouvées sur '+str(len(result))+' points.</b> Les autres restent visibles avec une mention de vérification.</p><label for="search">Rechercher un arrêt ou une commune</label><input id="search" type="search" placeholder="Exemple : Uriage, Chartreuse…"><ul id="stops">'
     for s in result:body+='<li data-name="'+html.escape(norm(s['name']),quote=True)+'"><a href="arrets/'+s['id']+'.html">'+html.escape(s['name'])+'</a> · '+('M réso' if s['group']=='mreso' else 'Cars Région')+(' · à vérifier' if s['status'] not in ('exact','nom_et_proximite') else '')+'</li>'
     body+='</ul><p><a href="sources.html">Sources, licence et méthode</a> · <a href="correspondances.csv">Rapport de vérification</a></p><script>document.getElementById("search").addEventListener("input",e=>{const q=e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");document.querySelectorAll("#stops li").forEach(li=>li.hidden=!li.dataset.name.includes(q));});</script>'

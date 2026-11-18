@@ -36,7 +36,7 @@ Les liens horaires M réso sont extraits du catalogue officiel, ou emploient un 
 
 GitHub Actions lance la récupération chaque jour **à 07 h 15, heure de Paris** (un retard de GitHub est possible), sur modification des sources du projet, ou manuellement avec **Run workflow**. Aucun compte voyageur ni clé API n’est requis. En cas d’échec de téléchargement ou de GTFS invalide, la publication est interrompue et le site précédent reste en place avec sa date de récupération. Vérifier cette date avant le trajet.
 
-Les GTFS sont téléchargés seulement pendant la construction, sans être ajoutés à l’historique Git. Seul le site généré est transmis à Pages, avec un artefact temporaire d’un jour. Première génération : environ **3,6 Mo pour le site complet**, dont deux petits KMZ. Aucun historique quotidien des horaires n’est conservé.
+Les GTFS sont téléchargés seulement pendant la construction, sans être ajoutés à l’historique Git. Seul le site généré est transmis à Pages, avec un artefact temporaire d’un jour. Première génération : environ **10 Mo pour le site complet**, fiches des arrêts de plaine comprises, dont deux petits KMZ. Aucun historique quotidien des horaires n’est conservé.
 
 ## Sources et licence
 
@@ -70,4 +70,16 @@ Chaque KMZ contient **Tous les arrêts** (vue générale) et **Par ligne** (un d
 
 Après l’import, privilégier **Parcourir** plutôt que **Afficher** tout le fichier. Les dossiers par ligne sont marqués masqués dans le KML ; la façon dont cette préférence est reprise dépend de l’importeur et doit être vérifiée dans AlpineQuest sur le téléphone. Un affichage global peut superposer les copies d’un même arrêt desservi par plusieurs lignes.
 
-Les dossiers contiennent seulement les points de la sélection initiale à partir de 600 m : **ils ne représentent pas tous les arrêts de chaque ligne**, notamment dans la vallée. Aucun tracé d’itinéraire n’est dessiné. Le classement par ligne est figé dans le fichier importé, tandis que les fiches liées sont actualisées quotidiennement. Aucune réimportation quotidienne n’est nécessaire pour consulter les fiches à jour.
+La vue générale conserve les 912 points initiaux à partir de 600 m. **Les dossiers par ligne contiennent toutes les stations parentes desservies dans le GTFS**, y compris dans la vallée, et les différentes branches publiées. Les quais sont regroupés par station ; une course peut ne desservir qu’une branche. Les positions et altitudes de la sélection ne sont pas utilisées pour inventer les altitudes des nouvelles stations, qui restent non renseignées. Aucun tracé d’itinéraire n’est dessiné. Le classement par ligne est figé dans le fichier importé, tandis que les fiches liées sont actualisées quotidiennement. Aucune réimportation quotidienne n’est nécessaire pour consulter les fiches à jour.
+
+## Rapprochement avec les départs randonnée
+
+Source additionnelle : Ville de Grenoble / Grenoble-Montagne, [Balades dans les massifs autour de Grenoble](https://www.data.gouv.fr/datasets/balades-dans-les-massifs-autour-de-grenoble-1), ODbL 1.0. Le fichier JSON officiel est téléchargé à chaque construction. Ses coordonnées sont celles des départs décrits dans le catalogue. La date de révision des topos n’est pas fournie : ne pas confondre récupération récente et validation récente du parcours.
+
+Le classement **été / pédestre** correspond uniquement à l’activité Randonnée pédestre. **Hiver** correspond aux activités Raquette et Ski de randonnée, indiquées séparément. L’alpinisme est exclu. Aucune saison ni praticabilité n’est déduite de l’altitude. Ce classement ne constitue pas une appréciation de sécurité ou d’enneigement.
+
+Le seuil est de **1000 mètres à vol d’oiseau**, calculés par formule haversine avec rayon terrestre moyen, avant arrondi d’affichage. Il s’agit d’une présélection, pas d’un accès piéton validé : une rivière, clôture, pente, route ou absence de chemin peuvent rendre le trajet plus long ou impossible. Aucun tracé de liaison imaginaire n’est dessiné.
+
+Les fiches d’arrêts affichent les départs proches, regroupés par activité/saison. Les fiches de départ listent les stations proches avec leurs liens horaires. Les deux KMZ comportent également des dossiers de départs **été** et **hiver**, masqués par défaut. La vue générale des arrêts de montagne reste inchangée.
+
+La sélection actuelle trouve 25 départs pédestres et un départ hivernal proches des lignes retenues ; le résultat évolue avec les données. Elle n’est pas exhaustive en Isère. Les anciens conseils de transport contenus dans les topos ne servent pas à attribuer des lignes : seuls les GTFS officiels sont utilisés. La base dérivée et les rapprochements sont disponibles dans `arrets.json` sous ODbL 1.0.

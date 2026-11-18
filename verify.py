@@ -13,8 +13,8 @@ def verify(out=Path('dist')):
     assert len(seeds)==912 and len({s['id'] for s in seeds})==912
     assert min(s['altitude'] for s in seeds)>=600
     assert len(report['stops'])==len(seeds)
-    assert len(list((out/'arrets').glob('*.html')))==len(seeds)
-    by_id={s['id']:s for s in report['stops']}
+    assert len(list((out/'arrets').glob('*.html')))==len(seeds)+len(report['line_stops'])
+    by_id={s['id']:s for s in report['stops']+report['line_stops']}
     for group,filename,count in [('mreso','Mreso_600m_en_ligne.kmz',165),('cars','Cars_Isere_600m_en_ligne.kmz',747)]:
         with zipfile.ZipFile(out/filename) as z:
             assert z.testzip() is None
@@ -32,7 +32,7 @@ def verify(out=Path('dist')):
             for href in root.findall('.//k:Icon/k:href',ns):
                 assert z.read(href.text).startswith(b'\x89PNG\r\n\x1a\n')
             expected={}
-            for seed in report['stops']:
+            for seed in report['line_stops']:
                 if seed['group']==group:
                     for route in seed['routes']:expected.setdefault(route['id'],set()).add(seed['id'])
             folders=lines.findall('k:Folder',ns)
@@ -68,6 +68,15 @@ def verify(out=Path('dist')):
                         u=urllib.parse.urlparse(r['url'])
                         assert u.scheme=='https'
                         assert u.hostname in ('www.reso-m.fr','sim.laregionvoustransporte.fr')
+    import hiking
+    hikes={h['id']:h for h in report['hikes']}
+    for stop in report['stops']+report['line_stops']:
+        for ref in stop.get('hikes',[]):
+            h=hikes[ref['id']]
+            assert hiking.metres(stop,h)<=1000
+            assert h['season'] in ('ete','hiver')
+            assert (out/'randos'/(h['id']+'.html')).is_file()
+    assert (out/'randos/index.html').is_file()
     print('Vérifié : 912 fiches, 165 + 747 points de référence et dossiers par ligne, positions et icônes vérifiées, liens officiels.')
 
 
