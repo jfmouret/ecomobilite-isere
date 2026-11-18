@@ -87,6 +87,31 @@ def verify(out=Path('dist')):
             assert z.testzip() is None
             tree=ET.fromstring(z.read('doc.kml'))
             assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==expected_stops
+    climb_data=json.loads((out/'escalade.json').read_text())
+    site_by_id={s['id']:s for s in climb_data['sites']}
+    original_sites={s['id']:s for s in json.loads((ROOT/'data/climbing-sites.json').read_text())['sites']}
+    for site in site_by_id.values():
+        assert (site['latitude'],site['longitude'])==(original_sites[site['id']]['latitude'],original_sites[site['id']]['longitude'])
+        assert (out/'escalade'/(site['id']+'.html')).is_file()
+    import hiking
+    pairs=set()
+    for stop in report['line_stops']:
+        for ref in stop.get('climbs',[]):assert hiking.metres(stop,site_by_id[ref['id']])<=1000
+        for ref in stop.get('nearest_climbs',[]):
+            key=(ref['site_id'],ref['route_id'])
+            assert key not in pairs
+            pairs.add(key)
+            candidates=[p for p in report['line_stops'] if p['in_isere'] and any(r['id']==ref['route_id'] for r in p['routes']) and any(c['id']==ref['site_id'] for c in p['climbs'])]
+            winner=min(candidates,key=lambda p:(hiking.metres(p,site_by_id[ref['site_id']]),p['id']))
+            assert winner['id']==stop['id']
+    climb_ids={p['id'] for p in report['line_stops'] if p['in_isere'] and p.get('nearest_climbs')}
+    for filename,expected in [('Isere_arrets_escalade.kmz',climb_ids),('Isere_arrets_rando_escalade.kmz',climb_ids|focused)]:
+        with zipfile.ZipFile(out/filename) as z:
+            assert z.testzip() is None
+            tree=ET.fromstring(z.read('doc.kml'))
+            assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==expected
+    assert report['climbing_stop_count']==len(climb_ids)
+    assert report['combined_stop_count']==len(climb_ids|focused)
     assert report['focused_stop_count']==len(focused)
     import hiking
     access_by_id={h['id']:h for h in report['hikes']}

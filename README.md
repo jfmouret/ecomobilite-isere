@@ -121,3 +121,27 @@ Si un de ces deux flux additionnels échoue, la publication continue avec une me
 ## Visorando
 
 Une intégration automatique n’est pas activée. Les [conditions publiées](https://www.visorando.com/mentions-legales.html), section VII, limitent la réutilisation des informations à l’usage privé et interdisent leur rediffusion. Aucune API publique assortie d’une licence ouverte permettant notre réutilisation n’a été identifiée lors de la vérification. L’ajout de leur catalogue nécessiterait un accord ou une voie de réutilisation explicitement autorisée ; aucune collecte de leurs topos n’est effectuée.
+
+## Escalade : données du KMZ fourni
+
+`data/climbing-sites.json` conserve les positions, noms, identifiants Oblyk et mentions historiques extraits du fichier utilisateur `Oblyk_508_conention38.kmz`, avec son empreinte SHA-256. Le fichier original n’est pas modifié. Sur ses 508 points, 243 sont situés dans les contours officiels de l’Isère ; seuls ces sites sont analysés dans cette extension.
+
+Chaque génération rapproche ces points des arrêts officiels, avec le même seuil non arrondi de 1000 m à vol d’oiseau et le même principe du plus proche par ligne et par site, parmi les arrêts d’Isère. Les quais et le sens de desserte restent à vérifier. Le point du site n’est **pas supposé être un parking ni le départ d’un accès piéton**. Aucune voie d’accès n’est inventée.
+
+Les fiches d’arrêts proposent une rubrique escalade et les liens vers des fiches de rapprochement, puis vers la fiche Oblyk d’origine. Les statuts PDESI et conventionnement issus du fichier fourni sont conservés avec leurs réserves et leur caractère historique (source mars 2024), sans conclusion sur la situation actuelle ou les autorisations d’accès.
+
+Les transports et rapprochements sont actualisés ; les sites Oblyk restent un instantané du KMZ fourni. Aucun compte ni clé API Oblyk n’est utilisé et aucune mise à jour directe de leur base n’est simulée.
+
+Téléchargements :
+
+- `Isere_arrets_randonnee.kmz` : vue randonnée existante, conservée.
+- `Isere_arrets_escalade.kmz` : arrêts retenus pour les sites d’escalade.
+- `Isere_arrets_rando_escalade.kmz` : union des deux sélections, sans répétition d’un même identifiant d’arrêt.
+
+La fiche de chaque arrêt permet toujours de télécharger les arrêts de la ligne complète et de consulter les horaires. Les fichiers filtrés ne contiennent pas de dossiers cachés avec les milliers d’autres points.
+
+Attribution : **©Oblyk**, source de chaque site liée directement ; contenu communautaire sous **CC BY-NC-SA** et base sous **Open Database License**, conformément aux [conditions Oblyk](https://oblyk.org/fr/conditions-d-utilisation). La version CC n’est pas précisée dans cette page et n’est pas inventée ici. Réutilisation du contenu Oblyk à des fins non commerciales et sous les mêmes conditions. Les données Oblyk et rapprochements sont publiés séparément dans `escalade.json`, distincts des données Camptocamp et des transports.
+
+## Traces de randonnée hivernale
+
+La couche IGN `TRACES.RANDO.HIVERNALE` est identifiée comme une couche WMTS dans le catalogue cartographique. Elle permet de visualiser des tracés, mais l’affichage d’une image géoréférencée ne fournit pas à lui seul une table de points de départ. Aucun départ n’est déduit d’un sommet, d’un pixel ou de l’extrémité arbitraire d’un segment. Une intégration de ces départs exige une source vectorielle ou des points explicitement identifiés, avec droits de réutilisation vérifiés. La source exacte utilisée dans AlpineQuest reste à confirmer avec son fichier AQX ou son lien de catalogue.
