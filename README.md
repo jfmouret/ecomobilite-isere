@@ -161,3 +161,19 @@ Les catégories des arrêts sont tirées des associations pour lesquelles ils so
 Les points d’accès Camptocamp ne sont pas forcément le départ d’un parcours orienté ; un point peut être une arrivée de traversée. Les sites Oblyk restent les positions du KMZ, pas des parkings déduits. La proximité demeure à vol d’oiseau et n’implique aucun tracé piéton. Les descriptions donnent les liens vers les fiches et leurs sources.
 
 Les pictogrammes sont des dessins originaux produits par `map_icons.py` en PNG transparents, embarqués dans les KMZ : aucune police emoji ni image distante n’est nécessaire pour leur affichage. Ils mesurent 48 pixels et sont accompagnés d’une indication de taille KML pour limiter l’encombrement ; le rendu effectif dépend des options d’affichage d’AlpineQuest.
+
+## Essai PDIPR — chemins de plaine
+
+Un essai indépendant de la carte principale est publié dans `pdipr/index.html` et `Essai_PDIPR_Vienne.kmz`, autour de cinq arrêts identifiés dans les GTFS : Le Village, Bérardier Place, Malissol La Gère, Gare d’Estressin et Gare de Vienne. Les coordonnées et références des arrêts proviennent des données officielles, pas d’un placement manuel.
+
+Le jeu du [Département de l’Isère](https://www.data.gouv.fr/datasets/plan-departemental-des-itineraires-de-promenades-et-de-randonnees-departement-de-lisere) est sous Licence Ouverte 2.0. L’export complet analysé compte 16 862 tronçons. Il renseigne la géométrie, l’identifiant et le gestionnaire ; il ne renseigne aucun nom de circuit, départ, PR, GR de Pays ou couleur de balisage.
+
+L’instantané `data/pdipr-pilot.json` conserve les géométries originales de 23 tronçons à moins de 2 km des cinq arrêts initiaux, avec l’URL et l’empreinte SHA-256 de la source complète et la date de récupération. Les tronçons sont des LineString/MultiLineString en coordonnées géographiques. Les centroïdes `geo_point_2d` ne sont pas utilisés pour la distance.
+
+À chaque génération, le test recalcule la proximité depuis la position actuelle des arrêts : projection locale sur chaque segment puis distance sphérique haversine. Le seuil est comparé avant arrondi à 1000 m. Une projection n’est pas une intersection avec une rue, ni un départ officiel ou un accès piéton vérifié. Aucun trait de liaison bus–chemin n’est dessiné. Les tronçons retenus sont affichés entiers ; certaines parties dépassent le rayon. Leur couleur turquoise est un choix d’affichage, sans indication de balisage réel.
+
+La marge de 2 km de l’instantané permet d’évaluer le rayon de 1 km après un déplacement modéré de l’arrêt ; un changement de plus de 500 m ou une disparition de son identifiant rend l’essai indisponible pour ce point, jusqu’au renouvellement de l’instantané. Les tronçons ne sont pas téléchargés quotidiennement : cette version est un pilote daté, alors que les transports continuent à être actualisés. Le test n’étend pas la sélection principale aux milliers de points du réseau.
+
+L’essai conserve aussi les résultats négatifs : aucun tronçon dans le rayon de 1 km des deux gares testées, même si des chemins peuvent exister hors du PDIPR. Les autres arrêts testés ont un réseau géométriquement proche, à contrôler sur place ou sur la carte pour identifier une jonction utilisable.
+
+Isère Outdoor est proposé comme lien de consultation complémentaire. Ses fiches ne sont pas recopiées : les mentions publiées de Yoomigo n’accordent pas une réutilisation automatique de ce catalogue. Aucun départ de circuit n’est construit à partir d’un centroïde ou du premier sommet d’un tronçon.

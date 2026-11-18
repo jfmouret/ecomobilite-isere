@@ -171,6 +171,18 @@ def verify(out=Path('dist')):
             page=(out/'arrets'/(stop['id']+'.html')).read_text()
             for h in stop['hikes']:
                 for route in h.get('routes',[]):assert route['url'] in page
+    import pdipr_pilot
+    snapshot=json.loads((ROOT/'data/pdipr-pilot.json').read_text())
+    analyses=pdipr_pilot.analyse(report['line_stops'],snapshot)
+    assert analyses==report['pdipr_pilot_results']
+    for result in analyses:
+        assert (out/'pdipr'/(result['id']+'.html')).is_file()
+        for near in result['near']:assert near['distance_unrounded']<=1000
+    with zipfile.ZipFile(out/'Essai_PDIPR_Vienne.kmz') as z:
+        assert z.testzip() is None
+        tree=ET.fromstring(z.read('doc.kml'))
+        assert len(tree.findall(".//{K}Folder[@id='pilot-stops']/{K}Placemark".format(K='{'+K+'}')))==sum('longitude' in r for r in analyses)
+        assert len(tree.findall(".//{K}Folder[@id='near-network']/{K}Placemark".format(K='{'+K+'}')))==sum(bool(r['near']) for r in analyses)
     print('Vérifié : 912 fiches, 165 + 747 points de référence et dossiers par ligne, positions et icônes vérifiées, liens officiels.')
 
 
