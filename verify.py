@@ -77,6 +77,19 @@ def verify(out=Path('dist')):
             assert h['season'] in ('ete','hiver')
             assert (out/'randos'/(h['id']+'.html')).is_file()
     assert (out/'randos/index.html').is_file()
+    assert (out/'camptocamp.json').is_file()
+    for h in hikes.values():
+        assert h['id'].startswith('c2c-')
+        assert h['license']['id']=='CC-BY-SA-3.0'
+        assert h['routes']
+        for route in h['routes']:
+            assert route['url']=='https://www.camptocamp.org/routes/'+str(route['id'])+'/fr'
+            assert route['license']['id']=='CC-BY-SA-3.0'
+    for stop in report['stops']+report['line_stops']:
+        if stop.get('hikes'):
+            page=(out/'arrets'/(stop['id']+'.html')).read_text()
+            for h in stop['hikes']:
+                for route in h.get('routes',[]):assert route['url'] in page
     print('Vérifié : 912 fiches, 165 + 747 points de référence et dossiers par ligne, positions et icônes vérifiées, liens officiels.')
 
 
