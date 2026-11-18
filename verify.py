@@ -73,7 +73,7 @@ def verify(out=Path('dist')):
                         assert u.scheme=='https'
                         assert u.hostname in ('www.reso-m.fr','sim.laregionvoustransporte.fr','www.rubantransport.com','www.lva-mobilite.fr')
     import focused_kmz
-    focused={s['id'] for s in report['line_stops'] if s.get('in_isere') and s.get('hikes')}
+    focused={s['id'] for s in report['line_stops'] if s.get('in_isere') and s.get('nearest_accesses')}
     with zipfile.ZipFile(out/'Isere_arrets_randonnee.kmz') as z:
         assert z.testzip() is None
         tree=ET.fromstring(z.read('doc.kml'))
@@ -88,6 +88,22 @@ def verify(out=Path('dist')):
             tree=ET.fromstring(z.read('doc.kml'))
             assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==expected_stops
     assert report['focused_stop_count']==len(focused)
+    import hiking
+    access_by_id={h['id']:h for h in report['hikes']}
+    winners={}
+    for stop in report['line_stops']:
+        for ref in stop.get('nearest_accesses',[]):
+            key=(ref['access_id'],ref['route_id'])
+            assert key not in winners
+            assert stop['in_isere']
+            assert any(r['id']==ref['route_id'] for r in stop['routes'])
+            winners[key]=stop['id']
+    for key,sid in winners.items():
+        aid,rid=key
+        candidates=[s for s in report['line_stops'] if s.get('in_isere') and any(r['id']==rid for r in s['routes']) and any(h['id']==aid for h in s['hikes'])]
+        expected=min(candidates,key=lambda s:(hiking.metres(s,access_by_id[aid]),s['id']))
+        assert expected['id']==sid
+
     import territory
     prepared=territory.polygons(json.loads((ROOT/'.cache/isere-limits.json').read_text()))
     for stop in report['line_stops']:assert stop['in_isere']==territory.contains(stop,prepared)

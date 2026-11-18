@@ -4,6 +4,7 @@ import html
 import xml.etree.ElementTree as ET
 import zipfile
 from collections import defaultdict
+import hiking
 
 K='http://www.opengis.net/kml/2.2'
 
@@ -24,15 +25,34 @@ def write_kmz(stops,destination,base,title,icon_bytes,route=None):
         numbers=', '.join(dict.fromkeys(r['number'] for r in s['routes']))
         info='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(s['name'])+'</h2><p>Lignes à la génération du fichier : '+html.escape(numbers)+'.</p>'
         if route:info+='<p>'+html.escape(route['network'])+' · ligne '+html.escape(route['number'])+' · '+html.escape(route['name'])+'</p>'
-        else:info+='<p>Au moins un accès Camptocamp associé à une randonnée à 1 km maximum à vol d’oiseau. Accès à pied à vérifier.</p>'
+        else:info+='<p>Arrêt le plus proche, parmi les arrêts d’Isère de sa ligne, pour au moins un accès Camptocamp à 1 km maximum à vol d’oiseau. Cheminement et sens de desserte à vérifier.</p>'
         info+='<p><a href="'+base.rstrip('/')+'/arrets/'+s['id']+'.html"><b>Randonnées, horaires et affichage d’une ligne complète</b></a></p></div>'
         sub(p,'description',info);sub(sub(p,'Point'),'coordinates',str(s['longitude'])+','+str(s['latitude'])+',0')
     with zipfile.ZipFile(destination,'w',zipfile.ZIP_DEFLATED) as z:
         z.writestr('doc.kml',ET.tostring(root,encoding='utf-8',xml_declaration=True));z.writestr('icons/bus.png',icon_bytes)
 
 
+def select_nearest(stops,hikes):
+    """Un gagnant par accès/activité et identifiant de ligne, sans arrondir le classement."""
+    by_id={h['id']:h for h in hikes}
+    best={}
+    for s in stops:
+        s['nearest_accesses']=[]
+        if not s.get('in_isere'):continue
+        for ref in s.get('hikes',[]):
+            distance=hiking.metres(s,by_id[ref['id']])
+            if distance>1000:continue
+            for route in s['routes']:
+                key=(ref['id'],route['id'])
+                candidate=(distance,s['id'])
+                if key not in best or candidate<best[key][0]:best[key]=(candidate,s,route)
+    for (access_id,rid),((distance,_),s,route) in sorted(best.items()):
+        s['nearest_accesses'].append(dict(access_id=access_id,route_id=rid,number=route['number'],network=route['network'],distance_m=round(distance)))
+    return [s for s in stops if s['nearest_accesses']]
+
+
 def generate(stops,out,base,root,colour_icon,palette):
-    focused=[s for s in stops if s.get('in_isere') and s.get('hikes')]
+    focused=[s for s in stops if s.get('in_isere') and s.get('nearest_accesses')]
     write_kmz(focused,out/'Isere_arrets_randonnee.kmz',base,'Isère — arrêts avec accès randonnée à 1 km',(root/'data/mreso.png').read_bytes())
     lines=defaultdict(list);routes={}
     for s in stops:

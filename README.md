@@ -21,7 +21,7 @@ Dans ce dépôt, **Settings → Pages → Build and deployment → Source → Gi
 
 ## Vue randonnée légère (conseillée)
 
-Télécharger **Isere_arrets_randonnee.kmz** depuis le site. Il contient seulement les arrêts d’Isère ayant au moins un accès Camptocamp associé à une activité pédestre, raquettes ou ski à 1000 m maximum à vol d’oiseau. Il ne contient aucun dossier caché avec les milliers d’autres arrêts : un affichage global reste limité à cette sélection. Plusieurs références de réseau ou quais peuvent correspondre à un même lieu.
+Télécharger **Isere_arrets_randonnee.kmz** depuis le site. Il retient, pour chaque point d’accès Camptocamp et chaque identifiant de ligne, **un seul arrêt : le plus proche parmi les arrêts d’Isère à 1000 m maximum à vol d’oiseau**. Le classement utilise la distance non arrondie ; une égalité exacte est départagée par l’identifiant stable de l’arrêt. Un point peut rester affiché parce qu’il est le meilleur choix pour un autre accès ou une autre ligne. Les quais de l’autre sens restent accessibles dans le fichier de la ligne complète : vérifier le sens et le cheminement, qui ne sont pas déduits de la proximité. Il ne contient aucun dossier caché avec les milliers d’autres arrêts : un affichage global reste limité à cette sélection. Plusieurs références de réseau ou quais peuvent correspondre à un même lieu.
 
 1. Masquer les anciens imports départementaux et importer ce KMZ léger.
 2. Toucher un arrêt, puis son lien pour voir les randonnées Camptocamp et les lignes.
