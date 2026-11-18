@@ -15,7 +15,7 @@ Dans ce dépôt, **Settings → Pages → Build and deployment → Source → Gi
 3. Toucher un arrêt, afficher sa description et toucher **Consulter les lignes et horaires actualisés**.
 4. Sur sa fiche, choisir une ligne puis **Horaires officiels**. Choisir la date, le sens et l’arrêt dans le service officiel.
 
-Masquer ou retirer l’ancien import correspondant pour éviter les points en double. Les nouveaux KMZ conservent les positions et les noms d’origine. Leur contenu est statique mais les liens ouvrent des fiches mises à jour : il n’est pas nécessaire de réimporter les KMZ chaque jour. Réimporter uniquement si la sélection des points ou leurs liens changent. La consultation des fiches et horaires nécessite une connexion ; elle n’est pas un paquet hors ligne.
+Masquer ou retirer l’ancien import correspondant pour éviter les points en double. Les nouveaux KMZ conservent les positions et les noms d’origine. Leur contenu est statique mais les liens ouvrent des fiches mises à jour : il n’est pas nécessaire de réimporter les KMZ chaque jour. Les dossiers par ligne reflètent la desserte publiée à la génération du KMZ. Télécharger et réimporter pour actualiser ces dossiers après un changement de desserte. La consultation des fiches et horaires nécessite une connexion ; elle n’est pas un paquet hors ligne.
 
 ## Périmètre
 
@@ -58,3 +58,16 @@ python -m http.server 8000 --directory dist
 ```
 
 Les fichiers produits sont dans `dist/`. `--cache-only` sert uniquement aux tests locaux avec des téléchargements déjà présents ; il ne faut pas l’utiliser pour une publication actualisée. `arrets.json` inclut les identifiants de correspondance, les périodes des GTFS et leurs empreintes SHA-256. Le rapport CSV permet le contrôle manuel.
+
+## Afficher les arrêts d’une ligne
+
+Chaque KMZ contient **Tous les arrêts** (vue générale) et **Par ligne** (un dossier par ligne). La vue générale conserve les icônes d’origine ; les dossiers par ligne utilisent des pastilles colorées et des noms préfixés par le numéro de ligne. Une palette de 12 couleurs est réutilisée : la couleur seule ne permet pas d’identifier une ligne parmi toutes les autres.
+
+1. Repérer un arrêt dans la vue générale. Sa description contient les numéros connus à la génération ; sa fiche en ligne donne les informations actualisées.
+2. Dans **Repères → Explorer les repères**, ouvrir le fichier importé puis **Tous les arrêts** et retirer ces repères de l’affichage avec la commande de masquage du menu.
+3. Revenir au fichier, ouvrir **Par ligne**, puis le dossier **Ligne …** souhaité. Dans le menu du dossier, choisir **Tout afficher**.
+4. Pour changer de ligne, masquer les repères du dossier précédent puis afficher ceux du suivant.
+
+Après l’import, privilégier **Parcourir** plutôt que **Afficher** tout le fichier. Les dossiers par ligne sont marqués masqués dans le KML ; la façon dont cette préférence est reprise dépend de l’importeur et doit être vérifiée dans AlpineQuest sur le téléphone. Un affichage global peut superposer les copies d’un même arrêt desservi par plusieurs lignes.
+
+Les dossiers contiennent seulement les points de la sélection initiale à partir de 600 m : **ils ne représentent pas tous les arrêts de chaque ligne**, notamment dans la vallée. Aucun tracé d’itinéraire n’est dessiné. Le classement par ligne est figé dans le fichier importé, tandis que les fiches liées sont actualisées quotidiennement. Aucune réimportation quotidienne n’est nécessaire pour consulter les fiches à jour.

@@ -2,6 +2,8 @@
 """Arrêts sélectionnés -> fiches web et KMZ, à partir des GTFS officiels."""
 import argparse
 import csv
+import struct
+import zlib
 import datetime as dt
 import hashlib
 import html
@@ -182,23 +184,73 @@ def document(title,body):
     return '<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+css+'</style></head><body><main>'+body+'</main></body></html>'
 
 
+def colour_icon(rgb):
+    """PNG RGBA autonome : pastille de couleur bordée de blanc."""
+    def chunk(tag,data):
+        return struct.pack('>I',len(data))+tag+data+struct.pack('>I',zlib.crc32(tag+data)&0xffffffff)
+    raw=bytearray()
+    for y in range(32):
+        raw.append(0)
+        for x in range(32):
+            radius=math.hypot(x-15.5,y-15.5)
+            raw.extend((*rgb,255) if radius<11.5 else ((255,255,255,255) if radius<14 else (0,0,0,0)))
+    return b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',32,32,8,6,0,0,0))+chunk(b'IDAT',zlib.compress(bytes(raw)))+chunk(b'IEND',b'')
+
+
+PALETTE=['1769aa','c62828','2e7d32','7b1fa2','ef6c00','00838f','ad1457','5d4037','455a64','827717','4527a0','00796b']
+
+
 def make_kmz(group,selection,out,base):
     def sub(parent,tag,text=None,**attrs):
         e=ET.SubElement(parent,'{'+K+'}'+tag,attrs)
         if text is not None:e.text=str(text)
         return e
     root=ET.Element('{'+K+'}kml');doc=sub(root,'Document')
-    sub(doc,'name',('M réso' if group=='mreso' else 'Cars Isère')+' — 600 m et plus — en ligne')
+    sub(doc,'name',('M réso' if group=='mreso' else 'Cars Isère')+' — 600 m et plus — par ligne')
+    sub(doc,'description','Vue générale dans « Tous les arrêts ». Masquer cette vue puis afficher un dossier dans « Par ligne ». Seuls les arrêts de la sélection initiale à partir de 600 m sont inclus, pas tous les arrêts des lignes. Les couleurs peuvent se répéter : le numéro identifie la ligne. Les dossiers reflètent les données à la date de génération du KMZ ; les fiches web continuent à s’actualiser.')
     style=sub(doc,'Style',id='arret');icon=sub(style,'IconStyle');sub(icon,'scale',1.1);sub(sub(icon,'Icon'),'href','icons/'+group+'.png')
-    for s in selection:
-        if s['group']!=group:continue
-        p=sub(doc,'Placemark',id=s['id']);sub(p,'name',s['name']);sub(p,'styleUrl','#arret')
+    selected=[s for s in selection if s['group']==group]
+    route_stops=defaultdict(list);routes={}
+    for s in selected:
+        for r in s['routes']:
+            routes[r['id']]=r;route_stops[r['id']].append(s)
+    # Clé naturelle sous forme homogène pour les codes numériques/alphanumériques.
+    ids=sorted(routes,key=lambda rid:(routes[rid]['feed'],re.sub(r'\d+',lambda m:m[0].zfill(8),routes[rid]['number']),rid))
+    icons={}
+    for rid in ids:
+        colour=PALETTE[int(hashlib.sha256(rid.encode()).hexdigest()[:8],16)%len(PALETTE)]
+        icons[colour]=colour_icon(tuple(bytes.fromhex(colour)))
+        st=sub(doc,'Style',id='colour-'+colour)
+        ic=sub(st,'IconStyle');sub(ic,'scale',1.1);sub(sub(ic,'Icon'),'href','icons/'+colour+'.png')
+    # Une définition par couleur (plusieurs lignes peuvent partager cette couleur).
+    seen=set()
+    for st in list(doc):
+        if st.tag=='{'+K+'}Style':
+            if st.attrib['id'] in seen:doc.remove(st)
+            else:seen.add(st.attrib['id'])
+    def point(parent,s,uid,route=None):
+        p=sub(parent,'Placemark',id=uid)
+        sub(p,'name',(route['number']+' · ' if route else '')+s['name'])
+        colour=PALETTE[int(hashlib.sha256(route['id'].encode()).hexdigest()[:8],16)%len(PALETTE)] if route else None
+        sub(p,'styleUrl','#colour-'+colour if colour else '#arret')
         link=base.rstrip('/')+'/arrets/'+s['id']+'.html'
-        info='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(s['name'])+'</h2><p>Altitude indiquée : '+str(s['altitude'])+' m.</p><p><a href="'+html.escape(link,quote=True)+'"><b>Consulter les lignes et horaires actualisés — connexion requise</b></a></p></div>'
+        numbers=', '.join(dict.fromkeys(r['number'] for r in s['routes'])) or 'à vérifier'
+        info='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(s['name'])+'</h2><p>Altitude indiquée : '+str(s['altitude'])+' m.</p><p>Lignes à la génération du KMZ : '+html.escape(numbers)+'.</p>'
+        if route:info+='<p><b>Ligne '+html.escape(route['number'])+'</b> : '+html.escape(route['name'])+'</p>'
+        info+='<p><a href="'+html.escape(link,quote=True)+'"><b>Consulter les lignes et horaires actualisés — connexion requise</b></a></p></div>'
         sub(p,'description',info);sub(sub(p,'Point'),'coordinates',f'{s["longitude"]},{s["latitude"]},0')
+    general=sub(doc,'Folder',id='all-stops');sub(general,'name','Tous les arrêts');sub(general,'visibility',1)
+    for s in selected:point(general,s,s['id'])
+    per_line=sub(doc,'Folder',id='by-line');sub(per_line,'name','Par ligne');sub(per_line,'visibility',0)
+    for i,rid in enumerate(ids):
+        r=routes[rid];folder=sub(per_line,'Folder',id='line-'+str(i))
+        sub(folder,'name','Ligne '+r['number']+' — '+r['name']+' ('+str(len(route_stops[rid]))+' points)')
+        sub(folder,'visibility',0)
+        for s in route_stops[rid]:point(folder,s,'line-'+str(i)+'-'+s['id'],r)
     filename='Mreso_600m_en_ligne.kmz' if group=='mreso' else 'Cars_Isere_600m_en_ligne.kmz'
     with zipfile.ZipFile(out/filename,'w',zipfile.ZIP_DEFLATED) as z:
         z.writestr('doc.kml',ET.tostring(root,encoding='utf-8',xml_declaration=True));z.write(ROOT/'data'/f'{group}.png','icons/'+group+'.png')
+        for colour,data in icons.items():z.writestr('icons/'+colour+'.png',data)
 
 
 def build(base,out,cache,cache_only=False):
@@ -232,7 +284,7 @@ def build(base,out,cache,cache_only=False):
     if out.exists():shutil.rmtree(out)
     (out/'arrets').mkdir(parents=True)
     for s in result:(out/'arrets'/(s['id']+'.html')).write_text(stop_page(s,feeds,now))
-    for group in ('cars','mreso'):make_kmz(group,selected,out,base)
+    for group in ('cars','mreso'):make_kmz(group,result,out,base)
     metadata={c:{k:v for k,v in f.items() if k!='points'} for c,f in feeds.items()}
     report=dict(generated_at=now.isoformat(),coverage='Sélection initiale à partir de 600 m, non exhaustive du département',licence='ODbL 1.0',sources=metadata,counts=dict(Counter(s['status'] for s in result)),stops=result)
     (out/'arrets.json').write_text(json.dumps(report,ensure_ascii=False,separators=(',',':')))
@@ -243,7 +295,7 @@ def build(base,out,cache,cache_only=False):
     for c,f in feeds.items():source_body+='<li>'+html.escape(SOURCES[c][0])+' : <a href="'+html.escape(f['source_url'],quote=True)+'">source GTFS</a>, période '+display_date(f['period_start'])+' au '+display_date(f['period_end'])+'.</li>'
     source_body+='</ul><p>La desserte est reconstruite par les identifiants GTFS des courses, arrêts et stations parentes, pas par la proximité d’une ligne dessinée. La sélection initiale est associée par nom normalisé et position (moins de 0,2 m, sinon 25 m maximum), une correspondance au plus par réseau. Les ambiguïtés sont signalées et ne fournissent aucune ligne supposée. Plusieurs réseaux peuvent partager un même arrêt nommé et situé au même endroit.</p><p>Les lignes sont celles de l’offre publiée, toutes périodes confondues. Les calendriers et exceptions ne sont pas interprétés comme une desserte quotidienne : les horaires, la date et le sens sont consultés sur le site officiel. Aucun retard ni prochain départ n’est présenté comme du temps réel ici.</p><p>Les liens Région emploient les identifiants de lignes officiels dans le calculateur régional. Les liens M réso sont extraits du site officiel ou utilisent son format avec un code confirmé par l’API M et la disponibilité timeSheet. Aucun nom de PDF saisonnier n’est deviné.</p><p><a href="arrets.json">Base dérivée publiée sous ODbL 1.0</a> · <a href="correspondances.csv">Rapport de correspondances</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">Texte de la licence ODbL 1.0</a> · <a href="index.html">Retour aux arrêts</a></p>'
     (out/'sources.html').write_text(document('Sources et méthode',source_body))
-    body='<h1>Écomobilité — arrêts à partir de 600 m</h1><p>Cars Région Isère et M réso : sélection issue de tes deux KMZ. Ce catalogue ne recense pas tous les arrêts du département ; certains arrêts du réseau régional se trouvent dans les départements voisins.</p><p>Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Actualisation quotidienne à 07 h 15, heure de Paris, sous réserve de disponibilité des sources.</p><p><a class="button" href="Mreso_600m_en_ligne.kmz">KMZ M réso — 165 points</a></p><p><a class="button" href="Cars_Isere_600m_en_ligne.kmz">KMZ cars Région — 747 points</a></p><p>Importer ces repères dans AlpineQuest, toucher un arrêt puis son lien pour consulter sa fiche actualisée. Les liens de fiches restent stables ; les lignes et horaires se consultent en ligne.</p>'
+    body='<h1>Écomobilité — arrêts à partir de 600 m</h1><p>Cars Région Isère et M réso : sélection issue de tes deux KMZ. Ce catalogue ne recense pas tous les arrêts du département ; certains arrêts du réseau régional se trouvent dans les départements voisins.</p><p>Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Actualisation quotidienne à 07 h 15, heure de Paris, sous réserve de disponibilité des sources.</p><p><a class="button" href="Mreso_600m_en_ligne.kmz">KMZ M réso — 165 points</a></p><p><a class="button" href="Cars_Isere_600m_en_ligne.kmz">KMZ cars Région — 747 points</a></p><p>Importer ces repères dans AlpineQuest, toucher un arrêt puis son lien pour consulter sa fiche actualisée. Chaque KMZ contient « Tous les arrêts » et « Par ligne ». Masquer la vue générale avant d’afficher une ligne. Les couleurs se répètent ; les numéros distinguent les lignes. Seuls les arrêts sélectionnés à partir de 600 m sont inclus. Les dossiers et couleurs sont figés à la génération : télécharger et réimporter pour actualiser la répartition. Les fiches en ligne continuent à s’actualiser.</p>'
     body+='<p><b>'+str(sum(s['status'] in ('exact','nom_et_proximite') for s in result))+' correspondances trouvées sur '+str(len(result))+' points.</b> Les autres restent visibles avec une mention de vérification.</p><label for="search">Rechercher un arrêt ou une commune</label><input id="search" type="search" placeholder="Exemple : Uriage, Chartreuse…"><ul id="stops">'
     for s in result:body+='<li data-name="'+html.escape(norm(s['name']),quote=True)+'"><a href="arrets/'+s['id']+'.html">'+html.escape(s['name'])+'</a> · '+('M réso' if s['group']=='mreso' else 'Cars Région')+(' · à vérifier' if s['status'] not in ('exact','nom_et_proximite') else '')+'</li>'
     body+='</ul><p><a href="sources.html">Sources, licence et méthode</a> · <a href="correspondances.csv">Rapport de vérification</a></p><script>document.getElementById("search").addEventListener("input",e=>{const q=e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");document.querySelectorAll("#stops li").forEach(li=>li.hidden=!li.dataset.name.includes(q));});</script>'

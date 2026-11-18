@@ -20,10 +20,36 @@ def verify(out=Path('dist')):
             assert z.testzip() is None
             root=ET.fromstring(z.read('doc.kml'))
             ns={'k':K}
-            marks=root.findall('.//k:Placemark',ns)
+            doc=root.find('k:Document',ns)
+            general=doc.find("k:Folder[@id='all-stops']",ns)
+            lines=doc.find("k:Folder[@id='by-line']",ns)
+            marks=general.findall('k:Placemark',ns)
             assert len(marks)==count
             icon=root.find('.//k:Icon/k:href',ns).text
             assert z.read(icon).startswith(b'\x89PNG\r\n\x1a\n')
+            all_ids=[e.attrib['id'] for e in root.iter() if 'id' in e.attrib]
+            assert len(all_ids)==len(set(all_ids))
+            for href in root.findall('.//k:Icon/k:href',ns):
+                assert z.read(href.text).startswith(b'\x89PNG\r\n\x1a\n')
+            expected={}
+            for seed in report['stops']:
+                if seed['group']==group:
+                    for route in seed['routes']:expected.setdefault(route['id'],set()).add(seed['id'])
+            folders=lines.findall('k:Folder',ns)
+            assert len(folders)==len(expected)
+            actual_sets=[]
+            for folder in folders:
+                ids=set()
+                for point in folder.findall('k:Placemark',ns):
+                    sid=point.attrib['id'].split('-',2)[2]
+                    ids.add(sid)
+                    assert point.find('k:styleUrl',ns).text.startswith('#colour-')
+                    route_number=point.find('k:name',ns).text.split(' · ',1)[0]
+                    assert any(r['number']==route_number for r in by_id[sid]['routes'])
+                actual_sets.append(ids)
+            # Multiset: deux lignes peuvent desservir exactement les mêmes points.
+            from collections import Counter
+            assert Counter(frozenset(x) for x in actual_sets)==Counter(frozenset(x) for x in expected.values())
             for p in marks:
                 s=by_id[p.attrib['id']]
                 assert s['group']==group
@@ -42,7 +68,7 @@ def verify(out=Path('dist')):
                         u=urllib.parse.urlparse(r['url'])
                         assert u.scheme=='https'
                         assert u.hostname in ('www.reso-m.fr','sim.laregionvoustransporte.fr')
-    print('Vérifié : 912 fiches, 165 + 747 points KMZ, positions et icônes conservées, liens officiels.')
+    print('Vérifié : 912 fiches, 165 + 747 points de référence et dossiers par ligne, positions et icônes vérifiées, liens officiels.')
 
 
 if __name__=='__main__':verify()
