@@ -2,6 +2,7 @@
 """Arrêts sélectionnés -> fiches web et KMZ, à partir des GTFS officiels."""
 import argparse
 import hiking
+import territory
 import csv
 import struct
 import zlib
@@ -34,7 +35,22 @@ SOURCES={
     'SEM':('M réso — Métropole grenobloise','https://data.mobilites-m.fr/api/gtfs/SEM'),
     'GSV':('M réso — Grésivaudan','https://data.mobilites-m.fr/api/gtfs/GSV'),
     'TPV':('M réso — Pays Voironnais','https://data.mobilites-m.fr/api/gtfs/TPV'),
+    'RUBAN':('Ruban — Porte de l’Isère','https://www.data.gouv.fr/api/1/datasets/r/34d2cc17-3eb5-4581-917b-a8c06a112e61'),
+    'LVA':('L’va — Vienne Condrieu','https://www.data.gouv.fr/api/1/datasets/r/e0831d78-5577-4cae-aa00-de5eeaf3ecb6'),
 }
+NETWORK_PAGES={
+    'ISERE':'https://www.laregionvoustransporte.fr/cars-region/cars-region-de-lisere/',
+    'SEM':'https://www.reso-m.fr/61-lignes-et-horaires.htm',
+    'GSV':'https://www.reso-m.fr/61-lignes-et-horaires.htm',
+    'TPV':'https://www.reso-m.fr/61-lignes-et-horaires.htm',
+    'RUBAN':'https://www.rubantransport.com/lignes-regulieres/',
+    'LVA':'https://www.lva-mobilite.fr/se-deplacer/plan-et-fiches-horaires-du-reseau',
+}
+
+
+def network_group(code):return 'mreso' if code in ('SEM','GSV','TPV') else 'cars'
+
+
 M_ROUTES='https://data.mobilites-m.fr/api/routers/default/index/routes'
 M_SCHEDULES='https://www.reso-m.fr/61-lignes-et-horaires.htm'
 
@@ -70,6 +86,10 @@ def download(url):
         try:
             req=urllib.request.Request(url,headers={'User-Agent':'CAF-Ecomobilite-Isere/1.0'})
             with urllib.request.urlopen(req,timeout=60) as r:return r.read()
+        except urllib.error.HTTPError as error:
+            if error.code<500 and error.code!=429:raise
+            if attempt==2:raise
+            time.sleep(2**attempt)
         except (OSError,TimeoutError):
             if attempt==2:raise
             time.sleep(2**attempt)
@@ -122,6 +142,8 @@ def read_feed(code,payload,route_meta,official_links):
             if code=='ISERE':
                 url='https://sim.laregionvoustransporte.fr/fr/schedules/line/'+urllib.parse.quote(rid,safe='')
                 kind='horaires_ligne_region'
+            elif code in ('RUBAN','LVA'):
+                url=NETWORK_PAGES[code];kind='catalogue_reseau'
             elif meta.get('id') in official_links:
                 url=official_links[meta['id']];kind='lien_extrait_site_officiel'
             elif meta.get('timeSheet') is True:
@@ -146,7 +168,7 @@ def stop_page(s,feeds,now):
     esc=lambda x:html.escape(str(x),quote=True)
     matched=s['status'] in ('exact','nom_et_proximite')
     body='<a href="../index.html">Tous les arrêts</a><h1>'+esc(s['name'])+'</h1>'
-    body+='<p>'+('M réso' if s['group']=='mreso' else 'Cars Région Isère')+(' · altitude indiquée dans ton KMZ initial : '+esc(s['altitude'])+' m (IGN, non recalculée).' if s.get('altitude') is not None else ' · arrêt issu du GTFS officiel ; altitude non renseignée.')+'</p>'
+    body+='<p>'+(' / '.join(dict.fromkeys(SOURCES[m['feed']][0] for m in s['matches'])) or ('M réso' if s['group']=='mreso' else 'Cars Région Isère'))+(' · altitude indiquée dans ton KMZ initial : '+esc(s['altitude'])+' m (IGN, non recalculée).' if s.get('altitude') is not None else ' · arrêt issu du GTFS officiel ; altitude non renseignée.')+'</p>'
     body+='<p class="muted">Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+', heure de Paris.</p>'
     today=now.astimezone(PARIS).strftime('%Y%m%d')
     for code in sorted({m['feed'] for m in s['matches']}):
@@ -161,7 +183,7 @@ def stop_page(s,feeds,now):
         body+='<h2>Lignes et horaires officiels</h2><p>Choisis la date et le sens de circulation sur la page officielle. La liste ci-dessous décrit l’offre publiée, pas une garantie de desserte chaque jour ni des prochains départs en temps réel.</p>'
         for r in s['routes']:
             body+='<section><h3>Ligne '+esc(r['number'])+'</h3><p>'+esc(r['name'])+'</p><p class="muted">'+esc(r['network'])+'</p>'
-            if r['url']:body+='<a class="button" href="'+esc(r['url'])+'">Horaires officiels — ligne '+esc(r['number'])+'</a>'
+            if r['url']:body+='<a class="button" href="'+esc(r['url'])+'">'+('Catalogue horaires — rechercher la ligne ' if r.get('link_method')=='catalogue_reseau' else 'Horaires officiels — ligne ')+esc(r['number'])+'</a>'
             else:body+='<p>Lien détaillé non confirmé. Consulter le site officiel du réseau ci-dessous.</p>'
             body+='</section>'
         if not s['routes']:body+='<p>Aucune desserte trouvée dans le fichier publié.</p>'
@@ -174,8 +196,7 @@ def stop_page(s,feeds,now):
         body+='</details>'
     body+=hiking_links(s,with_routes=True)
     body+='<h2>Informations du réseau</h2>'
-    if s['group']=='mreso':body+='<p><a href="https://www.reso-m.fr/61-lignes-et-horaires.htm">M réso : horaires et informations voyageurs</a></p>'
-    else:body+='<p><a href="https://www.laregionvoustransporte.fr/cars-region/cars-region-de-lisere/">Cars Région Isère : informations voyageurs</a></p>'
+    for code in sorted({m['feed'] for m in s['matches']}):body+='<p><a href="'+NETWORK_PAGES[code]+'">'+esc(SOURCES[code][0])+': horaires et informations voyageurs</a></p>'
     body+='<p><a href="https://www.oura.com/">Oùra : recherche d’itinéraires</a></p><p class="muted">Les conditions de réservation, les services scolaires, vacances et perturbations doivent être vérifiés auprès du réseau. Cette fiche nécessite du réseau ; une page restée ouverte n’est pas une garantie de consultation hors ligne.</p>'
     body+='<footer><a href="../sources.html">Sources, méthode et licences</a> · Mise en forme CAF indépendante des réseaux.</footer>'
     return document(s['name'],body)
@@ -208,12 +229,12 @@ def make_kmz(group,selection,out,base,complete=None,hikes=None):
         if text is not None:e.text=str(text)
         return e
     root=ET.Element('{'+K+'}kml');doc=sub(root,'Document')
-    sub(doc,'name',('M réso' if group=='mreso' else 'Cars Isère')+' — 600 m et plus — par ligne')
+    sub(doc,'name',('M réso' if group=='mreso' else 'Cars et réseaux locaux Isère')+' — Isère et lignes complètes')
     sub(doc,'description','Vue générale dans « Tous les arrêts ». Masquer cette vue puis afficher un dossier dans « Par ligne ». Les dossiers par ligne contiennent tous les arrêts publiés, y compris en plaine. La vue générale conserve seulement la sélection initiale à partir de 600 m. Les couleurs peuvent se répéter : le numéro identifie la ligne. Les dossiers reflètent les données à la date de génération du KMZ ; les fiches web continuent à s’actualiser.')
     style=sub(doc,'Style',id='arret');icon=sub(style,'IconStyle');sub(icon,'scale',1.1);sub(sub(icon,'Icon'),'href','icons/'+group+'.png')
     selected=[s for s in selection if s['group']==group]
     route_stops=defaultdict(list);routes={}
-    for s in selected:
+    for s in selected+([p for p in complete if p['group']==group] if complete is not None else []):
         for r in s['routes']:
             routes[r['id']]=r
     for s in (complete if complete is not None else selected):
@@ -249,10 +270,13 @@ def make_kmz(group,selection,out,base,complete=None,hikes=None):
         sub(p,'description',info);sub(sub(p,'Point'),'coordinates',f'{s["longitude"]},{s["latitude"]},0')
     general=sub(doc,'Folder',id='all-stops');sub(general,'name','Tous les arrêts ≥ 600 m');sub(general,'visibility',1)
     for s in selected:point(general,s,s['id'])
+    all_isere=sub(doc,'Folder',id='isere-stops');sub(all_isere,'name','Tous les arrêts en Isère');sub(all_isere,'visibility',0)
+    for s in complete or []:
+        if s['group']==group and s.get('in_isere'):point(all_isere,s,'isere-'+s['id'])
     per_line=sub(doc,'Folder',id='by-line');sub(per_line,'name','Par ligne');sub(per_line,'visibility',0)
     for i,rid in enumerate(ids):
         r=routes[rid];folder=sub(per_line,'Folder',id='line-'+str(i))
-        sub(folder,'name','Ligne '+r['number']+' — '+r['name']+' ('+str(len(route_stops[rid]))+' points)')
+        sub(folder,'name','Ligne '+r['number']+' — '+r['name']+' · '+r['network']+' ('+str(len(route_stops[rid]))+' points)')
         sub(folder,'visibility',0)
         for s in route_stops[rid]:point(folder,s,'line-'+str(i)+'-'+s['id'],r)
     for season,title in [('ete','Accès rando été — pédestre'),('hiver','Accès rando hiver — raquettes et ski')]:
@@ -315,7 +339,7 @@ def make_hiking_pages(out,hikes,now):
         # Préférer les stations officielles aux copies de la sélection montagne.
         refs=[r for r in h['stops'] if r['id'].startswith('gtfs-')] or h['stops']
         for r in sorted(refs,key=lambda r:r['distance_m']):
-            body+='<li><a href="../arrets/'+r['id']+'.html">'+html.escape(r['name'])+'</a> · '+('M réso' if r['group']=='mreso' else 'Cars Région')+' · '+str(r['distance_m'])+' m à vol d’oiseau</li>'
+            body+='<li><a href="../arrets/'+r['id']+'.html">'+html.escape(r['name'])+'</a> · '+html.escape(r.get('network') or ('M réso' if r['group']=='mreso' else 'Cars Région'))+' · '+str(r['distance_m'])+' m à vol d’oiseau</li>'
         body+='</ul><p><a href="../sources.html">Sources et méthode</a></p>'
         (out/'randos'/(h['id']+'.html')).write_text(document(h['name'],body))
 
@@ -324,22 +348,34 @@ def build(base,out,cache,cache_only=False):
     now=dt.datetime.now(dt.timezone.utc)
     cache.mkdir(parents=True,exist_ok=True)
     urls={code+'.zip':u for code,(_,u) in SOURCES.items()}
-    urls.update({'m-routes.json':M_ROUTES,'m-horaires.html':M_SCHEDULES})
+    urls.update({'m-routes.json':M_ROUTES,'m-horaires.html':M_SCHEDULES,'isere-limits.json':territory.SOURCE})
+    unavailable={}
     def fetch(item):
         name,url=item;p=cache/name
-        if cache_only:
-            if not p.exists():raise ValueError('Cache de test absent : '+name)
-        else:p.write_bytes(download(url))
-        return name,p.read_bytes()
+        try:
+            if cache_only:
+                if not p.exists():raise ValueError('Cache de test absent : '+name)
+            else:p.write_bytes(download(url))
+            return name,p.read_bytes()
+        except (OSError,ValueError) as error:
+            if name not in ('RUBAN.zip','LVA.zip'):raise
+            unavailable[name[:-4]]=str(error)
+            return name,None
     with ThreadPoolExecutor(max_workers=3) as pool:payload=dict(pool.map(fetch,urls.items()))
     route_meta={r['gtfsId']:r for r in json.loads(payload['m-routes.json']) if r.get('gtfsId')}
     links=OfficialLinks();links.feed(payload['m-horaires.html'].decode('utf-8'))
     if not links.links:raise ValueError('Liens horaires M réso absents du site officiel')
-    feeds={c:read_feed(c,payload[c+'.zip'],route_meta,links.links) for c in SOURCES}
+    feeds={}
+    for c in SOURCES:
+        if payload[c+'.zip'] is None:continue
+        try:feeds[c]=read_feed(c,payload[c+'.zip'],route_meta,links.links)
+        except (ValueError,zipfile.BadZipFile) as error:
+            if c not in ('RUBAN','LVA'):raise
+            unavailable[c]=str(error)
     selected=json.loads((ROOT/'data/selection.json').read_text())
     indexes={'cars':defaultdict(list),'mreso':defaultdict(list)}
     for c,f in feeds.items():
-        for p in f['points']:indexes['cars' if c=='ISERE' else 'mreso'][norm(p['name'])].append(p)
+        for p in f['points']:indexes[network_group(c)][norm(p['name'])].append(p)
     result=[]
     for seed in selected:
         candidates=indexes[seed['group']].get(norm(seed['name']),[])
@@ -348,14 +384,19 @@ def build(base,out,cache,cache_only=False):
         routes={r['id']:r for p in matched for r in p['routes']}
         current['routes']=sorted(routes.values(),key=lambda r:(r['feed'],r['number']))
         result.append(current)
+    prepared=territory.polygons(json.loads(payload['isere-limits.json']))
     selected_routes={r['id'] for stop in result for r in stop['routes']}
+    for feed in feeds.values():
+        for p in feed['points']:
+            p['in_isere']=territory.contains(p,prepared) if p['is_station'] else False
+            if p['is_station'] and p['in_isere']:selected_routes.update(r['id'] for r in p['routes'])
     complete=[]
     for code,feed in feeds.items():
         for p in feed['points']:
             rr=[r for r in p['routes'] if r['id'] in selected_routes]
             if not p['is_station'] or not rr:continue
             sid='gtfs-'+code.lower()+'-'+hashlib.sha256(p['source_id'].encode()).hexdigest()[:20]
-            complete.append(dict(id=sid,group='cars' if code=='ISERE' else 'mreso',name=p['name'],latitude=p['latitude'],longitude=p['longitude'],altitude=None,status='exact',matches=[dict(feed=code,source_id=p['source_id'],distance_m=0)],routes=rr))
+            complete.append(dict(id=sid,group=network_group(code),name=p['name'],latitude=p['latitude'],longitude=p['longitude'],altitude=None,status='exact',matches=[dict(feed=code,source_id=p['source_id'],distance_m=0)],routes=rr,in_isere=p['in_isere'],network=SOURCES[code][0]))
     hikes=hiking.c2c_accesses(result+complete,cache,download,cache_only)
     hiking.associate(result+complete,hikes)
     if out.exists():shutil.rmtree(out)
@@ -364,7 +405,7 @@ def build(base,out,cache,cache_only=False):
     make_hiking_pages(out,hikes,now)
     for group in ('cars','mreso'):make_kmz(group,result,out,base,complete,hikes)
     metadata={c:{k:v for k,v in f.items() if k!='points'} for c,f in feeds.items()}
-    report=dict(generated_at=now.isoformat(),coverage='Sélection initiale à partir de 600 m, non exhaustive du département',licence='ODbL 1.0 (transports) ; CC BY-SA 3.0 (Camptocamp)',sources=metadata,counts=dict(Counter(s['status'] for s in result)),stops=result,line_stops=complete,hikes=hikes,hiking_source=hiking.API,hiking_distance_method="great_circle",hiking_threshold_m=1000)
+    report=dict(generated_at=now.isoformat(),coverage='Département de l’Isère : arrêts publiés par Cars Région Isère, M réso SEM/GSV/TPV, Ruban et L’va ; sélection montagne initiale conservée',department_boundary_source=territory.SOURCE,licence='ODbL 1.0 (transports) ; CC BY-SA 3.0 (Camptocamp)',sources=metadata,unavailable_sources=unavailable,counts=dict(Counter(s['status'] for s in result)),stops=result,line_stops=complete,hikes=hikes,hiking_source=hiking.API,hiking_distance_method="great_circle",hiking_threshold_m=1000)
     (out/'camptocamp.json').write_text(json.dumps(dict(generated_at=now.isoformat(),license='CC-BY-SA-3.0',attribution='Camptocamp.org et ses contributeurs',source=hiking.API,modifications='Extraction, conversion de coordonnées, rapprochement géographique avec les arrêts GTFS ; seuil à vol d’oiseau de 1000 m',accesses=hikes),ensure_ascii=False,separators=(',',':')))
     (out/'arrets.json').write_text(json.dumps(report,ensure_ascii=False,separators=(',',':')))
     with (out/'correspondances.csv').open('w',newline='') as f:
@@ -372,15 +413,18 @@ def build(base,out,cache,cache_only=False):
         for s in result:w.writerow([s['id'],s['name'],s['group'],s['status'],';'.join(p['feed']+':'+p['source_id'] for p in s['matches']),';'.join(r['feed']+':'+r['number'] for r in s['routes'])])
     source_body='<h1>Sources et méthode</h1><p>Données : Région Auvergne-Rhône-Alpes / Oùra, SMMAG / Mobilités M, sous licence ODbL 1.0. Sélection et altitudes fournies dans les deux KMZ initiaux. Les valeurs d’altitude n’ont pas été recalculées.</p><ul>'
     for c,f in feeds.items():source_body+='<li>'+html.escape(SOURCES[c][0])+' : <a href="'+html.escape(f['source_url'],quote=True)+'">source GTFS</a>, période '+display_date(f['period_start'])+' au '+display_date(f['period_end'])+'.</li>'
+    for c,reason in unavailable.items():source_body+='<li>'+html.escape(SOURCES[c][0])+' : données indisponibles ('+html.escape(reason)+'). <a href="'+NETWORK_PAGES[c]+'">Consulter le réseau officiel</a>.</li>'
     source_body+='</ul><p>La desserte est reconstruite par les identifiants GTFS des courses, arrêts et stations parentes, pas par la proximité d’une ligne dessinée. La sélection initiale est associée par nom normalisé et position (moins de 0,2 m, sinon 25 m maximum), une correspondance au plus par réseau. Les ambiguïtés sont signalées et ne fournissent aucune ligne supposée. Plusieurs réseaux peuvent partager un même arrêt nommé et situé au même endroit.</p><p>Les lignes sont celles de l’offre publiée, toutes périodes confondues. Les calendriers et exceptions ne sont pas interprétés comme une desserte quotidienne : les horaires, la date et le sens sont consultés sur le site officiel. Aucun retard ni prochain départ n’est présenté comme du temps réel ici.</p><p>Les liens Région emploient les identifiants de lignes officiels dans le calculateur régional. Les liens M réso sont extraits du site officiel ou utilisent son format avec un code confirmé par l’API M et la disponibilité timeSheet. Aucun nom de PDF saisonnier n’est deviné.</p><p><a href="arrets.json">Données et licences par source</a> · <a href="correspondances.csv">Rapport de correspondances</a> · <a href="camptocamp.json">Données Camptocamp CC BY-SA 3.0</a> · <a href="https://opendatacommons.org/licenses/odbl/1-0/">Texte de la licence ODbL 1.0</a> · <a href="index.html">Retour aux arrêts</a></p>'
+    source_body+='<h2>Limites de l’Isère</h2><p>Contours communaux du département 38 : <a href="'+territory.SOURCE+'">API Découpage administratif de l’État</a>. Les arrêts du dossier départemental sont filtrés dans ces polygones. Les quais d’une station sont regroupés selon le GTFS, sans fusion arbitraire entre réseaux. Les dossiers par ligne peuvent dépasser le département. Les nouvelles altitudes ne sont pas inventées. La couverture dépend des sources disponibles ; services absents de leurs GTFS et réseaux indisponibles ne sont pas présentés comme recensés.</p>'
     source_body+='<h2>Camptocamp</h2><p>Points d’accès et itinéraires associés : Camptocamp.org et ses contributeurs, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Extraction des noms, activités, associations et conversion des coordonnées EPSG:3857 en WGS84. Les fiches donnent les liens vers les documents et leurs historiques de contributeurs. La réutilisation des éléments Camptocamp doit respecter cette licence, distincte de l’ODbL des transports. Rapprochements limités à 1 km à vol d’oiseau ; aucun cheminement validé ni sens de départ déduit. La distinction été/hiver décrit les activités, sans évaluation de praticabilité. Les sommets et le centre géométrique des itinéraires ne servent pas de points de départ.</p>'
     (out/'sources.html').write_text(document('Sources et méthode',source_body))
-    body='<h1>Écomobilité — arrêts à partir de 600 m</h1><p>Cars Région Isère et M réso : sélection issue de tes deux KMZ. Ce catalogue ne recense pas tous les arrêts du département ; certains arrêts du réseau régional se trouvent dans les départements voisins.</p><p>Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Actualisation quotidienne à 07 h 15, heure de Paris, sous réserve de disponibilité des sources.</p><p><a class="button" href="Mreso_600m_en_ligne.kmz">KMZ M réso — vue montagne et lignes complètes</a></p><p><a class="button" href="Cars_Isere_600m_en_ligne.kmz">KMZ cars Région — vue montagne et lignes complètes</a></p><p>Importer ces repères dans AlpineQuest, toucher un arrêt puis son lien pour consulter sa fiche actualisée. Chaque KMZ contient « Tous les arrêts » et « Par ligne ». Masquer la vue générale avant d’afficher une ligne. Les couleurs se répètent ; les numéros distinguent les lignes. La vue générale conserve les 912 points sélectionnés à partir de 600 m ; les dossiers par ligne comprennent aussi les arrêts de plaine et les branches publiées. Tous les cars ne desservent pas chaque branche : vérifier le sens et les horaires. Les dossiers et couleurs sont figés à la génération : télécharger et réimporter pour actualiser la répartition. Les fiches en ligne continuent à s’actualiser.</p>'
+    body='<h1>Écomobilité — Isère entière</h1><p>Couverture départementale à partir des GTFS Cars Région Isère, M réso (SEM, GSV, TPV), Ruban et L’va. Les arrêts sont filtrés par les contours officiels des communes de l’Isère. Les dossiers par ligne conservent aussi leurs arrêts hors département pour préparer le trajet complet. La vue montagne initiale est conservée. Les services absents de ces GTFS ne sont pas recensés.</p><p>Données récupérées le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'. Actualisation quotidienne à 07 h 15, heure de Paris, sous réserve de disponibilité des sources.</p><p><a class="button" href="Mreso_600m_en_ligne.kmz">KMZ M réso — Isère et lignes complètes</a></p><p><a class="button" href="Cars_Isere_600m_en_ligne.kmz">KMZ cars Région, Ruban et L’va — Isère et lignes complètes</a></p><p>Importer ces repères dans AlpineQuest, toucher un arrêt puis son lien pour consulter sa fiche actualisée. Chaque KMZ contient « Tous les arrêts ≥ 600 m » (sélection initiale), « Tous les arrêts en Isère » et « Par ligne ». Masquer la vue générale avant d’afficher une ligne. Les couleurs se répètent ; les numéros distinguent les lignes. La vue générale conserve les 912 points sélectionnés à partir de 600 m ; les dossiers par ligne comprennent aussi les arrêts de plaine et les branches publiées. Tous les cars ne desservent pas chaque branche : vérifier le sens et les horaires. Les dossiers et couleurs sont figés à la génération : télécharger et réimporter pour actualiser la répartition. Les fiches en ligne continuent à s’actualiser.</p>'
+    if unavailable:body+='<p class="notice"><b>Couverture incomplète :</b> données indisponibles pour '+', '.join(html.escape(SOURCES[c][0]) for c in unavailable)+'. Ces réseaux ne sont pas intégrés aux repères de cette génération. Voir les sources et les sites officiels.</p>'
     body+='<p><a href="randos/index.html">Accès Camptocamp et itinéraires été / hiver</a> — présélection à 1 km maximum à vol d’oiseau, cheminement piéton à vérifier.</p>'
     body+='<p><b>'+str(sum(s['status'] in ('exact','nom_et_proximite') for s in result))+' correspondances trouvées sur '+str(len(result))+' points.</b> Les autres restent visibles avec une mention de vérification.</p><label for="search">Rechercher un arrêt ou une commune</label><input id="search" type="search" placeholder="Exemple : Uriage, Chartreuse…"><ul id="stops">'
-    for s in result:body+='<li data-name="'+html.escape(norm(s['name']),quote=True)+'"><a href="arrets/'+s['id']+'.html">'+html.escape(s['name'])+'</a> · '+('M réso' if s['group']=='mreso' else 'Cars Région')+(' · à vérifier' if s['status'] not in ('exact','nom_et_proximite') else '')+'</li>'
+    for s in [p for p in complete if p.get('in_isere')]:body+='<li data-name="'+html.escape(norm(s['name']),quote=True)+'"><a href="arrets/'+s['id']+'.html">'+html.escape(s['name'])+'</a> · '+(' / '.join(dict.fromkeys(SOURCES[m['feed']][0] for m in s['matches'])))+(' · à vérifier' if s['status'] not in ('exact','nom_et_proximite') else '')+'</li>'
     body+='</ul><p><a href="sources.html">Sources, licence et méthode</a> · <a href="correspondances.csv">Rapport de vérification</a></p><script>document.getElementById("search").addEventListener("input",e=>{const q=e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");document.querySelectorAll("#stops li").forEach(li=>li.hidden=!li.dataset.name.includes(q));});</script>'
-    (out/'index.html').write_text(document('Écomobilité Isère — 600 m et plus',body));(out/'.nojekyll').touch()
+    (out/'index.html').write_text(document('Écomobilité — Isère entière',body));(out/'.nojekyll').touch()
     print(json.dumps({'points':len(result),'counts':report['counts'],'site_bytes':sum(p.stat().st_size for p in out.rglob('*') if p.is_file())},ensure_ascii=False))
 
 

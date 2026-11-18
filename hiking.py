@@ -17,7 +17,7 @@ def associate(stops,hikes):
             d=metres(s,h)
             if d<=1000:
                 s['hikes'].append(dict(id=h['id'],name=h['name'],season=h['season'],activity=h['activity'],distance_m=round(d),source=h.get('source'),license=h.get('license'),routes=h.get('routes',[])))
-                h['stops'].append(dict(id=s['id'],name=s['name'],group=s['group'],distance_m=round(d)))
+                h['stops'].append(dict(id=s['id'],name=s['name'],group=s['group'],distance_m=round(d),network=s.get('network')))
 
 
 API='https://api.camptocamp.org'

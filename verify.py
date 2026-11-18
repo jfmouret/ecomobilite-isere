@@ -23,6 +23,10 @@ def verify(out=Path('dist')):
             doc=root.find('k:Document',ns)
             general=doc.find("k:Folder[@id='all-stops']",ns)
             lines=doc.find("k:Folder[@id='by-line']",ns)
+            dept=doc.find("k:Folder[@id='isere-stops']",ns)
+            dept_ids={p.attrib['id'].removeprefix('isere-') for p in dept.findall('k:Placemark',ns)}
+            assert dept_ids=={p['id'] for p in report['line_stops'] if p['group']==group and p['in_isere']}
+            for sid in dept_ids:assert (out/'arrets'/(sid+'.html')).is_file()
             marks=general.findall('k:Placemark',ns)
             assert len(marks)==count
             icon=root.find('.//k:Icon/k:href',ns).text
@@ -67,7 +71,10 @@ def verify(out=Path('dist')):
                     if r['url']:
                         u=urllib.parse.urlparse(r['url'])
                         assert u.scheme=='https'
-                        assert u.hostname in ('www.reso-m.fr','sim.laregionvoustransporte.fr')
+                        assert u.hostname in ('www.reso-m.fr','sim.laregionvoustransporte.fr','www.rubantransport.com','www.lva-mobilite.fr')
+    import territory
+    prepared=territory.polygons(json.loads((ROOT/'.cache/isere-limits.json').read_text()))
+    for stop in report['line_stops']:assert stop['in_isere']==territory.contains(stop,prepared)
     import hiking
     hikes={h['id']:h for h in report['hikes']}
     for stop in report['stops']+report['line_stops']:
