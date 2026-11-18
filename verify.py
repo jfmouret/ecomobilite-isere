@@ -111,6 +111,23 @@ def verify(out=Path('dist')):
             tree=ET.fromstring(z.read('doc.kml'))
             assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==expected
     assert report['climbing_stop_count']==len(climb_ids)
+    # Carte complète : un dossier bus et deux dossiers de lieux, sans doubler un accès été/hiver.
+    for filename,with_stops in [('Isere_ecomobilite_activites.kmz',True),('Isere_points_activites.kmz',False)]:
+        with zipfile.ZipFile(out/filename) as z:
+            assert z.testzip() is None
+            root=ET.fromstring(z.read('doc.kml'));ns={'k':K}
+            stop_folder=root.find(".//k:Folder[@id='bus-stops']",ns)
+            if with_stops:assert {p.attrib['id'] for p in stop_folder.findall('k:Placemark',ns)}==climb_ids|focused
+            else:assert stop_folder is None
+            actual={p.attrib['id']:p for p in root.findall(".//k:Folder[@id='places-access']/k:Placemark",ns)+root.findall(".//k:Folder[@id='places-climbing']/k:Placemark",ns)}
+            assert set(actual)=={p['id'] for p in report['activity_places']}
+            for record in report['activity_places']:
+                coords=actual[record['id']].find('k:Point/k:coordinates',ns).text.split(',')
+                assert (float(coords[0]),float(coords[1]))==(record['longitude'],record['latitude'])
+                for label,path in record['links']:assert (out/path).is_file()
+            ids=[e.attrib['id'] for e in root.iter() if 'id' in e.attrib]
+            assert len(ids)==len(set(ids))
+            for href in root.findall('.//k:Icon/k:href',ns):assert z.read(href.text).startswith(b'\x89PNG\r\n\x1a\n')
     assert report['combined_stop_count']==len(climb_ids|focused)
     assert report['focused_stop_count']==len(focused)
     import hiking

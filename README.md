@@ -147,3 +147,17 @@ Attribution : **©Oblyk**, source de chaque site liée directement ; contenu com
 La couche IGN/Petzl `TRACES.RANDO.HIVERNALE` est disponible en WMTS (images) et en WFS sous `TRACES.RANDO.HIVERNALE:traces_rando_hivernale`. Le service vectoriel a été interrogé : les exemples retournent des géométries `LineString`, avec un identifiant, un nom de trace et un indicateur de passage délicat.
 
 Le schéma ne fournit aucun champ ou objet explicitement identifié comme point de départ. Les coordonnées des lignes sont géoréférencées, mais le premier sommet ou une extrémité de segment ne sont pas considérés automatiquement comme un départ. Aucun rapprochement avec les bus n’est donc activé pour cette source. Une intégration nécessiterait des départs vérifiés, par exemple via un rapprochement avec les accès Camptocamp ; elle ne doit pas tester la distance à n’importe quel passage de la trace comme s’il s’agissait d’un départ. Les vérifications et liens techniques sont détaillés dans `docs/traces-hiver.md`.
+
+## Repérer les activités sur la carte
+
+Les arrêts filtrés disposent maintenant de pictogrammes et de courts préfixes : marcheur vert (pédestre), skieur bleu, raquettes violettes, grimpeur orange. Le petit badge bus identifie un arrêt ; les points physiques d’accès ou de site utilisent le pictogramme sans badge. Un arrêt multi-activité conserve une seule position et une combinaison de pictogrammes ; son libellé est abrégé en « Multi » à partir de trois activités, qui sont détaillées dans la description.
+
+Les catégories des arrêts sont tirées des associations pour lesquelles ils sont retenus comme les plus proches. Un accès classé raquettes uniquement n’est pas étiqueté ski. Le même point d’accès Camptocamp présent en été et en hiver n’apparaît qu’une fois, avec les deux liens d’information et les activités concernées.
+
+- **Isere_ecomobilite_activites.kmz** : carte complète avec trois dossiers indépendants : Arrêts bus, Accès randonnée/raquettes/ski, Sites d’escalade. Les trois sont visibles dans le KML ; utiliser Parcourir à l’import pour choisir les dossiers à afficher. Seuls les lieux associés aux arrêts retenus figurent ici, sans les milliers d’arrêts du réseau complet.
+- **Isere_points_activites.kmz** : mêmes lieux d’activité sans les arrêts, pour un classement dans un espace randonnée ou escalade distinct d’Écomobilité.
+- Les trois fichiers filtrés précédents restent disponibles et portent aussi les pictogrammes sur leurs arrêts. Ne pas les afficher en même temps que la carte complète si cela crée des doublons.
+
+Les points d’accès Camptocamp ne sont pas forcément le départ d’un parcours orienté ; un point peut être une arrivée de traversée. Les sites Oblyk restent les positions du KMZ, pas des parkings déduits. La proximité demeure à vol d’oiseau et n’implique aucun tracé piéton. Les descriptions donnent les liens vers les fiches et leurs sources.
+
+Les pictogrammes sont des dessins originaux produits par `map_icons.py` en PNG transparents, embarqués dans les KMZ : aucune police emoji ni image distante n’est nécessaire pour leur affichage. Ils mesurent 48 pixels et sont accompagnés d’une indication de taille KML pour limiter l’encombrement ; le rendu effectif dépend des options d’affichage d’AlpineQuest.
