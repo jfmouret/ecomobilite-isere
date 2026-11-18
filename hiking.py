@@ -15,6 +15,9 @@ def metres(a,b):
 def departures(records):
     hikes=[]
     for r in records:
+        # La géolocalisation du catalogue n’est pas toujours celle du départ.
+        # Exiger une validation explicite avant tout rapprochement public.
+        if r.get('depart_verifie') is not True:continue
         activity=r.get('activite',{}).get('libelle','')
         if activity=='Randonnée pédestre':season='ete'
         elif activity in ('Raquette','Raquettes','Ski de randonnée','ski de randonnée'):season='hiver'

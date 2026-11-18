@@ -74,7 +74,7 @@ La vue générale conserve les 912 points initiaux à partir de 600 m. **Les dos
 
 ## Rapprochement avec les départs randonnée
 
-Source additionnelle : Ville de Grenoble / Grenoble-Montagne, [Balades dans les massifs autour de Grenoble](https://www.data.gouv.fr/datasets/balades-dans-les-massifs-autour-de-grenoble-1), ODbL 1.0. Le fichier JSON officiel est téléchargé à chaque construction. Ses coordonnées sont celles des départs décrits dans le catalogue. La date de révision des topos n’est pas fournie : ne pas confondre récupération récente et validation récente du parcours.
+Source additionnelle : Ville de Grenoble / Grenoble-Montagne, [Balades dans les massifs autour de Grenoble](https://www.data.gouv.fr/datasets/balades-dans-les-massifs-autour-de-grenoble-1), ODbL 1.0. Le fichier JSON officiel est téléchargé à chaque construction. Certaines coordonnées ne correspondent pas aux départs décrits : elles ne sont donc pas utilisées pour les rapprochements sans validation explicite. La date de révision des topos n’est pas fournie : ne pas confondre récupération récente et validation récente du parcours.
 
 Le classement **été / pédestre** correspond uniquement à l’activité Randonnée pédestre. **Hiver** correspond aux activités Raquette et Ski de randonnée, indiquées séparément. L’alpinisme est exclu. Aucune saison ni praticabilité n’est déduite de l’altitude. Ce classement ne constitue pas une appréciation de sécurité ou d’enneigement.
 
@@ -82,4 +82,4 @@ Le seuil est de **1000 mètres à vol d’oiseau**, calculés par formule havers
 
 Les fiches d’arrêts affichent les départs proches, regroupés par activité/saison. Les fiches de départ listent les stations proches avec leurs liens horaires. Les deux KMZ comportent également des dossiers de départs **été** et **hiver**, masqués par défaut. La vue générale des arrêts de montagne reste inchangée.
 
-La sélection actuelle trouve 25 départs pédestres et un départ hivernal proches des lignes retenues ; le résultat évolue avec les données. Elle n’est pas exhaustive en Isère. Les anciens conseils de transport contenus dans les topos ne servent pas à attribuer des lignes : seuls les GTFS officiels sont utilisés. La base dérivée et les rapprochements sont disponibles dans `arrets.json` sous ODbL 1.0.
+**Aucun rapprochement randonnée n’est publié actuellement.** Les premiers candidats ont été retirés après constat d’incohérences entre la localisation du catalogue et les départs décrits. La fonction exige désormais `depart_verifie: true` avant de retenir une localisation ; aucun enregistrement du flux ne porte cette validation. Il faut une source de départs validés, par exemple des points KMZ/GPX contrôlés, avant d’activer la fonction. Elle n’est pas exhaustive en Isère. Les anciens conseils de transport contenus dans les topos ne servent pas à attribuer des lignes : seuls les GTFS officiels sont utilisés. La base dérivée et les rapprochements sont disponibles dans `arrets.json` sous ODbL 1.0.
