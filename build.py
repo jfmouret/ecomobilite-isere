@@ -177,7 +177,7 @@ def stop_page(s,feeds,now):
     if s['group']=='mreso':body+='<p><a href="https://www.reso-m.fr/61-lignes-et-horaires.htm">M réso : horaires et informations voyageurs</a></p>'
     else:body+='<p><a href="https://www.laregionvoustransporte.fr/cars-region/cars-region-de-lisere/">Cars Région Isère : informations voyageurs</a></p>'
     body+='<p><a href="https://www.oura.com/">Oùra : recherche d’itinéraires</a></p><p class="muted">Les conditions de réservation, les services scolaires, vacances et perturbations doivent être vérifiés auprès du réseau. Cette fiche nécessite du réseau ; une page restée ouverte n’est pas une garantie de consultation hors ligne.</p>'
-    body+='<footer><a href="../sources.html">Sources, méthode et licence ODbL 1.0</a> · Mise en forme CAF indépendante des réseaux.</footer>'
+    body+='<footer><a href="../sources.html">Sources, méthode et licences</a> · Mise en forme CAF indépendante des réseaux.</footer>'
     return document(s['name'],body)
 
 
@@ -269,7 +269,7 @@ def make_kmz(group,selection,out,base,complete=None,hikes=None):
 
 
 def hiking_links(stop,base='../',with_routes=False):
-    if not stop.get('hikes'):return ''
+    if not stop.get('hikes'):return '<h2>Accès Camptocamp à proximité</h2><p>Aucun accès associé à une randonnée pédestre, raquettes ou ski trouvé à 1 km maximum à vol d’oiseau dans les données récupérées. Ce résultat ne garantit pas l’absence de randonnée : la base est contributive.</p>'
     body='<h2>Accès Camptocamp à proximité</h2><p>Présélection à 1 km maximum <b>à vol d’oiseau</b>. Le cheminement réel à pied peut être plus long ou impossible ; accès à vérifier. Été désigne ici l’activité pédestre, sans validation de saison. Hiver distingue raquettes et ski, sans garantir les conditions ni la sécurité avalanche.</p>'
     for season,title in [('ete','Été / pédestre'),('hiver','Hiver / raquettes et ski')]:
         items=[h for h in stop['hikes'] if h['season']==season]
