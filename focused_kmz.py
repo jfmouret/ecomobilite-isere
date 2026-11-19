@@ -34,7 +34,7 @@ def write_kmz(stops,destination,base,title,icon_bytes,route=None,purpose="rando"
         p=sub(doc,'Placemark',id=s['id']);sub(p,'name',(map_icons.label(types)+' · ' if types else '')+s['name']);sub(p,'styleUrl',style_url)
         numbers=', '.join(dict.fromkeys(r['number'] for r in s['routes']))
         info='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(s['name'])+'</h2><p>Lignes à la génération du fichier : '+html.escape(numbers)+'.</p>'
-        if types:info+='<p>Activités : '+html.escape(', '.join(map_icons.LABELS[t] for t in types))+'. Un pictogramme bus entier est placé à côté des activités pour identifier cet arrêt.</p>'
+        if types:info+='<p>Activités : '+html.escape(', '.join(map_icons.LABELS[t] for t in types))+'. Le pictogramme bus représente cet arrêt ; ses activités sont indiquées dans le nom et cette fiche.</p>'
         if route:info+='<p>'+html.escape(route['network'])+' · ligne '+html.escape(route['number'])+' · '+html.escape(route['name'])+'</p>'
         elif purpose!='rando':info+='<p>Arrêt retenu comme le plus proche sur sa ligne pour au moins un '+('site d’escalade' if purpose=='escalade' else 'accès randonnée ou site d’escalade')+' dans le rayon de 1 km à vol d’oiseau. Cheminement et sens de desserte à vérifier.</p>'
         else:info+='<p>Arrêt le plus proche, parmi les arrêts d’Isère de sa ligne, pour au moins un accès Camptocamp à 1 km maximum à vol d’oiseau. Cheminement et sens de desserte à vérifier.</p>'

@@ -99,9 +99,9 @@ def separate_symbols(root,assets):
             if not sid.startswith(('activity-','place-')):continue
             types=[t for t in ORDER if t in sid.split('-',1)[1].split('-')]
             if not types:continue
-            symbols=(['bus'] if sid.startswith('activity-') else [])+types
+            symbols=['bus'] if sid.startswith('activity-') else types
             for i,kind in enumerate(symbols):
-                new_id='separate-fullbus-'+sid+'-'+str(i)
+                new_id='separate-busonly-'+sid+'-'+str(i)
                 if new_id not in created:
                     style=ET.SubElement(doc,k+'Style',id=new_id)
                     ic=ET.SubElement(style,k+'IconStyle');ET.SubElement(ic,k+'scale').text='.65'
