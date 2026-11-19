@@ -8,6 +8,10 @@ LABELS={'rando':'Rando','raquettes':'Raq.','ski':'Ski','escalade':'Esc.'}
 ORDER=('rando','raquettes','ski','escalade')
 
 
+def activity_scale(types):
+    return .65*max(1,len(set(types)&set(ORDER)))
+
+
 def key(types):return '-'.join(t for t in ORDER if t in types) or 'bus'
 
 

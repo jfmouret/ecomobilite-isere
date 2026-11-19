@@ -61,7 +61,7 @@ def generate(stops,hikes,sites,out,base,stop_file):
     for record in records:
         key=map_icons.key(record['types']);style_id='place-'+key
         if style_id not in styles:
-            style=sub(doc,'Style',id=style_id);ic=sub(style,'IconStyle');sub(ic,'scale',.65);sub(sub(ic,'Icon'),'href','icons/'+style_id+'.png');sub(sub(style,'LabelStyle'),'scale',.8)
+            style=sub(doc,'Style',id=style_id);ic=sub(style,'IconStyle');sub(ic,'scale',map_icons.activity_scale(record['types']));sub(sub(ic,'Icon'),'href','icons/'+style_id+'.png');sub(sub(style,'LabelStyle'),'scale',.8)
             assets['icons/'+style_id+'.png']=map_icons.icon(record['types']);styles.add(style_id)
         p=sub(groups[record['kind']],'Placemark',id=record['id']);sub(p,'name',map_icons.label(record['types'])+' · '+record['name']);sub(p,'styleUrl','#'+style_id)
         desc='<div style="font-size:20px;max-width:320px"><h2>'+html.escape(record['name'])+'</h2><p>'+('Point du site Oblyk fourni, pas nécessairement un parking ni une entrée.' if record['kind']=='climbing' else 'Point d’accès Camptocamp associé aux itinéraires ; départ ou arrivée de traversée à vérifier dans le topo.')+'</p>'
@@ -76,3 +76,45 @@ def generate(stops,hikes,sites,out,base,stop_file):
     doc.remove(folder);doc.find('{'+K+'}name').text='Isère — lieux des activités accessibles depuis les bus'
     save('Isere_points_activites.kmz',root)
     return records
+
+
+def camptocamp_points(stops,hikes,out,base):
+    """Un point nommé par accès physique ; couleur selon les activités associées."""
+    chosen={r['access_id'] for s in stops for r in s.get('nearest_accesses',[])}
+    points={}
+    for h in hikes:
+        if h['id'] not in chosen:continue
+        point=points.setdefault(h['source'],dict(name=h['name'],latitude=h['latitude'],longitude=h['longitude'],source=h['source'],seasons=set(),accesses=[],routes={}))
+        point['seasons'].add(h['season']);point['accesses'].append(h)
+        for route in h['routes']:point['routes'][route['id']]=route
+    def sub(p,t,text=None,**attrs):
+        e=ET.SubElement(p,'{'+K+'}'+t,attrs)
+        if text is not None:e.text=str(text)
+        return e
+    root=ET.Element('{'+K+'}kml');doc=sub(root,'Document')
+    sub(doc,'name','Isère — points d’accès Camptocamp nommés')
+    sub(doc,'description','Vert : pédestre (été) ; bleu : raquettes/ski (hiver) ; violet : les deux. Ces catégories décrivent les activités associées, sans garantir la praticabilité saisonnière. Points d’accès Camptocamp, pas nécessairement départs de chaque course ; vérifier les topos. Aucune liaison piétonne depuis le bus n’est calculée. © Camptocamp.org et ses contributeurs, CC BY-SA 3.0. Coordonnées converties, regroupement par accès et couleurs ajoutés.')
+    assets={};folders={}
+    for key,title,colour in [('ete','Été — pédestre',(46,125,50)),('hiver','Hiver — raquettes et ski',(21,101,192)),('mixte','Été et hiver',(123,31,162))]:
+        style=sub(doc,'Style',id='access-'+key);ic=sub(style,'IconStyle');sub(ic,'scale',.65)
+        sub(sub(ic,'Icon'),'href','icons/access-'+key+'.png')
+        sub(sub(style,'LabelStyle'),'scale',1)
+        canvas=map_icons.Canvas();canvas.disc(24,24,15,(255,255,255));canvas.disc(24,24,12,colour)
+        assets['icons/access-'+key+'.png']=canvas.png()
+        folders[key]=sub(doc,'Folder',id='accesses-'+key);sub(folders[key],'name',title)
+    esc=lambda x:html.escape(str(x),quote=True)
+    for i,p in enumerate(sorted(points.values(),key=lambda p:p['name'].casefold())):
+        key='mixte' if len(p['seasons'])==2 else next(iter(p['seasons']))
+        mark=sub(folders[key],'Placemark',id='c2c-access-'+str(i));sub(mark,'name',p['name']);sub(mark,'styleUrl','#access-'+key)
+        desc='<h2>'+esc(p['name'])+'</h2><p>Point d’accès associé aux itinéraires, départ ou arrivée à vérifier dans chaque topo. Cheminement depuis l’arrêt à préparer sur la carte.</p><p><a href="'+esc(p['source'])+'">Point d’accès sur Camptocamp</a></p>'
+        for access in p['accesses']:
+            desc+='<p><a href="'+esc(base.rstrip('/')+'/randos/'+access['id']+'.html')+'">Transports et itinéraires '+('pédestres' if access['season']=='ete' else 'hivernaux')+'</a></p>'
+        desc+='<h3>Topos Camptocamp associés</h3><ul>'
+        for route in sorted(p['routes'].values(),key=lambda r:r['name'].casefold()):
+            desc+='<li><a href="'+esc(route['url'])+'">'+esc(route['name'])+'</a> · '+esc(', '.join({'hiking':'Randonnée pédestre','snowshoeing':'Raquettes','skitouring':'Ski de randonnée'}.get(a,a) for a in route['activities']))+'</li>'
+        desc+='</ul><p>© Camptocamp.org et ses contributeurs · <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> · <a href="'+esc(p['source'].replace('/waypoints/','/waypoints/history/'))+'">Historique et contributeurs du point</a>. Attribution des itinéraires sur leurs fiches liées.</p>'
+        sub(mark,'description',desc);sub(sub(mark,'Point'),'coordinates',str(p['longitude'])+','+str(p['latitude'])+',0')
+    with zipfile.ZipFile(out/'Isere_acces_Camptocamp.kmz','w',zipfile.ZIP_DEFLATED) as z:
+        z.writestr('doc.kml',ET.tostring(root,encoding='utf-8',xml_declaration=True))
+        for name,data in assets.items():z.writestr(name,data)
+    return len(points)

@@ -28,7 +28,7 @@ def write_kmz(stops,destination,base,title,icon_bytes,route=None,purpose="rando"
         style_url='#bus'
         if types:
             if marker not in styles:
-                style=sub(doc,'Style',id='activity-'+marker);ic=sub(style,'IconStyle');sub(ic,'scale',.65);sub(sub(ic,'Icon'),'href','icons/'+marker+'.png');sub(sub(style,'LabelStyle'),'scale',.8)
+                style=sub(doc,'Style',id='activity-'+marker);ic=sub(style,'IconStyle');sub(ic,'scale',map_icons.activity_scale(types));sub(sub(ic,'Icon'),'href','icons/'+marker+'.png');sub(sub(style,'LabelStyle'),'scale',.8)
                 assets['icons/'+marker+'.png']=map_icons.icon(types,stop=True);styles.add(marker)
             style_url='#activity-'+marker
         p=sub(doc,'Placemark',id=s['id']);sub(p,'name',(map_icons.label(types)+' · ' if types else '')+s['name']);sub(p,'styleUrl',style_url)
