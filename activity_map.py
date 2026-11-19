@@ -72,6 +72,7 @@ def generate(stops,hikes,sites,out,base,stop_file):
         with zipfile.ZipFile(out/filename,'w',zipfile.ZIP_DEFLATED) as z:
             z.writestr('doc.kml',ET.tostring(root,encoding='utf-8',xml_declaration=True))
             for name,data in assets.items():z.writestr(name,data)
+    map_icons.separate_symbols(root,assets)
     save('Isere_ecomobilite_activites.kmz',root)
     doc.remove(folder);doc.find('{'+K+'}name').text='Isère — lieux des activités accessibles depuis les bus'
     save('Isere_points_activites.kmz',root)

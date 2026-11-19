@@ -40,6 +40,7 @@ def write_kmz(stops,destination,base,title,icon_bytes,route=None,purpose="rando"
         else:info+='<p>Arrêt le plus proche, parmi les arrêts d’Isère de sa ligne, pour au moins un accès Camptocamp à 1 km maximum à vol d’oiseau. Cheminement et sens de desserte à vérifier.</p>'
         info+='<p><a href="'+base.rstrip('/')+'/arrets/'+s['id']+'.html"><b>Randonnées, escalade, horaires et affichage d’une ligne complète</b></a></p></div>'
         sub(p,'description',info);sub(sub(p,'Point'),'coordinates',str(s['longitude'])+','+str(s['latitude'])+',0')
+    map_icons.separate_symbols(root,assets)
     with zipfile.ZipFile(destination,'w',zipfile.ZIP_DEFLATED) as z:
         z.writestr('doc.kml',ET.tostring(root,encoding='utf-8',xml_declaration=True))
         for name,data in assets.items():z.writestr(name,data)

@@ -7,6 +7,22 @@ import zipfile
 from build import ROOT,K
 
 
+def logical_tree(payload):
+    """Vérifie les copies graphiques avant de compter les lieux physiques."""
+    root=ET.fromstring(payload);k='{'+K+'}'
+    marks={p.attrib['id']:p for p in root.iter(k+'Placemark')}
+    for parent in root.iter():
+        for p in list(parent):
+            data=p.find(k+'ExtendedData/'+k+'Data[@name="symbol_parent"]/'+k+'value')
+            if data is None:continue
+            original=marks[data.text]
+            assert p.find(k+'Point/'+k+'coordinates').text==original.find(k+'Point/'+k+'coordinates').text
+            assert p.find(k+'description').text==original.find(k+'description').text
+            assert p.find(k+'styleUrl').text.startswith('#separate-')
+            parent.remove(p)
+    return root
+
+
 def verify(out=Path('dist')):
     seeds=json.loads((ROOT/'data/selection.json').read_text())
     report=json.loads((out/'arrets.json').read_text())
@@ -18,7 +34,7 @@ def verify(out=Path('dist')):
     for group,filename,count in [('mreso','Mreso_600m_en_ligne.kmz',165),('cars','Cars_Isere_600m_en_ligne.kmz',747)]:
         with zipfile.ZipFile(out/filename) as z:
             assert z.testzip() is None
-            root=ET.fromstring(z.read('doc.kml'))
+            root=logical_tree(z.read('doc.kml'))
             ns={'k':K}
             doc=root.find('k:Document',ns)
             general=doc.find("k:Folder[@id='all-stops']",ns)
@@ -76,7 +92,7 @@ def verify(out=Path('dist')):
     focused={s['id'] for s in report['line_stops'] if s.get('in_isere') and s.get('nearest_accesses')}
     with zipfile.ZipFile(out/'Isere_arrets_randonnee.kmz') as z:
         assert z.testzip() is None
-        tree=ET.fromstring(z.read('doc.kml'))
+        tree=logical_tree(z.read('doc.kml'))
         assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==focused
         assert not tree.findall('.//{'+K+'}Folder')
     expected_lines={r['id'] for s in report['line_stops'] for r in s['routes']}
@@ -85,7 +101,7 @@ def verify(out=Path('dist')):
         expected_stops={s['id'] for s in report['line_stops'] if any(r['id']==rid for r in s['routes'])}
         with zipfile.ZipFile(out/'lignes'/focused_kmz.line_filename(rid)) as z:
             assert z.testzip() is None
-            tree=ET.fromstring(z.read('doc.kml'))
+            tree=logical_tree(z.read('doc.kml'))
             assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==expected_stops
     climb_data=json.loads((out/'escalade.json').read_text())
     site_by_id={s['id']:s for s in climb_data['sites']}
@@ -108,14 +124,14 @@ def verify(out=Path('dist')):
     for filename,expected in [('Isere_arrets_escalade.kmz',climb_ids),('Isere_arrets_rando_escalade.kmz',climb_ids|focused)]:
         with zipfile.ZipFile(out/filename) as z:
             assert z.testzip() is None
-            tree=ET.fromstring(z.read('doc.kml'))
+            tree=logical_tree(z.read('doc.kml'))
             assert {p.attrib['id'] for p in tree.findall('.//{'+K+'}Placemark')}==expected
     assert report['climbing_stop_count']==len(climb_ids)
     # Carte complète : un dossier bus et deux dossiers de lieux, sans doubler un accès été/hiver.
     for filename,with_stops in [('Isere_ecomobilite_activites.kmz',True),('Isere_points_activites.kmz',False)]:
         with zipfile.ZipFile(out/filename) as z:
             assert z.testzip() is None
-            root=ET.fromstring(z.read('doc.kml'));ns={'k':K}
+            root=logical_tree(z.read('doc.kml'));ns={'k':K}
             stop_folder=root.find(".//k:Folder[@id='bus-stops']",ns)
             if with_stops:assert {p.attrib['id'] for p in stop_folder.findall('k:Placemark',ns)}==climb_ids|focused
             else:assert stop_folder is None
@@ -180,7 +196,7 @@ def verify(out=Path('dist')):
         for near in result['near']:assert near['distance_unrounded']<=1000
     with zipfile.ZipFile(out/'Essai_PDIPR_Vienne.kmz') as z:
         assert z.testzip() is None
-        tree=ET.fromstring(z.read('doc.kml'))
+        tree=logical_tree(z.read('doc.kml'))
         assert len(tree.findall(".//{K}Folder[@id='pilot-stops']/{K}Placemark".format(K='{'+K+'}')))==sum('longitude' in r for r in analyses)
         assert len(tree.findall(".//{K}Folder[@id='near-network']/{K}Placemark".format(K='{'+K+'}')))==sum(bool(r['near']) for r in analyses)
     print('Vérifié : 912 fiches, 165 + 747 points de référence et dossiers par ligne, positions et icônes vérifiées, liens officiels.')

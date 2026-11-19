@@ -81,3 +81,43 @@ def icon(types,stop=False):
         for kind,(x,y) in zip(types,positions):c.disc(x,y,11,COLOURS[kind]);glyph(c,kind,x,y,.75)
         if stop:bus(c,24,24,.85)
     return c.png()
+
+def separate_symbols(root,assets):
+    """Décale les images à l’écran ; tous les symboles gardent le même point GPS."""
+    import copy
+    import xml.etree.ElementTree as ET
+    k='{http://www.opengis.net/kml/2.2}'
+    doc=root.find(k+'Document')
+    styles={s.attrib['id']:s for s in doc.findall(k+'Style')}
+    created=set(styles)
+    for parent in list(root.iter()):
+        for mark in list(parent):
+            if mark.tag!=k+'Placemark':continue
+            ref=mark.find(k+'styleUrl')
+            if ref is None:continue
+            sid=ref.text.lstrip('#')
+            if not sid.startswith(('activity-','place-')):continue
+            types=[t for t in ORDER if t in sid.split('-',1)[1].split('-')]
+            if not types:continue
+            for i,kind in enumerate(types):
+                new_id='separate-'+sid+'-'+str(i)
+                if new_id not in created:
+                    style=ET.SubElement(doc,k+'Style',id=new_id)
+                    ic=ET.SubElement(style,k+'IconStyle');ET.SubElement(ic,k+'scale').text='.65'
+                    image=ET.SubElement(ic,k+'Icon');path='icons/'+new_id+'.png';ET.SubElement(image,k+'href').text=path
+                    ET.SubElement(ic,k+'hotSpot',x=str(.5+(len(types)-1)/2-i),y='.5',xunits='fraction',yunits='fraction')
+                    ET.SubElement(ET.SubElement(style,k+'LabelStyle'),k+'scale').text='.8' if i==0 else '0'
+                    assets[path]=icon([kind],stop=sid.startswith('activity-'));created.add(new_id)
+                if i==0:target=mark
+                else:
+                    target=copy.deepcopy(mark);target.attrib['id']='symbol-'+mark.attrib['id']+'-'+kind
+                    extended=ET.SubElement(target,k+'ExtendedData');data=ET.SubElement(extended,k+'Data',name='symbol_parent');ET.SubElement(data,k+'value').text=mark.attrib['id']
+                    parent.append(target)
+                target.find(k+'styleUrl').text='#'+new_id
+    # Retirer les anciennes images composites : uniquement des PNG standard 48 × 48.
+    used={e.text.lstrip('#') for e in root.iter(k+'styleUrl')}
+    for style in list(doc.findall(k+'Style')):
+        if style.attrib['id'] not in used:doc.remove(style)
+    images={e.text for e in root.findall('.//'+k+'Icon/'+k+'href')}
+    for path in list(assets):
+        if path not in images:del assets[path]
