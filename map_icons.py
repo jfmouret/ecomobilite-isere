@@ -99,15 +99,16 @@ def separate_symbols(root,assets):
             if not sid.startswith(('activity-','place-')):continue
             types=[t for t in ORDER if t in sid.split('-',1)[1].split('-')]
             if not types:continue
-            for i,kind in enumerate(types):
-                new_id='separate-'+sid+'-'+str(i)
+            symbols=(['bus'] if sid.startswith('activity-') else [])+types
+            for i,kind in enumerate(symbols):
+                new_id='separate-fullbus-'+sid+'-'+str(i)
                 if new_id not in created:
                     style=ET.SubElement(doc,k+'Style',id=new_id)
                     ic=ET.SubElement(style,k+'IconStyle');ET.SubElement(ic,k+'scale').text='.65'
                     image=ET.SubElement(ic,k+'Icon');path='icons/'+new_id+'.png';ET.SubElement(image,k+'href').text=path
-                    ET.SubElement(ic,k+'hotSpot',x=str(.5+(len(types)-1)/2-i),y='.5',xunits='fraction',yunits='fraction')
+                    ET.SubElement(ic,k+'hotSpot',x=str(.5+(len(symbols)-1)/2-i),y='.5',xunits='fraction',yunits='fraction')
                     ET.SubElement(ET.SubElement(style,k+'LabelStyle'),k+'scale').text='.8' if i==0 else '0'
-                    assets[path]=icon([kind],stop=sid.startswith('activity-'));created.add(new_id)
+                    assets[path]=icon([] if kind=='bus' else [kind]);created.add(new_id)
                 if i==0:target=mark
                 else:
                     target=copy.deepcopy(mark);target.attrib['id']='symbol-'+mark.attrib['id']+'-'+kind
