@@ -183,12 +183,16 @@ def route_cards(routes):
 def access_transport(refs,stops):
     esc=lambda x:html.escape(str(x),quote=True)
     by_id={s['id']:s for s in stops}
-    body='<h2>Venir en bus ou en car</h2><p>Arrêts à 1 km maximum à vol d’oiseau ; cheminement piéton et accès à vérifier. Choisir la ligne selon votre provenance, puis vérifier la date, le sens et le retour dans les horaires officiels. L’offre publiée ne garantit pas une desserte chaque jour.</p>'
-    for ref in sorted(refs,key=lambda r:(r['distance_m'],r['id'])):
+    grouped={}
+    for ref in refs:
+        if ref['id'] not in grouped:grouped[ref['id']]=dict(ref,route_ids=set())
+        grouped[ref['id']]['route_ids'].add(ref['route_id'])
+    body='<h2>Venir en bus ou en car</h2><p>Un seul arrêt, le plus proche par ligne dans un rayon de 1 km à vol d’oiseau ; cheminement piéton et accès à vérifier. Choisir la ligne selon votre provenance, puis vérifier la date, le sens et le retour dans les horaires officiels. L’offre publiée ne garantit pas une desserte chaque jour.</p>'
+    for ref in sorted(grouped.values(),key=lambda r:(r['distance_m'],r['id'])):
         stop=by_id.get(ref['id'])
         body+='<section><h3>Arrêt '+esc(ref['name'])+' — '+str(ref['distance_m'])+' m</h3><p>Distance à vol d’oiseau · <a href="../arrets/'+esc(ref['id'])+'.html">Fiche de l’arrêt et informations du réseau</a></p>'
         if stop and stop['status'] in ('exact','nom_et_proximite') and stop['routes']:
-            body+=route_cards(stop['routes'])
+            body+=route_cards([r for r in stop['routes'] if r['id'] in ref['route_ids']])
         else:body+='<p>Desserte à vérifier sur la fiche de l’arrêt.</p>'
         body+='</section>'
     if not refs:body+='<p>Aucun arrêt retenu dans le rayon de 1 km parmi les données intégrées.</p>'
@@ -358,8 +362,10 @@ def make_hiking_pages(out,hikes,now,stops=()):
         if not h['stops']:continue
         body='<a href="index.html">Tous les départs</a><h1>'+html.escape(h['name'])+'</h1><p>'+html.escape(h['activity'])+' · '+html.escape(h['massif'])+'</p>'
         body+='<p><a href="'+html.escape(h['source'],quote=True)+'">Point d’accès sur Camptocamp</a></p>'
-        # Préférer les stations officielles aux copies de la sélection montagne.
-        refs=[r for r in h['stops'] if r['id'].startswith('gtfs-')] or h['stops']
+        # Réutiliser les gagnants calculés sans arrondi pour la carte AlpineQuest.
+        refs=[dict(id=stop['id'],name=stop['name'],distance_m=choice['distance_m'],route_id=choice['route_id'])
+              for stop in stops for choice in stop.get('nearest_accesses',[])
+              if choice['access_id']==h['id']]
         body+=access_transport(refs,stops)
         body+='<h2>Choisir une course depuis ce point d’accès</h2><p>Itinéraires associés au point d’accès Camptocamp. Lire chaque topo pour vérifier le départ, l’approche et l’arrivée éventuelle à un autre endroit.</p><ul>'
         for route in h['routes']:

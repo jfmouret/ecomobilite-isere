@@ -55,7 +55,7 @@ def pages(out,sites,document,transport):
     (folder/'index.html').write_text(document('Escalade et transports',index+'</ul>'))
     for site in sites:
         body='<a href="index.html">Sites accessibles à proximité d’un arrêt</a><h1>'+html.escape(site['name'])+'</h1><p><a class="button" href="'+html.escape(site['source'],quote=True)+'">Ouvrir la fiche Oblyk</a></p>'
-        refs=[r for r in site['stops'] if r['id'].startswith('gtfs-')] or site['stops']
+        refs=site['nearest_stops']
         body+=transport(refs)
         body+='<h2>Informations du site et sources</h2>'+intro
         body+='<details><summary>Informations conservées du fichier fourni — non actualisées</summary><p>PDESI : '+html.escape(site['pdesi'])+'</p><p>Conventionnement : '+html.escape(site['convention'])+'</p><p>Ces mentions ne valent ni statut actuel ni autorisation d’accès.</p></details>'
