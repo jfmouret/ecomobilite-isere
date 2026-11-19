@@ -168,6 +168,33 @@ def display_date(value):
     except ValueError:return 'non renseignée'
 
 
+def route_cards(routes):
+    esc=lambda x:html.escape(str(x),quote=True)
+    body=''
+    for r in routes:
+        body+='<section><h3>Ligne '+esc(r['number'])+'</h3><p>'+esc(r['name'])+'</p><p class="muted">'+esc(r['network'])+'</p>'
+        if r['url']:body+='<a class="button" href="'+esc(r['url'])+'">'+('Catalogue horaires — rechercher la ligne ' if r.get('link_method')=='catalogue_reseau' else 'Horaires officiels — ligne ')+esc(r['number'])+'</a>'
+        else:body+='<p>Lien détaillé non confirmé. Consulter le site officiel du réseau ci-dessous.</p>'
+        body+='<p><a href="../lignes/'+focused_kmz.line_filename(r['id'])+'">Afficher tous les arrêts de cette ligne dans AlpineQuest — télécharger le KMZ</a></p>'
+        body+='</section>'
+    return body
+
+
+def access_transport(refs,stops):
+    esc=lambda x:html.escape(str(x),quote=True)
+    by_id={s['id']:s for s in stops}
+    body='<h2>Venir en bus ou en car</h2><p>Arrêts à 1 km maximum à vol d’oiseau ; cheminement piéton et accès à vérifier. Choisir la ligne selon votre provenance, puis vérifier la date, le sens et le retour dans les horaires officiels. L’offre publiée ne garantit pas une desserte chaque jour.</p>'
+    for ref in sorted(refs,key=lambda r:(r['distance_m'],r['id'])):
+        stop=by_id.get(ref['id'])
+        body+='<section><h3>Arrêt '+esc(ref['name'])+' — '+str(ref['distance_m'])+' m</h3><p>Distance à vol d’oiseau · <a href="../arrets/'+esc(ref['id'])+'.html">Fiche de l’arrêt et informations du réseau</a></p>'
+        if stop and stop['status'] in ('exact','nom_et_proximite') and stop['routes']:
+            body+=route_cards(stop['routes'])
+        else:body+='<p>Desserte à vérifier sur la fiche de l’arrêt.</p>'
+        body+='</section>'
+    if not refs:body+='<p>Aucun arrêt retenu dans le rayon de 1 km parmi les données intégrées.</p>'
+    return body
+
+
 def stop_page(s,feeds,now):
     esc=lambda x:html.escape(str(x),quote=True)
     matched=s['status'] in ('exact','nom_et_proximite')
@@ -185,12 +212,7 @@ def stop_page(s,feeds,now):
         body+='<p class="notice"><b>Correspondance à vérifier.</b> Cet arrêt n’a pas été retrouvé avec certitude dans les données officielles actuelles. Aucune ancienne liste de lignes n’est présentée comme actualisée.</p>'
     else:
         body+='<h2>Lignes et horaires officiels</h2><p>Choisis la date et le sens de circulation sur la page officielle. La liste ci-dessous décrit l’offre publiée, pas une garantie de desserte chaque jour ni des prochains départs en temps réel.</p>'
-        for r in s['routes']:
-            body+='<section><h3>Ligne '+esc(r['number'])+'</h3><p>'+esc(r['name'])+'</p><p class="muted">'+esc(r['network'])+'</p>'
-            if r['url']:body+='<a class="button" href="'+esc(r['url'])+'">'+('Catalogue horaires — rechercher la ligne ' if r.get('link_method')=='catalogue_reseau' else 'Horaires officiels — ligne ')+esc(r['number'])+'</a>'
-            else:body+='<p>Lien détaillé non confirmé. Consulter le site officiel du réseau ci-dessous.</p>'
-            body+='<p><a href="../lignes/'+focused_kmz.line_filename(r['id'])+'">Afficher tous les arrêts de cette ligne dans AlpineQuest — télécharger le KMZ</a></p>'
-            body+='</section>'
+        body+=route_cards(s['routes'])
         if not s['routes']:body+='<p>Aucune desserte trouvée dans le fichier publié.</p>'
         body+='<details><summary>Correspondance avec les données officielles</summary>'
         for ref in s['matches']:
@@ -321,7 +343,7 @@ def hiking_links(stop,base='../',with_routes=False):
     return body
 
 
-def make_hiking_pages(out,hikes,now):
+def make_hiking_pages(out,hikes,now,stops=()):
     (out/'randos').mkdir()
     intro='<p>Points d’accès et itinéraires associés : Camptocamp.org et ses contributeurs, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Données extraites et coordonnées converties pour cette présentation le '+now.astimezone(PARIS).strftime('%d/%m/%Y à %H h %M')+'.</p><p>Arrêts à 1 km maximum <b>à vol d’oiseau</b> : cheminement piéton à vérifier. Un point d’accès associé peut être un départ ou une arrivée de traversée ; lire le topo. Pédestre est regroupé sous été, raquettes et ski sous hiver, selon les activités du topo, sans garantie saisonnière ou de sécurité.</p>'
     listing='<a href="../index.html">Accueil</a><h1>Accès Camptocamp proches des arrêts</h1>'+intro
@@ -334,8 +356,12 @@ def make_hiking_pages(out,hikes,now):
     (out/'randos/index.html').write_text(document('Accès Camptocamp',listing))
     for h in hikes:
         if not h['stops']:continue
-        body='<a href="index.html">Tous les départs</a><h1>'+html.escape(h['name'])+'</h1><p>'+html.escape(h['activity'])+' · '+html.escape(h['massif'])+'</p><p>Départ indiqué : '+html.escape(h['departure'])+'</p><p>Difficulté indiquée par la source : '+html.escape(h['difficulty'])+'</p>'+intro
-        body+='<p><a class="button" href="'+html.escape(h['source'],quote=True)+'">Point d’accès sur Camptocamp</a> · <a href="'+html.escape(h['license']['attribution_url'],quote=True)+'">Historique et contributeurs</a></p><h2>Itinéraires associés</h2><p>Ouvrir le topo pour les détails et son accès en transports / Itinévert lorsqu’il est disponible.</p><ul>'
+        body='<a href="index.html">Tous les départs</a><h1>'+html.escape(h['name'])+'</h1><p>'+html.escape(h['activity'])+' · '+html.escape(h['massif'])+'</p>'
+        body+='<p><a href="'+html.escape(h['source'],quote=True)+'">Point d’accès sur Camptocamp</a></p>'
+        # Préférer les stations officielles aux copies de la sélection montagne.
+        refs=[r for r in h['stops'] if r['id'].startswith('gtfs-')] or h['stops']
+        body+=access_transport(refs,stops)
+        body+='<h2>Choisir une course depuis ce point d’accès</h2><p>Itinéraires associés au point d’accès Camptocamp. Lire chaque topo pour vérifier le départ, l’approche et l’arrivée éventuelle à un autre endroit.</p><ul>'
         for route in h['routes']:
             activities=', '.join(hiking.ACTIVITIES[a][1] for a in route['activities'] if hiking.ACTIVITIES[a][0]==h['season'])
             body+='<li><a href="'+html.escape(route['url'],quote=True)+'">'+html.escape(route['name'])+'</a> · '+html.escape(activities)+' · <a href="'+html.escape(route['license']['attribution_url'],quote=True)+'">contributeurs</a></li>'
@@ -343,12 +369,8 @@ def make_hiking_pages(out,hikes,now):
         gpx=h.get('gpx','')
         if urllib.parse.urlparse(gpx).hostname in ('www.grenoble-montagne.com','grenoble-montagne.com'):
             body+='<p><a href="'+html.escape(gpx,quote=True)+'">Trace GPX indiquée par la source (disponibilité non garantie)</a></p>'
-        body+='<h2>Arrêts proches</h2><ul>'
-        # Préférer les stations officielles aux copies de la sélection montagne.
-        refs=[r for r in h['stops'] if r['id'].startswith('gtfs-')] or h['stops']
-        for r in sorted(refs,key=lambda r:r['distance_m']):
-            body+='<li><a href="../arrets/'+r['id']+'.html">'+html.escape(r['name'])+'</a> · '+html.escape(r.get('network') or ('M réso' if r['group']=='mreso' else 'Cars Région'))+' · '+str(r['distance_m'])+' m à vol d’oiseau</li>'
-        body+='</ul><p><a href="../sources.html">Sources et méthode</a></p>'
+        body+='<h2>Sources et informations complémentaires</h2><p>Départ indiqué : '+html.escape(h['departure'])+'</p><p>Difficulté : '+html.escape(h['difficulty'])+'</p>'+intro
+        body+='<p><a href="'+html.escape(h['license']['attribution_url'],quote=True)+'">Historique et contributeurs Camptocamp</a> · <a href="../sources.html">Sources et méthode</a></p>'
         (out/'randos'/(h['id']+'.html')).write_text(document(h['name'],body))
 
 
@@ -415,8 +437,8 @@ def build(base,out,cache,cache_only=False):
     if out.exists():shutil.rmtree(out)
     (out/'arrets').mkdir(parents=True)
     for s in result+complete:(out/'arrets'/(s['id']+'.html')).write_text(stop_page(s,feeds,now))
-    make_hiking_pages(out,hikes,now)
-    climbing.pages(out,climbing_sites,document)
+    make_hiking_pages(out,hikes,now,result+complete)
+    climbing.pages(out,climbing_sites,document,lambda refs:access_transport(refs,result+complete))
     for group in ('cars','mreso'):make_kmz(group,result,out,base,complete,hikes)
     focused_count,line_downloads=focused_kmz.generate(complete,out,base,ROOT,colour_icon,PALETTE)
     activity_places=activity_map.generate(complete,hikes,climbing_sites,out,base,out/'Isere_arrets_rando_escalade.kmz')

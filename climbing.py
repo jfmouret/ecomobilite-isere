@@ -45,7 +45,7 @@ def links(stop,base='../'):
     return body+'</ul><p>©Oblyk · '+LICENSES+' · <a href="'+base+'sources.html">Provenance et limites de la sélection</a>.</p>'
 
 
-def pages(out,sites,document):
+def pages(out,sites,document,transport):
     folder=out/'escalade';folder.mkdir()
     intro='<p>Source : KMZ Oblyk_508_conention38.kmz fourni par l’utilisateur. Localisations conservées ; filtrage par les contours de l’Isère et calcul de proximité ajoutés. ©Oblyk · '+LICENSES+'. <a href="'+TERMS+'">Conditions et attribution</a>. Cette sélection est un instantané du fichier fourni, sans actualisation automatique des sites Oblyk.</p><p>Seuil de 1 km à vol d’oiseau jusqu’au point du site ; aucun itinéraire piéton calculé. Les mentions PDESI et conventionnement du fichier sont historiques et non revérifiées ; consulter les informations actuelles du gestionnaire et de la fiche Oblyk.</p>'
     index='<a href="../index.html">Accueil</a><h1>Escalade et transports en Isère</h1>'+intro+'<ul>'
@@ -54,9 +54,9 @@ def pages(out,sites,document):
         index+='<li><a href="'+site['id']+'.html">'+html.escape(site['name'])+'</a></li>'
     (folder/'index.html').write_text(document('Escalade et transports',index+'</ul>'))
     for site in sites:
-        body='<a href="index.html">Sites accessibles à proximité d’un arrêt</a><h1>'+html.escape(site['name'])+'</h1><p><a class="button" href="'+html.escape(site['source'],quote=True)+'">Ouvrir la fiche Oblyk</a></p>'+intro
-        body+='<details><summary>Informations conservées du fichier fourni — non actualisées</summary><p>PDESI : '+html.escape(site['pdesi'])+'</p><p>Conventionnement : '+html.escape(site['convention'])+'</p><p>Ces mentions ne valent ni statut actuel ni autorisation d’accès.</p></details><h2>Arrêts les plus proches par ligne</h2><ul>'
-        for ref in sorted(site['nearest_stops'],key=lambda r:r['distance_m']):
-            body+='<li><a href="../arrets/'+ref['id']+'.html">'+html.escape(ref['name'])+'</a> · '+html.escape(ref['network'])+' — ligne '+html.escape(ref['number'])+' · '+str(ref['distance_m'])+' m à vol d’oiseau</li>'
-        if not site['nearest_stops']:body+='<li>Aucun arrêt retenu dans le rayon de 1 km parmi les données de transport intégrées.</li>'
-        (folder/(site['id']+'.html')).write_text(document(site['name'],body+'</ul><p><a href="../sources.html">Sources et licences</a></p>'))
+        body='<a href="index.html">Sites accessibles à proximité d’un arrêt</a><h1>'+html.escape(site['name'])+'</h1><p><a class="button" href="'+html.escape(site['source'],quote=True)+'">Ouvrir la fiche Oblyk</a></p>'
+        refs=[r for r in site['stops'] if r['id'].startswith('gtfs-')] or site['stops']
+        body+=transport(refs)
+        body+='<h2>Informations du site et sources</h2>'+intro
+        body+='<details><summary>Informations conservées du fichier fourni — non actualisées</summary><p>PDESI : '+html.escape(site['pdesi'])+'</p><p>Conventionnement : '+html.escape(site['convention'])+'</p><p>Ces mentions ne valent ni statut actuel ni autorisation d’accès.</p></details>'
+        (folder/(site['id']+'.html')).write_text(document(site['name'],body+'<p><a href="../sources.html">Sources et licences</a></p>'))
